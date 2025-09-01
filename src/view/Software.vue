@@ -45,7 +45,7 @@ export default {
 .left-container{
     width: 60%;
     margin: 0 auto;
-    border: 1px solid #474747;
+    border: 1px solid #3F83F8;
     border-radius: 5px;
 }
 .left-container>p{
@@ -53,7 +53,7 @@ export default {
     line-height: 45px;
     padding: 0;
     margin: 0;
-    background: #474747;
+    background: #3F83F8;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -63,7 +63,7 @@ export default {
   height: 38px;
   line-height: 38px;
   margin: 0;
-  border-top: 1px solid #474747;
+  border-top: 1px solid #3F83F8;
 }
 .left-container>li>a{
     text-decoration: none;

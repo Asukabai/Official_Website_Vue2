@@ -42,7 +42,7 @@
     <!-- 您身边的IT专家 -->
     <div id="contactUs" class="container-fuild text-center">
       <div class="container contactUs-container wow slideInUp">
-        <h1>您身边的IT专家</h1>
+        <h1>电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者</h1>
         <h3>7x24小时提供出色的IT服务</h3>
         <button
           class="btn btn-default btn-sm"
@@ -145,25 +145,25 @@ export default {
         {
           img: require("@/assets/img/banner1.png"),
           path: "",
-          title: '您身边的IT专家1',
+          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
-          title: '您身边的IT专家2',
+          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         },
         {
           img: require("@/assets/img/banner1.png"),
           path: "",
-          title: '您身边的IT专家3',
+          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
-          title: '您身边的IT专家4',
+          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         }
       ],

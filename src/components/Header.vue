@@ -19,7 +19,8 @@
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <img src="@/assets/img/logo_black.png">
+        <img src="../assets/img/logo_white.png">
+        <p>陕西晟思智能测控有限公司</p>
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -45,7 +46,7 @@
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">
+        <img class="center-block" src="../assets/img/logo_white.png" alt="logo">
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -161,7 +162,7 @@ export default {
   color: #fff;
   font-size: 12px;
   line-height: 50px;
-  background: #474747;
+  background: #3F83F8;
 }
 /* 顶部的图标 */
 #header .header-top span {
@@ -180,8 +181,8 @@ export default {
 }
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 95px;
-  height: 45px;
+  width: 75px;
+  height: 75px;
   position: absolute;
   top: 0;
   left: 0;
@@ -306,7 +307,7 @@ export default {
     height: 50px;
     font-size: 20px;
     line-height: 50px;
-    background: #474747;
+    background: #3F83F8;
     position: relative;
   }
   /* 导航栏 菜单图标 */
@@ -327,7 +328,7 @@ export default {
     top: 50px;
     left: 0;
     width: 100%;
-    background: #474747;
+    background: #3F83F8;
     z-index: 9999999;
   }
   /* 导航栏 每个导航 */

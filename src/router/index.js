@@ -72,14 +72,7 @@ export default new Router({
           meta: {
             title: '公司介绍'
           }
-        }, {
-          path: '/jobchance',
-          name: 'jobchance',
-          component: resolve => require(['@/view/JobChance'], resolve),
-          meta: {
-            title: '工作机会'
-          }
-        }, {
+        },  {
           path: '/contactus',
           name: 'contactus',
           component: resolve => require(['@/view/ContactUs'], resolve),

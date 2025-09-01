@@ -117,20 +117,20 @@ ul.nav-tabs {
   border-radius: 4px;
   background: #fff;
   z-index: 99999;
-  border: 1px solid #474747;
+  border: 1px solid #3F83F8;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
 }
 ul.nav-tabs li {
   text-align: center;
   margin: 0;
-  border-top: 1px solid #474747;
+  border-top: 1px solid #3F83F8;
 }
 ul.nav-tabs p {
   color: #fff;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  background: #474747;
+  background: #3F83F8;
   margin: 0;
   padding: 10px 0;
 }
@@ -145,8 +145,8 @@ ul.nav-tabs li a {
 ul.nav-tabs li.active a,
 ul.nav-tabs li.active a:hover {
   color: #fff;
-  background: #474747;
-  border: 1px solid #474747;
+  background: #3F83F8;
+  border: 1px solid #3F83F8;
 }
 ul.nav-tabs li:first-child a {
   border-radius: 4px 4px 0 0;

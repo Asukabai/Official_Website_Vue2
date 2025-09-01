@@ -1,7 +1,7 @@
 <template>
   <div id="footer" class="container-fluid">
     <div class="logo">
-      <img src="@/assets/img/logo_white.png" alt="logo图">
+      <img src="../assets/img/logo_white.png" alt="logo图">
     </div>
     <p class="title">公司企业网站模板</p>
     <p class="address_tel_fax">
@@ -28,7 +28,7 @@ export default {
   width: 100%;
   height: 100%;
   color: #fff;
-  background: #474747;
+  background: #3f83f8;
   overflow: hidden;
   text-align: center;
 }
