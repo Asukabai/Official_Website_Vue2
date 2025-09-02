@@ -65,13 +65,6 @@ export default new Router({
           meta: {
             title: '新闻动态'
           }
-        }, {
-          path: '/companyintroduction',
-          name: 'companyintroduction',
-          component: resolve => require(['@/view/CompanyIntroduction'], resolve),
-          meta: {
-            title: '公司介绍'
-          }
         },  {
           path: '/contactus',
           name: 'contactus',

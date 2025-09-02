@@ -1,15 +1,16 @@
+<!-- src/view/HomePage.vue -->
 <template>
   <div id="HomePage">
     <!-- 轮播图 -->
     <div id="swiper" class="container-fuild">
       <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
+          <div class="swiper-slide" v-for="(item, index) in swiperList" :key="index">
             <img class="swiper-lazy" :data-src="item.img" alt="轮播图">
             <div class="swiper-lazy-preloader"></div>
             <div class="swiper-slide-title">
-                <h1>{{item.title}}</h1>
-                <p>{{item.content}}</p>
+              <h1>{{ item.title }}</h1>
+              <p>{{ item.content }}</p>
             </div>
           </div>
         </div>
@@ -21,6 +22,7 @@
         <div class="swiper-button-next"></div>
       </div>
     </div>
+
     <!-- 大数据管理系统 -->
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
@@ -39,11 +41,12 @@
         </div>
       </div>
     </div>
+
     <!-- 您身边的IT专家 -->
     <div id="contactUs" class="container-fuild text-center">
       <div class="container contactUs-container wow slideInUp">
-        <h1>电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者</h1>
-        <h3>7x24小时提供出色的IT服务</h3>
+        <h1>专业的仪器仪表集成供应商</h1>
+        <h3>电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者</h3>
         <button
           class="btn btn-default btn-sm"
           onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
@@ -56,15 +59,16 @@
         </div>
       </div>
     </div>
+
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
       <div class="container customer-container">
-        <p class="customer-title text-center">客户评价</p>
+        <p class="customer-title text-center">合作客户</p>
         <div class="swiper-container customer-swiper hidden-xs">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide customer-block"
-              v-for="(item,index) in customerList"
+              v-for="(item, index) in customerList"
               :key="index"
             >
               <div class="customer-logo">
@@ -74,9 +78,9 @@
                 <img src="@/assets/img/yinhao.png" alt="引号">
               </div>
               <div class="customer-content1">
-                <small>{{item.content}}</small>
+                <small>{{ item.content }}</small>
               </div>
-              <div class="customer-content2">{{item.title}}</div>
+              <div class="customer-content2">{{ item.title }}</div>
             </div>
           </div>
           <!-- 如果需要导航按钮 -->
@@ -84,7 +88,7 @@
           <div class="swiper-button-next"></div>
         </div>
         <div class="row visible-xs customer-block">
-          <div class="col-xs-12" v-for="(item,index) in customerList" :key="index">
+          <div class="col-xs-12" v-for="(item, index) in customerList" :key="index">
             <div class="customer-logo">
               <img class="center-block" :src="item.logo" alt="logo">
             </div>
@@ -92,15 +96,16 @@
               <img src="@/assets/img/yinhao.png" alt="引号">
             </div>
             <div class="customer-content1">
-              <small>{{item.content}}</small>
+              <small>{{ item.content }}</small>
             </div>
             <div class="customer-content2">
-              <small>{{item.title}}</small>
+              <small>{{ item.title }}</small>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- 为什么选择我们 -->
     <div id="whyChooseUs" class="conatiner-fuild">
       <div class="container">
@@ -111,7 +116,7 @@
         <div class="row">
           <div
             class="col-xs-12 col-sm-6 col-md-3 server-wrapper"
-            v-for="(item,index) in serverList"
+            v-for="(item, index) in serverList"
             :key="index"
           >
             <div
@@ -120,7 +125,7 @@
               onmouseleave="this.style.color='#666';this.style.borderColor='#ccc'"
             >
               <img class="center-block" :src="item.logo" alt="logo">
-              <p class="text-center">{{item.title}}</p>
+              <p class="text-center">{{ item.title }}</p>
               <div
                 class="text-center"
                 v-html="item.content"
@@ -132,13 +137,22 @@
         </div>
       </div>
     </div>
+
+    <!-- 在线咨询组件 -->
+    <OnlineConsultation />
   </div>
 </template>
+
 <script>
 import Swiper from "swiper";
 import { WOW } from 'wowjs';
+import OnlineConsultation from '../components/OnlineConsultation.vue'; // 引入组件
+
 export default {
   name: "HomePage",
+  components: {
+    OnlineConsultation // 注册组件
+  },
   data() {
     return {
       swiperList: [
@@ -146,25 +160,25 @@ export default {
           img: require("@/assets/img/banner1.png"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
-          content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
+          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
-          content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
+          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner1.png"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
-          content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
+          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
-          content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
+          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         }
       ],
       customerList: [
@@ -278,51 +292,49 @@ export default {
     };
   },
   mounted() {
-    /* banner-swiper */
+    /* banner-swiper 用于初始化 Swiper 轮播图的配置 delay: 3000：每张图片停留 3 秒。
+     stopOnLastSlide: false：到达最后一张后继续循环播放。
+     disableOnInteraction: false：用户手动滑动时不会停止自动播放。*/
     new Swiper(".banner-swiper", {
-      loop: true, // 循环模式选项
+      loop: true,
       effect: 'fade',
-      //自动播放
       autoplay: {
         delay: 3000,
         stopOnLastSlide: false,
         disableOnInteraction: false
       },
-      // 如果需要分页器
       pagination: {
         el: ".swiper-pagination",
         clickable: true
       },
-      // 如果需要前进后退按钮
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      // 延迟加载
       lazy: {
         loadPrevNext: true
       },
-      observer: true, //修改swiper自己或子元素时，自动初始化swiper
-      observeParents: true //修改swiper的父元素时，自动初始化swiper
+      observer: true,
+      observeParents: true
     });
+
     /* customer-swiper */
     new Swiper(".customer-swiper", {
-      loop: true, // 循环模式选项
+      loop: true,
       slidesPerView: 3,
-      //自动播放
       autoplay: {
         delay: 3000,
         stopOnLastSlide: false,
         disableOnInteraction: false
       },
-      // 如果需要前进后退按钮
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      observer: true, //修改swiper自己或子元素时，自动初始化swiper
-      observeParents: true //修改swiper的父元素时，自动初始化swiper
+      observer: true,
+      observeParents: true
     });
+
     /* wowjs动画 */
     var wow = new WOW({
       boxClass: 'wow',
@@ -330,11 +342,12 @@ export default {
       offset: 0,
       mobile: true,
       live: true
-    })
+    });
     wow.init();
   }
 };
 </script>
+
 <style scoped>
 /* 整体盒子 */
 #HomePage {
@@ -353,7 +366,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-#swiper .banner-swiper .swiper-slide{
+#swiper .banner-swiper .swiper-slide {
   position: relative;
 }
 #swiper .banner-swiper .swiper-slide-title {
@@ -368,15 +381,16 @@ export default {
   text-align: center;
   line-height: 80px;
 }
-#swiper .banner-swiper .swiper-slide-title > h1{
+#swiper .banner-swiper .swiper-slide-title > h1 {
   font-size: 50px;
   margin-top: 12%;
 }
-#swiper .banner-swiper .swiper-slide-title > p{
+#swiper .banner-swiper .swiper-slide-title > p {
   font-size: 20px;
   margin-top: 1%;
   font-weight: 700;
 }
+
 /* 大数据管理系统 */
 #bigData {
   padding: 100px;
@@ -463,6 +477,7 @@ export default {
 #customer .customer-content2 {
   padding-top: 20px;
 }
+
 /* 为什么选择我们 */
 #whyChooseUs {
   padding: 100px;
@@ -493,6 +508,7 @@ export default {
 #whyChooseUs .server-block > div {
   color: #ccc;
 }
+
 /* 媒体查询（手机） */
 @media screen and (max-width: 768px) {
   #swiper {
@@ -626,4 +642,3 @@ export default {
   }
 }
 </style>
-

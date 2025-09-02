@@ -17,7 +17,7 @@
     </div>
     <!-- 电脑导航 -->
     <div class="header-nav container hidden-xs">
-      <!-- 导航logo -->
+      <!-- 导航logo和公司名称 -->
       <div class="header-nav-logo">
         <img src="../assets/img/logo_white.png">
         <p>陕西晟思智能测控有限公司</p>
@@ -94,7 +94,7 @@ export default {
           children: []
         },
         {
-          name: "软件产品",
+          name: "产品列表",
           path: "/software",
           children: [
             {
@@ -108,23 +108,17 @@ export default {
           ]
         },
         {
-          name: "相关服务",
+          name: "解决方案",
+          path: "/service",
+          children: []
+        },{
+          name: "合作案例",
           path: "/service",
           children: []
         },
         {
-          name: "新闻动态",
-          path: "/newsinformation",
-          children: []
-        },
-        {
           name: "公司介绍",
-          path: "/companyintroduction",
-          children: []
-        },
-        {
-          name: "工作机会",
-          path: "/jobchance",
+          path: "/newsinformation",
           children: []
         },
         {
@@ -171,39 +165,49 @@ export default {
 /* 导航栏 */
 #header .header-nav {
   height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px; /* 减少左侧内边距，使内容更靠左 */
 }
-/* 导航栏logo */
+/* 导航栏logo和公司名称容器 */
 #header .header-nav .header-nav-logo {
-  width: 100px;
-  height: 100%;
-  float: left;
-  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  margin-left: -15px; /* 增加负左边距，使logo更靠左 */
 }
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
   width: 75px;
   height: 75px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  margin-right: 15px;
+}
+/* 公司名称样式 - 增大字体大小 */
+#header .header-nav .header-nav-logo p {
+  margin: 0;
+  font-size: 22px; /* 从18px增加到22px */
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
 }
 /* 导航栏 导航容器 */
 #header .header-nav-fixed .header-nav-wrapper {
   line-height: 50px;
 }
 #header .header-nav .header-nav-wrapper {
+  display: flex;
+  align-items: center;
   line-height: 110px;
-  float: right;
   margin: 0;
   max-width: 800px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 /* 导航栏 每个导航 */
 #header .header-nav .header-nav-wrapper > li {
-  float: left;
-  margin: 0 15px;
+  margin: 0 12px; /* 减小导航项间距，为更多导航项腾出空间 */
   position: relative;
 }
 /* 导航栏 每个导航下面的 a 链接 */
@@ -320,7 +324,6 @@ export default {
     height: 40px;
     color: #fff;
     z-index: 999999;
-    font-size: 12px;
   }
   /* 导航栏 */
   #header .header-nav-m .header-nav-m-wrapper {
@@ -348,6 +351,20 @@ export default {
   /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
   #header .header-nav .header-nav-wrapper > li > a > span {
     font-size: 10px;
+  }
+}
+
+/* 针对大屏幕的额外调整 */
+@media screen and (min-width: 1200px) {
+  #header .header-nav {
+    padding-left: 5px; /* 在大屏幕上进一步减少左侧内边距 */
+  }
+  #header .header-nav .header-nav-logo {
+    margin-left: -20px; /* 在大屏幕上进一步向左移动logo */
+  }
+  /* 在大屏幕上进一步增大公司名称字体 */
+  #header .header-nav .header-nav-logo p {
+    font-size: 24px;
   }
 }
 </style>
