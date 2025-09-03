@@ -15,7 +15,7 @@
     </div>
     <div class="consultation-phone">
       <span class="icon">📞</span>
-      <a href="tel:18122131902">18122131902</a>
+      <a href="tel:18122131902">18629057799</a>
     </div>
   </div>
 </template>

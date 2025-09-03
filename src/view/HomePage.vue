@@ -23,42 +23,59 @@
       </div>
     </div>
 
-    <!-- 大数据管理系统 -->
+
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <img class="img-responsive" src="@/assets/img/img1.png" alt="大数据管理系统">
+          <img class="img-responsive" src="../assets/img/多路输出.png" alt="多路输出电源通用测试系统">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6">
           <h2 class="bigData-title">
-            大数据管理系统
-            <small>/ Big Data Management System</small>
+            多路输出电源通用测试单元
+            <small>/ SS-STM-MCTS-03</small>
           </h2>
-          <p>当今最领先的响应式自助建站平台。无论您是普通互联网用户，还是专业网站制作人员，都能使用起飞页设计出最具专业水准的网站。想创建一个简单的单页式站点，还是一个专业的公司网站，亦或是一个别具一格的博客？起飞页可以满足您的所有需求。</p>
-          <p>我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。</p>
-          <h2 class="bigData-device">PC/PAD/Phone &nbsp; 全设备支持</h2>
-          <a href="#" class="btn btn-lg btn-block btn-info">联系我们</a>
+          <p>小型化、便携式、模块化通用测试单元 ; 多路电源自动化测试(20通道并行+72小时不间断自动测试）</p>
+          <p>晟思SS-STM-MCTS系列多路输出电源通用自动化测试单元遵循模块化、智能化、可扩展等先进设计思路，具有带载能力强、采集精度高，配置灵活、功能强大等特点。解决了设备连接复杂、体积大、采样不同步导致的相位偏移等痛点，时序采集精度高达5μs。</p>
+<!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
+          <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>
+<!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
+          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
+          <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <h2 class="bigData-title">
+            智能通用化负载监测平台
+            <small>/ SS-SYS-MCTS-03</small>
+          </h2>
+          <p>小型化、便携式、模块化通用测试系统 ; 搭配多路电源自动化测试(20通道并行+72小时不间断自动测试）</p>
+          <p>晟思SS-STM-MCTS系列多路输出电源通用自动化测试系统遵循模块化、智能化、可扩展等先进设计思路，具有带载能力强、采集精度高，配置灵活、功能强大等特点。解决了设备连接复杂、体积大、采样不同步导致的相位偏移等痛点，时序采集精度高达5μs。</p>
+          <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
+          <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>
+          <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
+          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>
         </div>
       </div>
     </div>
 
     <!-- 您身边的IT专家 -->
-    <div id="contactUs" class="container-fuild text-center">
-      <div class="container contactUs-container wow slideInUp">
-        <h1>专业的仪器仪表集成供应商</h1>
-        <h3>电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者</h3>
-        <button
-          class="btn btn-default btn-sm"
-          onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
-          onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
-        >联系我们</button>
-        <div class="contactUs-contactWay">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
+<!--    <div id="contactUs" class="container-fuild text-center">-->
+<!--      <div class="container contactUs-container wow slideInUp">-->
+<!--        <h1>专业的仪器仪表集成供应商</h1>-->
+<!--        <h3>电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者</h3>-->
+<!--        <button-->
+<!--          class="btn btn-default btn-sm"-->
+<!--          onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"-->
+<!--          onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"-->
+<!--        >联系我们</button>-->
+<!--        <div class="contactUs-contactWay">-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
@@ -75,7 +92,7 @@
                 <img class="center-block" :src="item.logo" alt="logo">
               </div>
               <div class="customer-yh">
-                <img src="@/assets/img/yinhao.png" alt="引号">
+                <img src="../assets/img/yinhao.png" alt="引号">
               </div>
               <div class="customer-content1">
                 <small>{{ item.content }}</small>
@@ -93,7 +110,7 @@
               <img class="center-block" :src="item.logo" alt="logo">
             </div>
             <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号">
+              <img src="../assets/img/yinhao.png" alt="引号">
             </div>
             <div class="customer-content1">
               <small>{{ item.content }}</small>
@@ -165,107 +182,62 @@ export default {
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
-          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
+          title: '助力测控装备数字化，助推高端制造智能化',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner1.png"),
           path: "",
-          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
+          title: '高端制造行业、智能测控领域独具特色的领先者',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
-          title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
+          title: '专注于工业自动化测控领域的创新型高科技公司',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         }
       ],
       customerList: [
         {
-          logo: require("@/assets/img/logo_hp.png"),
+          logo: require("../assets/img/中国空间技术研究院.jpg"),
           title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+            "中国空间技术研究院",
           content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+            "中国空间技术研究院"
         },
         {
-          logo: require("@/assets/img/logo_kk.png"),
+          logo: require("../assets/img/中核集团.png"),
           title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+            "中核集团",
           content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+            "中核集团"
         },
         {
-          logo: require("@/assets/img/logo_toyota.png"),
+          logo: require("../assets/img/中国电科.png"),
           title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+            "中国电科",
           content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
+            "中国电科"
+        },        {
+          logo: require("../assets/img/中国煤科.png"),
+          title:
+            "中国煤科",
+          content:
+            "中国煤科"
+        },{
+          logo: require("../assets/img/北方工业.png"),
+          title:
+            "北方工业",
+          content:
+            "北方工业"
+        },{
+          logo: require("../assets/img/中国电子.png"),
+          title:
+            "中国电子",
+          content:
+            "中国电子"
         },
-        {
-          logo: require("@/assets/img/logo_kk.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_hp.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_toyota.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_kk.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_hp.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_toyota.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_hp.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_kk.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        },
-        {
-          logo: require("@/assets/img/logo_hp.png"),
-          title:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-          content:
-            "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。"
-        }
       ],
       serverList: [
         {
@@ -353,6 +325,14 @@ export default {
 #HomePage {
   width: 100%;
 }
+
+
+.custom-info-btn {
+  background-color: #3f83f8;
+  border-color: #3f83f8;
+  color: white;
+}
+
 
 /* 轮播图 */
 #swiper {

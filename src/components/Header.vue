@@ -5,11 +5,14 @@
     <div class="header-top container-fuild hidden-xs">
       <div class="container">
         <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>888-888-888
-          <span class="glyphicon glyphicon-envelope"></span>xxx@163.com
+          <span class="glyphicon glyphicon-earphone"></span>客户支持中心热线： 029-85820585 / 王总：18629057799
+<!--          <span class="glyphicon glyphicon-envelope"></span>邮编：710100-->
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
+          <a href="https://www.taobao.com" target="_blank" title="前往淘宝店铺" style="display: inline-block; vertical-align: middle;">
+            <img src="../assets/img/淘宝图标-圆彩.png" alt="淘宝图标" style="width: 25px; height: 25px; margin-right: 5px;">
+          </a>
           <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
           <span class="glyphicon glyphicon-hand-left"></span>
         </div>
