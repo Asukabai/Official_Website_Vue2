@@ -101,11 +101,18 @@ export default {
           path: "/software",
           children: [
             {
-              name: "智能小镇管理系统",
+              name: "自动化测控系统",
               path: "/software/smartTown"
             },
             {
-              name: "大数据管理系统",
+              name: "智能调测设备",
+              path: "/software/bigData"
+            },{
+              name: "电子设备测试仪器",
+              path: "/software/smartTown"
+            },
+            {
+              name: "软件测试平台",
               path: "/software/bigData"
             }
           ]

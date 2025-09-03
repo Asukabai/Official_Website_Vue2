@@ -39,12 +39,13 @@
 <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
           <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>
 <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>
+<!--          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>-->
+          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
           <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-6" style="margin-top: 50px;">
           <h2 class="bigData-title">
             智能通用化负载监测平台
             <small>/ SS-SYS-MCTS-03</small>
@@ -54,7 +55,7 @@
           <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
           <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>
           <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>
+          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>
         </div>
       </div>
     </div>
@@ -174,7 +175,7 @@ export default {
     return {
       swiperList: [
         {
-          img: require("@/assets/img/banner1.png"),
+          img: require("@/assets/img/banner.png"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
@@ -186,7 +187,7 @@ export default {
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         },
         {
-          img: require("@/assets/img/banner1.png"),
+          img: require("@/assets/img/banner.png"),
           path: "",
           title: '高端制造行业、智能测控领域独具特色的领先者',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
@@ -241,24 +242,24 @@ export default {
       ],
       serverList: [
         {
-          logo: require("@/assets/img/tel.png"),
-          title: "核心优势1",
-          content: "<p>由专业客服提供人工服务</p>负责疑难问题和故障受理"
+          logo: require("../assets/img/skill.png"),
+          title: "优势一：技术全面",
+          content: "机(机械)，电(电力电子)，控(自动化控制)，软(软件平台)整体解决方案"
         },
         {
           logo: require("@/assets/img/computer.png"),
-          title: "核心优势2",
-          content: "<p>利用远程视频工具，提供协助</p>帮助客户进行调试、解决故障"
+          title: "优势二：多种独有技术",
+          content: "独有射频测试技术；独有负载模拟技术；独有电机控制技术"
         },
         {
-          logo: require("@/assets/img/qq.png"),
-          title: "核心优势3",
-          content: "<p>利用企业QQ提供在线解答</p>帮助企业快速准确解决问题和故障"
+          logo: require("../assets/img/理念.png"),
+          title: "优势三：理念创新",
+          content: "设备和理念引领行业，独居特色，与众不同"
         },
         {
-          logo: require("@/assets/img/skill.png"),
-          title: "核心优势4",
-          content: "<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理"
+          logo: require("../assets/img/闪电.png"),
+          title: "优势四：快速响应",
+          content: "能快速搭建测试实验环境，有效测试，自动化测试"
         }
       ]
     };
@@ -326,13 +327,11 @@ export default {
   width: 100%;
 }
 
-
 .custom-info-btn {
   background-color: #3f83f8;
   border-color: #3f83f8;
   color: white;
 }
-
 
 /* 轮播图 */
 #swiper {
@@ -456,6 +455,14 @@ export default {
 }
 #customer .customer-content2 {
   padding-top: 20px;
+}
+
+/* 将.half-width-btn类中的margin: 0 auto;改为margin: 0;
+这样按钮就会左对齐，而不是居中对齐*/
+
+.half-width-btn {
+  width: 50%;
+  margin: 0 ;
 }
 
 /* 为什么选择我们 */

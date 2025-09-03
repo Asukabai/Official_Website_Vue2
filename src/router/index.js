@@ -39,7 +39,7 @@ export default new Router({
               name: 'software',
               component: resolve => require(['@/view/Software_smartTown'], resolve),
               meta: {
-                title: '软件产品丨智能小镇管理系统'
+                title: '软件产品丨自动化测控系统'
               }
             },
             {
@@ -47,7 +47,7 @@ export default new Router({
               name: 'software',
               component: resolve => require(['@/view/Software_bigData'], resolve),
               meta: {
-                title: '软件产品丨大数据管理系统'
+                title: '软件产品丨智能调测设备'
               }
             }
           ]
