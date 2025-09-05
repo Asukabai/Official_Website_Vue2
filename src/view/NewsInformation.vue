@@ -36,7 +36,29 @@
           <div class="col-xs-12 col-sm-12 col-md-6">
             <h3>陕西晟思智能测控有限公司</h3>
             <p class=".text-justify">公司是一家专注于工业 4.0 自动化控制领域的创新型高科技公司，是西咸新区重点扶持的高科技企业，致力于电源自动化测试系统、航空电机自动化测试系统、生产线智能化改造、控制驱动系统、仿真测试平台(电机负载平台、多方向、惯性导航及定制测试仪器或测试平台)、研发生产任务管理系统、信息采集监控系统、视觉自动化检测及图像识别系统、超高速/高压电子负载、程控电容电阻、智能温湿度箱、AGV 协作机器人等领域系统及产品的研发、生产和销售；产品已广泛应用于航空航天、电力电子、通信、煤炭、环境监测、智能实验室等行业。</p>
+          </div>
+        </div>
+
+        <!-- 资质证书轮播图 -->
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-track" :style="{ transform: 'translateX(' + (-currentIndex * 33.33) + '%)' }">
+              <div class="carousel-slide" v-for="(image, index) in certificateImages" :key="index">
+                <img :src="image.src" :alt="image.alt" class="certificate-image">
+                <p class="certificate-title">{{ image.title }}</p>
+              </div>
             </div>
+          </div>
+
+          <!-- 轮播导航点 -->
+          <div class="carousel-indicators">
+            <span
+              v-for="(image, index) in visibleIndicators"
+              :key="index"
+              :class="{ active: Math.floor(currentIndex / 3) === index }"
+              @click="goToSlide(index)"
+            ></span>
+          </div>
         </div>
       </div>
 
@@ -58,6 +80,18 @@ export default {
   data(){
     return{
       activeTab: '大事记',
+      currentIndex: 0,
+      certificateImages: [
+        { src: '../assets/img/Patent_Certificate.png', alt: '专利证书'  },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书1' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书2' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书3' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书4' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书5' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书6' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书7' },
+        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书8' }
+      ],
       newsList:[
         {
           id: '001',
@@ -100,10 +134,45 @@ export default {
       ]
     }
   },
+  computed: {
+    visibleIndicators() {
+      // 计算需要多少个导航点（每页显示3张图片）
+      return Array(Math.ceil(this.certificateImages.length / 3)).fill(0);
+    }
+  },
   mounted(){
     var wow = new WOW();
     wow.init();
+
+    // 设置定时器，每3秒自动切换
+    this.startAutoPlay();
   },
+  methods: {
+    startAutoPlay() {
+      setInterval(() => {
+        this.nextSlide();
+      }, 3000);
+    },
+    nextSlide() {
+      // 计算最大索引值（每页显示3张图片）
+      const maxIndex = Math.ceil(this.certificateImages.length / 3) * 3 - 3;
+
+      if (this.currentIndex < maxIndex) {
+        this.currentIndex += 3;
+      } else {
+        this.currentIndex = 0;
+      }
+    },
+    goToSlide(index) {
+      this.currentIndex = index * 3;
+    }
+  },
+  beforeDestroy() {
+    // 清除定时器
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+  }
 }
 </script>
 <style scoped>
@@ -228,6 +297,68 @@ export default {
   font-size: 14px;
   line-height: 2.5rem;
 }
+
+/* 轮播图样式 */
+.carousel-container {
+  margin: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-slide {
+  flex: 0 0 33.33%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.certificate-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.certificate-title {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-indicators span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicators span.active {
+  background-color: #1e73be;
+}
+
 @media screen and (max-width: 997px){
   .innovation-container{
     padding: 10px 0;
@@ -250,6 +381,10 @@ export default {
   }
   .news-container>li>.circle{
     display: none;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
   }
 }
 </style>
