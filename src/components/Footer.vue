@@ -12,8 +12,8 @@
       <span>客户支持中心热线：（029）85820585</span>
     </p>
     <p class="email_wx">
-      <span>邮箱：xxx@163.com</span>
-      <span>微信号：xxx</span>
+      <span> 邮箱：hr@sensor-smart.com   </span>
+      <span>微信号：wangxq1975</span>
     </p>
     <p class="copy">Copyright &copy; 2015 - {{ new Date().getFullYear() }} 陕西晟思智能测控有限公司</p>
   </div>

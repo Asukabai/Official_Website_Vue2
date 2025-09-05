@@ -44,12 +44,17 @@
         <i class="glyphicon glyphicon-th"></i>
       </div>
     </div>
+    <!-- 在线咨询组件 -->
+    <OnlineConsultation />
+
   </div>
 </template>
 <script>
 import { WOW } from 'wowjs';
+import OnlineConsultation from "../components/OnlineConsultation.vue";
 export default {
   name: 'NewsInformation',
+  components: {OnlineConsultation},
   data(){
     return{
       activeTab: '大事记',

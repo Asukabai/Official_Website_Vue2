@@ -13,12 +13,16 @@
                 <router-view></router-view>
             </div>
         </div>
+      <!-- 在线咨询组件 -->
+      <OnlineConsultation />
     </div>
 </template>
 <script>
 import { WOW } from "wowjs";
+import OnlineConsultation from "../components/OnlineConsultation.vue";
 export default {
     name: 'Software',
+  components: {OnlineConsultation},
     data(){
         return{
             softwareList: [

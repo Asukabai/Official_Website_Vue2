@@ -6,7 +6,7 @@
         </div>
         <div class="container">
             <div class="Service-container row">
-                <div class="Service-item col-xs-12 col-sm-6 col-md-3 wow slideInUp" 
+                <div class="Service-item col-xs-12 col-sm-6 col-md-3 wow slideInUp"
                 v-for="(item,index) in serviceList" :key="index" @click="ServiceClick(item.id)">
                     <div class="Service-item-wrapper">
                         <div class="Service-item-top">
@@ -22,35 +22,39 @@
                 </div>
             </div>
         </div>
+      <!-- 在线咨询组件 -->
+      <OnlineConsultation />
     </div>
 </template>
 <script>
 import { WOW } from 'wowjs';
+import OnlineConsultation from "../components/OnlineConsultation.vue";
 export default {
     name: 'Service',
+  components: {OnlineConsultation},
     data(){
         return{
             serviceList: [
                 {
                     id: 'section-1',
-                    title: '软件定制开发',
+                    title: '自动化系统设备的设计和研制、生产',
                     eng_title: 'Customize App',
-                    img: require('@/assets/img/service1.jpg')
+                    img: require('../assets/img/自动化系统设备.png')
                 },{
                     id: 'section-2',
-                    title: 'IT外包服务',
+                    title: '信息化软件平台定制化开发',
                     eng_title: 'Outsourcing',
-                    img: require('@/assets/img/service2.jpg')
+                    img: require('../assets/img/煤研所.png')
                 },{
                     id: 'section-3',
-                    title: '网上商城建设',
+                    title: '仿真分析及相关设备',
                     eng_title: 'eCommerce Site',
-                    img: require('@/assets/img/service3.jpg')
+                    img: require('../assets/img/3D扫描检测平台.png')
                 },{
                     id: 'section-4',
-                    title: 'iOS应用定制开发',
+                    title: '测试仪器、电子设备',
                     eng_title: 'iOS App Dev',
-                    img: require('@/assets/img/service4.jpg')
+                    img: require('../assets/img/高精度磨抛装置.png')
                 }
             ]
         }

@@ -40,7 +40,7 @@
           <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>
 <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
 <!--          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>
+          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示</a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
           <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">
@@ -55,7 +55,7 @@
           <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
           <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>
           <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>
+          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示</a>
         </div>
       </div>
     </div>
