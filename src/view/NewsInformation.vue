@@ -35,11 +35,12 @@
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6">
             <h3>陕西晟思智能测控有限公司</h3>
-            <p class=".text-justify">公司是一家专注于工业 4.0 自动化控制领域的创新型高科技公司，是西咸新区重点扶持的高科技企业，致力于电源自动化测试系统、航空电机自动化测试系统、生产线智能化改造、控制驱动系统、仿真测试平台(电机负载平台、多方向、惯性导航及定制测试仪器或测试平台)、研发生产任务管理系统、信息采集监控系统、视觉自动化检测及图像识别系统、超高速/高压电子负载、程控电容电阻、智能温湿度箱、AGV 协作机器人等领域系统及产品的研发、生产和销售；产品已广泛应用于航空航天、电力电子、通信、煤炭、环境监测、智能实验室等行业。</p>
+            <p class=".text-justify">陕西晟思智能测控有限公司成立于2015年，是一家专注于自动化测控与智能制造领域的高新技术企业。公司长期致力于力性能与电性能测控技术的研发与应用，核心产品涵盖自动化测控系统、负载模拟系统、超高速/高压电子负载、仿真测试平台、视觉自动化检测与图像识别系统、高精度传感器、EHA液压设备等，广泛应用于航天、航空、军工、能源、核工业、船舶及智能实验室等高精尖行业。 晟思智能以“机、电、控、软一体化”为技术路径，为高端制造客户提供智能化的整体解决方案，助力产业升级与技术创新。公司先后获得国家高新技术企业、陕西省“专精特新”企业、省市“瞪羚企业”、软件企业认定，并被评为陕西省AAA级信誉单位、西咸新区“双创之星”等多项荣誉，具备完善的质量管理体系认证和持续的创新能力，以领先技术和可靠服务赢得行业信赖。</p>
           </div>
         </div>
 
         <!-- 资质证书轮播图 -->
+        <h3 class="carousel-title">资质证书</h3>
         <div class="carousel-container">
           <div class="carousel-wrapper">
             <div class="carousel-track" :style="{ transform: 'translateX(' + (-currentIndex * 33.33) + '%)' }">
@@ -57,6 +58,29 @@
               :key="index"
               :class="{ active: Math.floor(currentIndex / 3) === index }"
               @click="goToSlide(index)"
+            ></span>
+          </div>
+        </div>
+
+        <!-- 专利证书轮播图 -->
+        <h3 class="carousel-title">专利证书</h3>
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-track" :style="{ transform: 'translateX(' + (-patentCurrentIndex * 33.33) + '%)' }">
+              <div class="carousel-slide" v-for="(image, index) in patentImages" :key="index">
+                <img :src="image.src" :alt="image.alt" class="certificate-image">
+                <p class="certificate-title">{{ image.title }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 轮播导航点 -->
+          <div class="carousel-indicators">
+            <span
+              v-for="(image, index) in patentVisibleIndicators"
+              :key="index"
+              :class="{ active: Math.floor(patentCurrentIndex / 3) === index }"
+              @click="goToPatentSlide(index)"
             ></span>
           </div>
         </div>
@@ -81,16 +105,28 @@ export default {
     return{
       activeTab: '大事记',
       currentIndex: 0,
+      patentCurrentIndex: 0,
       certificateImages: [
-        { src: '../assets/img/Patent_Certificate.png', alt: '专利证书'  },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书1' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书2' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书3' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书4' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书5' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书6' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书7' },
-        { src: '../assets/img/Patent_Certificate.png', alt: '资质证书8' }
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书'  },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书1' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书2' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书3' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书4' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书5' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书6' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书7' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书8' }
+      ],
+      patentImages: [
+        { src: require('../assets/img/发明专利证书1.png'), alt: '专利证书1' },
+        { src: require('../assets/img/发明专利证书2.png'), alt: '专利证书2' },
+        { src: require('../assets/img/发明专利证书3.png'), alt: '专利证书3' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书4' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书5' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书6' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书7' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书8' },
+        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书9' }
       ],
       newsList:[
         {
@@ -138,6 +174,10 @@ export default {
     visibleIndicators() {
       // 计算需要多少个导航点（每页显示3张图片）
       return Array(Math.ceil(this.certificateImages.length / 3)).fill(0);
+    },
+    patentVisibleIndicators() {
+      // 计算需要多少个导航点（每页显示3张图片）
+      return Array(Math.ceil(this.patentImages.length / 3)).fill(0);
     }
   },
   mounted(){
@@ -146,6 +186,7 @@ export default {
 
     // 设置定时器，每3秒自动切换
     this.startAutoPlay();
+    this.startPatentAutoPlay();
   },
   methods: {
     startAutoPlay() {
@@ -165,6 +206,24 @@ export default {
     },
     goToSlide(index) {
       this.currentIndex = index * 3;
+    },
+    startPatentAutoPlay() {
+      setInterval(() => {
+        this.nextPatentSlide();
+      }, 4000);
+    },
+    nextPatentSlide() {
+      // 计算最大索引值（每页显示3张图片）
+      const maxIndex = Math.ceil(this.patentImages.length / 3) * 3 - 3;
+
+      if (this.patentCurrentIndex < maxIndex) {
+        this.patentCurrentIndex += 3;
+      } else {
+        this.patentCurrentIndex = 0;
+      }
+    },
+    goToPatentSlide(index) {
+      this.patentCurrentIndex = index * 3;
     }
   },
   beforeDestroy() {
@@ -296,6 +355,13 @@ export default {
 .innovation-container>div>p{
   font-size: 14px;
   line-height: 2.5rem;
+}
+
+/* 轮播图标题样式 */
+.carousel-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 30px 0 15px 0;
 }
 
 /* 轮播图样式 */
