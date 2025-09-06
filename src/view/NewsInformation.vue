@@ -45,7 +45,7 @@
           <div class="carousel-wrapper">
             <div class="carousel-track" :style="{ transform: 'translateX(' + (-currentIndex * 33.33) + '%)' }">
               <div class="carousel-slide" v-for="(image, index) in certificateImages" :key="index">
-                <img :src="image.src" :alt="image.alt" class="certificate-image">
+                <img :src="image.src" :alt="image.alt" class="certificate-image" @click="openImageModal(image.src)">
                 <p class="certificate-title">{{ image.title }}</p>
               </div>
             </div>
@@ -68,7 +68,7 @@
           <div class="carousel-wrapper">
             <div class="carousel-track" :style="{ transform: 'translateX(' + (-patentCurrentIndex * 33.33) + '%)' }">
               <div class="carousel-slide" v-for="(image, index) in patentImages" :key="index">
-                <img :src="image.src" :alt="image.alt" class="certificate-image">
+                <img :src="image.src" :alt="image.alt" class="certificate-image patent-image" @click="openImageModal(image.src)">
                 <p class="certificate-title">{{ image.title }}</p>
               </div>
             </div>
@@ -83,6 +83,12 @@
               @click="goToPatentSlide(index)"
             ></span>
           </div>
+        </div>
+
+        <!-- 图片放大展示模态框 -->
+        <div class="image-modal" v-if="showImageModal" @click="closeImageModal">
+          <span class="close" @click="closeImageModal">&times;</span>
+          <img class="modal-content" :src="modalImageSrc">
         </div>
       </div>
 
@@ -106,27 +112,29 @@ export default {
       activeTab: '大事记',
       currentIndex: 0,
       patentCurrentIndex: 0,
+      showImageModal: false,
+      modalImageSrc: '',
       certificateImages: [
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书'  },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书1' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书2' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书3' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书4' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书5' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书6' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书7' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '资质证书8' }
+        { src: require('../assets/img/瞪羚企业.png'), alt: '瞪羚企业' },
+        { src: require('../assets/img/高新技术企业.png'), alt: '高新技术企业' },
+        { src: require('../assets/img/AAA级信誉单位.png'), alt: 'AAA级信誉单位' },
+        { src: require('../assets/img/软件会员.png'), alt: '软件会员' },
+        { src: require('../assets/img/最佳软件企业.png'), alt: '最佳软件企业' },
+        { src: require('../assets/img/软件企业证书.png'), alt: '最佳软件企业' },
+        { src: require('../assets/img/陕西省特精专精.png'), alt: '陕西省特精专精' },
+        { src: require('../assets/img/国军标.png'), alt: '国军标' },
+        { src: require('../assets/img/军民融合企业.png'), alt: '军民融合企业' },
       ],
       patentImages: [
         { src: require('../assets/img/发明专利证书1.png'), alt: '专利证书1' },
         { src: require('../assets/img/发明专利证书2.png'), alt: '专利证书2' },
         { src: require('../assets/img/发明专利证书3.png'), alt: '专利证书3' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书4' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书5' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书6' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书7' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书8' },
-        { src: require('../assets/img/Patent_Certificate.png'), alt: '专利证书9' }
+        { src: require('../assets/img/发明专利证书4.png'), alt: '专利证书4' },
+        { src: require('../assets/img/发明专利证书5.png'), alt: '专利证书5' },
+        { src: require('../assets/img/发明专利证书6.png'), alt: '专利证书6' },
+        { src: require('../assets/img/发明专利证书7.png'), alt: '专利证书7' },
+        { src: require('../assets/img/外观专利证书.png'), alt: '外观专利证书' },
+        { src: require('../assets/img/实用新型专利.png'), alt: '实用新型专利' },
       ],
       newsList:[
         {
@@ -224,6 +232,20 @@ export default {
     },
     goToPatentSlide(index) {
       this.patentCurrentIndex = index * 3;
+    },
+    // 打开图片放大模态框
+    openImageModal(src) {
+      this.modalImageSrc = src;
+      this.showImageModal = true;
+      // 禁止背景滚动
+      document.body.style.overflow = 'hidden';
+    },
+    // 关闭图片放大模态框
+    closeImageModal() {
+      this.showImageModal = false;
+      this.modalImageSrc = '';
+      // 恢复背景滚动
+      document.body.style.overflow = 'auto';
     }
   },
   beforeDestroy() {
@@ -396,6 +418,17 @@ export default {
   object-fit: cover;
   border: 1px solid #ddd;
   border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.certificate-image:hover {
+  transform: scale(1.05);
+}
+
+/* 专利图片特殊样式 - 适应长方形 */
+.patent-image {
+  height: 450px;
 }
 
 .certificate-title {
@@ -425,6 +458,44 @@ export default {
   background-color: #1e73be;
 }
 
+/* 图片放大模态框样式 */
+.image-modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  color: #f1f1f1;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 997px){
   .innovation-container{
     padding: 10px 0;
@@ -451,6 +522,21 @@ export default {
 
   .carousel-slide {
     flex: 0 0 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .close {
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+  }
+
+  /* 移动端专利图片高度调整 */
+  .patent-image {
+    height: 200px;
   }
 }
 </style>

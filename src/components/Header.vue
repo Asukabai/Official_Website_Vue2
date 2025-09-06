@@ -121,10 +121,6 @@ export default {
           name: "解决方案",
           path: "/service",
           children: []
-        },{
-          name: "合作案例",
-          path: "/service",
-          children: []
         },
         {
           name: "公司介绍",
