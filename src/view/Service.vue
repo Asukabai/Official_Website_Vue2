@@ -42,7 +42,7 @@ export default {
                     img: require('../assets/img/自动化系统设备.png')
                 },{
                     id: 'section-2',
-                    title: '信息化软件平台定制化开发',
+                    title: '信息化、自动化软件平台定制化开发',
                     eng_title: 'Outsourcing',
                     img: require('../assets/img/煤研所.png')
                 },{

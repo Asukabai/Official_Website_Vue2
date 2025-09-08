@@ -63,32 +63,33 @@ export default {
             "<h3>电源智能测试系统</h3>" +
             "<img src='" + require('../assets/img/电源智能测试系统.png') + "' alt='自动化系统设备示例' class='content-image'>" +
             "<h3>柔性生产线系统</h3>" +
-            "<img src='" + require('@/assets/img/柔性生产线系统.png') + "' alt='柔性生产线系统' class='content-image'>"
+            "<img src='" + require('../assets/img/柔性生产线系统.png') + "' alt='柔性生产线系统' class='content-image'>"
         },
         {
           id: "section-2",
           title: "信息化、自动化软件平台定制化开发",
-          eng_title: "Outsourcing",
+          eng_title: "Software Platform",
           content:
-            "<h3>这是标题1</h3>" +
-            "<img src='" + require('@/assets/img/banner_2.jpg') + "' alt='软件平台开发示例' class='content-image'>" +
-            "<h3>这是标题2</h3>" +
-            "<img src='" + require('@/assets/img/banner_2.jpg') + "' alt='软件界面示例' class='content-image'>"
+            "<h3>电源自动化测试系统</h3>" +
+            "<img src='" + require('../assets/img/电源自动化测试系统.png') + "' alt='软件平台开发示例' class='content-image'>"+
+            "<h3>实时数据监控采集系统</h3>" +
+            "<img src='" + require('../assets/img/实时数据监控采集系统.png') + "' alt='软件平台开发示例' class='content-image'>"
         },
         {
           id: "section-3",
           title: "仿真分析及相关设备",
-          eng_title: "eCommerce Site",
+          eng_title: "Simulation Analysis",
           content:
-            "<h3>煤岩显微组分图像背景噪声自动识别与剔除</h3><img src='" + require('../assets/img/智能调测设备.png') + "' alt='仿真分析设备示例' class='content-image'>" +
+            "<h3>煤岩显微组分图像背景噪声自动识别与剔除系统</h3><img src='" + require('../assets/img/智能调测设备.png') + "' alt='仿真分析设备示例' class='content-image'>" +
             "<h3>电路板器件识别及缺陷检测</h3><img src='" + require('../assets/img/电路板元器件识别.png') + "' alt='仿真结果示例' class='content-image'>"
         },
         {
           id: "section-4",
           title: "测试仪器、电子设备",
-          eng_title: "iOS App Dev",
+          eng_title: "Test Instruments",
           content:
-            "<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><img src='" + require('@/assets/img/banner_2.jpg') + "' alt='测试仪器示例' class='content-image'><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><img src='" + require('@/assets/img/banner_2.jpg') + "' alt='电子设备示例' class='content-image'>"
+            "<h3>高温自动测温仪</h3><img src='" + require('../assets/img/高温自动测温仪.png') + "' alt='测试仪器示例' class='content-image'>" +
+            "<h3>电子负载系列</h3><img src='" + require('../assets/img/超高速超高压电子负载.png') + "' alt='电子设备示例' class='content-image'>"
         }
       ]
     };
