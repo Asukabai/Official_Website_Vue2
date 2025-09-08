@@ -102,18 +102,18 @@ export default {
           children: [
             {
               name: "自动化测控系统",
-              path: "/software/smartTown"
+              path: "/software/automated_system"
             },
             {
               name: "智能调测设备",
-              path: "/software/bigData"
+              path: "/software/intelligent_equipment"
             },{
               name: "电子设备测试仪器",
-              path: "/software/smartTown"
+              path: "/software/electronic_instruments"
             },
             {
               name: "软件测试平台",
-              path: "/software/bigData"
+              path: "/software/software_platform"
             }
           ]
         },

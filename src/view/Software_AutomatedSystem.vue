@@ -1,11 +1,11 @@
 <template>
     <div id="Software">
-        大数据管理系统
+      自动化测控系统
     </div>
 </template>
 <script>
 export default {
-    name: 'Software',
+    name: 'Software_AutomatedSystem',
     data(){
         return{
 

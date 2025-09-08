@@ -3,11 +3,17 @@
         <div class="row">
             <div id="left" class="col-md-4 col-xs-12">
                 <ul class="left-container wow bounceInLeft">
-                    <p>软件产品</p>
-                    <li v-for="(item,index) in softwareList" :key="index">
+                    <p>硬件产品</p>
+                    <li v-for="(item,index) in hardwareList" :key="index">
                         <router-link :to=item.path>{{item.name}}</router-link>
                     </li>
                 </ul>
+              <ul class="left-container wow bounceInLeft second-list">
+                <p>软件产品</p>
+                <li v-for="(item,index) in softwareList" :key="index">
+                  <router-link :to=item.path>{{item.name}}</router-link>
+                </li>
+              </ul>
             </div>
             <div id="right" class="col-md-8 col-xs-12  wow bounceInRight">
                 <router-view></router-view>
@@ -21,18 +27,27 @@
 import { WOW } from "wowjs";
 import OnlineConsultation from "../components/OnlineConsultation.vue";
 export default {
-    name: 'Software',
+  name: 'Software',
   components: {OnlineConsultation},
     data(){
         return{
             softwareList: [
-                {
-                    path: '/software/smartTown',
-                    name: '智能小镇管理系统'
-                },{
-                    path: '/software/bigData',
-                    name: '大数据管理系统'
-                }
+              {
+                path: '/software/automated_system',
+                name: '自动化测控系统'
+              },{
+                path: '/software/software_platform',
+                name: '软件测试平台'
+              }
+            ],
+            hardwareList: [
+              {
+                path: '/software/electronic_instruments',
+                name: '电子设备测试仪器'
+              },{
+                path: '/software/intelligent_equipment',
+                name: '智能调测设备'
+              }
             ]
         }
     },
@@ -75,6 +90,11 @@ export default {
 .left-container>li:hover{
     background: #928989;
 }
+
+.second-list {
+  margin-top: 30px;
+}
+
 #right{
     padding: 50px 0;
 }

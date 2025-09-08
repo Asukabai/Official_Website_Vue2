@@ -22,36 +22,58 @@ export default new Router({
           meta: {
             title: '首页'
           }
-        }, {
+        },
+
+
+        {
           path: '/software',
           name: 'software',
           component: resolve => require(['@/view/Software'], resolve),
           meta: {
-            title: '软件产品'
+            title: '产品列表'
           },
           children: [
             {
               path: '/software',
-              redirect: '/software/smartTown'
+              redirect: '/software/automated_system'
             },
             {
-              path: '/software/smartTown',
-              name: 'software',
-              component: resolve => require(['@/view/Software_smartTown'], resolve),
+              path: '/software/automated_system',
+              name: 'Software_AutomatedSystem',
+              component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
               meta: {
                 title: '软件产品丨自动化测控系统'
               }
             },
             {
-              path: '/software/bigData',
-              name: 'software',
-              component: resolve => require(['@/view/Software_bigData'], resolve),
+              path: '/software/intelligent_equipment',
+              name: 'Software_IntelligentEquipment',
+              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
               meta: {
                 title: '软件产品丨智能调测设备'
               }
+            },
+            {
+              path: '/software/electronic_instruments',
+              name: 'Software_ElectronicInstruments',
+              component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
+              meta: {
+                title: '软件产品丨电子设备测试仪器'
+              }
+            },
+            {
+              path: '/software/software_platform',
+              name: 'Software_SoftwarePlatform',
+              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              meta: {
+                title: '软件产品丨软件测试平台'
+              }
             }
           ]
-        }, {
+        }
+
+
+        , {
           path: '/service',
           name: 'service',
           component: resolve => require(['@/view/Service'], resolve),
