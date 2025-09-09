@@ -40,7 +40,9 @@
           <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>
 <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
 <!--          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>
+<!--          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>-->
+          <router-link to="/software/electronic_instruments" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</router-link>
+
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
           <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">
@@ -50,12 +52,15 @@
             智能通用化负载监测平台
             <small>/ SS-SYS-MCTS-03</small>
           </h2>
-          <p><strong>小型化、便携式、模块化通用测试系统 ; 搭配多路电源自动化测试(20通道并行+72小时不间断自动测试）</strong></p>
-          <p>晟思SS-STM-MCTS系列多路输出电源通用自动化测试系统遵循模块化、智能化、可扩展等先进设计思路，具有带载能力强、采集精度高，配置灵活、功能强大等特点。解决了设备连接复杂、体积大、采样不同步导致的相位偏移等痛点，时序采集精度高达5μs。</p>
+          <p><strong>智能通用化负载监测平台是专为电源设备测试设计的高精度、多功能测试系统。该平台采用模块化设计，具备强大的数据采集和分析能力，能够满足各种复杂测试场景的需求。</strong></p>
+          <p>平台支持多路信号同步采集，时序精度高达5μs，能够准确捕捉电源设备在各种工作状态下的性能参数，为产品质量控制和研发优化提供可靠的数据支撑。</p>
           <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
           <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>
           <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示</a>
+<!--          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示（用户名 ss ；密码 123456）</a>-->
+<!--          在新页面中打开预览网址    -->
+          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn" target="_blank">预览展示（用户名 ss ；密码 123456）</a>
+
         </div>
       </div>
     </div>
@@ -178,13 +183,13 @@ export default {
           img: require("@/assets/img/banner.png"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
-          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
+          content: '助力企业打造智能工厂，实现精益生产、降本增效，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner2.jpg"),
           path: "",
           title: '助力测控装备数字化，助推高端制造智能化',
-          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
+          content: '助力企业打造智能工厂，实现精益生产、降本增效，选型-售前售后技术支持-售后无忧',
         },
         {
           img: require("@/assets/img/banner.png"),
@@ -202,42 +207,18 @@ export default {
       customerList: [
         {
           logo: require("../assets/img/中国空间技术研究院.jpg"),
-          title:
-            "中国空间技术研究院",
-          content:
-            "中国空间技术研究院"
         },
         {
           logo: require("../assets/img/中核集团.png"),
-          title:
-            "中核集团",
-          content:
-            "中核集团"
         },
         {
           logo: require("../assets/img/中国电科.png"),
-          title:
-            "中国电科",
-          content:
-            "中国电科"
         },        {
           logo: require("../assets/img/中国煤科.png"),
-          title:
-            "中国煤科",
-          content:
-            "中国煤科"
         },{
           logo: require("../assets/img/北方工业.png"),
-          title:
-            "北方工业",
-          content:
-            "北方工业"
         },{
           logo: require("../assets/img/中国电子.png"),
-          title:
-            "中国电子",
-          content:
-            "中国电子"
         },
       ],
       serverList: [

@@ -66,7 +66,7 @@ export default new Router({
               name: 'Software_SoftwarePlatform',
               component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
               meta: {
-                title: '软件产品丨软件测试平台'
+                title: '软件产品丨生产管理平台'
               }
             }
           ]

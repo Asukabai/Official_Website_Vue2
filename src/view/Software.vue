@@ -37,7 +37,7 @@ export default {
                 name: '自动化测控系统'
               },{
                 path: '/software/software_platform',
-                name: '软件测试平台'
+                name: '生产管理平台'
               }
             ],
             hardwareList: [

@@ -107,12 +107,13 @@ export default {
             {
               name: "智能调测设备",
               path: "/software/intelligent_equipment"
-            },{
+            },
+            {
               name: "电子设备测试仪器",
               path: "/software/electronic_instruments"
             },
             {
-              name: "软件测试平台",
+              name: "生产管理平台",
               path: "/software/software_platform"
             }
           ]
@@ -138,7 +139,7 @@ export default {
   methods: {
     navClick(index, name) {
       this.navIndex = index;
-      sessionStorage.setItem('navIndex',index)
+      sessionStorage.setItem('navIndex', index);
       this.menuName = name;
     },
     menuClick() {
@@ -147,10 +148,51 @@ export default {
       } else {
         this.menuClass = "glyphicon glyphicon-menu-down";
       }
+    },
+    updateNavStatus() {
+      // 根据当前路由更新导航状态
+      const currentPath = this.$route.path;
+      let foundIndex = 0; // 默认为首页
+
+      // 遍历导航列表查找匹配项
+      for (let i = 0; i < this.navList.length; i++) {
+        const item = this.navList[i];
+
+        // 精确匹配
+        if (item.path === currentPath) {
+          foundIndex = i;
+          break;
+        }
+
+        // 检查子菜单
+        if (item.children && item.children.length > 0) {
+          for (let j = 0; j < item.children.length; j++) {
+            if (item.children[j].path === currentPath) {
+              foundIndex = i;
+              break;
+            }
+          }
+        }
+      }
+
+      this.navIndex = foundIndex;
+      this.menuName = this.navList[foundIndex].name;
+      sessionStorage.setItem('navIndex', foundIndex);
     }
+  },
+  watch: {
+    // 监听路由变化
+    $route() {
+      this.updateNavStatus();
+    }
+  },
+  mounted() {
+    // 组件挂载时更新一次导航状态
+    this.updateNavStatus();
   }
 };
 </script>
+
 <style scoped>
 /* 顶部 */
 #header {

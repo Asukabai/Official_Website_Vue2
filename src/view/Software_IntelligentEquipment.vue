@@ -2,23 +2,27 @@
   <div id="Software">
     <!-- 页面标题 -->
     <div class="page-header">
-      <h1>多路输出电源通用测试单元 <small>智能调测设备</small></h1>
+      <h1> AGV 协作机器人 <small>智能调测设备</small></h1>
     </div>
 
     <!-- 平台简介 -->
     <div class="row platform-intro">
       <div class="col-md-12 text-center">
-        <img src="../assets/img/多路输出.png" alt="智能通用化负载监测平台" class="img-responsive platform-img">
+        <img src="../assets/img/AGV小车.png" alt="AGV小车" class="img-responsive platform-img">
       </div>
-      <div class="col-md-12">
+      <div class="col-md-18">
         <h2>设备概述</h2>
-        <p><strong>作为一款，多路输出通用测试单元，该产品有着以下特点和显著的优势 ：</strong></p>
-        <p><strong>高度集成 : 整合示波器、万用表、电子负载等功能；</strong></p>
-        <p><strong>大容量:单机3000W 带载+支持20路电源同时测试；</strong></p>
-        <p><strong>1.采用内置硬件触发总线，消除采样时钟不同步引起的电流/电压波形相位偏移(典型误差达1-5μs)，达到了 5us 级采样间隔 + 0.5%采集精度；</strong></p>
-        <p><strong>2.采用板载电子负载功能，最高支持20路负载,且机箱小巧，便携性高，解决了传统设备，设备连接复杂、体积大的问题；</strong></p>
+        <p><strong>AGV 协作机器人由导航定位、移动平台、机械臂抓取、视觉识别定位和机载测试等模块组成，具备载重、自主行进、自主避障、电缆对接插拔、自动测试数据存储传输、分析计算及自动充电等功能。能自主设定行进路径并自主完成测试，具有全程自动化、高智能化、测试工艺流程可灵活改变等特点，该产品大幅提高了测试效率及测试精度，把大量人力从纷繁复杂的检验测试工作中解放出来，是工业互联网时代“机器代人”的典型应用。目前已成熟应用于电力电子、航空航天、智能实验室等测试场景。</strong></p>
+        <p><strong>总的来说，作为一款精密智能机械同时集成了移动测试系统，该产品有着以下特点和显著的优势 ：</strong></p>
+        <p><strong>高智能化 : 自动导航行进、自主避障；</strong></p>
+        <p><strong>高自动化 : 自主定位及校正、射频电缆自动对接、自动测试、自动上传存储数据、自动充电 ；</strong></p>
+        <p><strong>1.依据调度指令在多个测试工位间进行循环测试， 实现测试仪器一对多的高效重复使用；</strong></p>
+        <p><strong>2.导航定位、AGV移动平台、机械臂精密对接块、视觉识别定位和机载测试等模块；</strong></p>
         <div class="col-md-12 text-center">
-          <img src="../assets/img/多路整合系统.png" alt="智能通用化负载监测平台" class="img-responsive platform-img">
+          <img src="../assets/img/智能操作台.png" alt="智能操作台" class="img-responsive platform-img">
+        </div>
+        <div class="col-md-12 text-center">
+          <img src="../assets/img/AGV-央视报道.png" alt="智能操作台" class="img-responsive platform-img">
         </div>
       </div>
     </div>
@@ -32,39 +36,40 @@
             <tbody>
             <tr>
               <td class="spec-title">型号</td>
-              <td>SS-STM-MCTS-03</td>
+              <td>SS-STM-AGV-02</td>
             </tr>
-
             <tr>
-              <td class="spec-title">通道数</td>
-              <td>标配 12 路（满配 20 路）</td>
+              <td class="spec-title">行进速度</td>
+              <td> 0 - 45 m/min </td>
             </tr>
-
             <tr>
-              <td class="spec-title">采样电压</td>
-              <td>0-80 V</td>
+              <td class="spec-title">行进方式</td>
+              <td> 双向行驶、原地旋转 ± 90° </td>
             </tr>
-
             <tr>
-              <td class="spec-title">采样电流</td>
-              <td>0-40 A </td>
+              <td class="spec-title">导航方式</td>
+              <td> 磁条导航 + 视觉导航 </td>
             </tr>
-
             <tr>
-              <td class="spec-title">独立使能控制</td>
-              <td>电平 5 V，上升时间 ns 级</td>
+              <td class="spec-title">导航精度</td>
+              <td>± 10 mm </td>
             </tr>
-
             <tr>
-              <td class="spec-title">上电延时测量误差值</td>
-              <td>± 1ms</td>
+              <td class="spec-title">平台负载</td>
+              <td>300 KG </td>
             </tr>
-
             <tr>
-              <td class="spec-title">多机并联及扩展</td>
-              <td>支持</td>
+              <td class="spec-title">电池容量</td>
+              <td> 48 V 50 Ah </td>
             </tr>
-
+            <tr>
+              <td class="spec-title">续航能力</td>
+              <td> 8 H </td>
+            </tr>
+            <tr>
+              <td class="spec-title">充电时间</td>
+              <td>1.8 H</td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -72,32 +77,36 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">尺寸</td>
-              <td>标准3U（482×133×350mm）</td>
+              <td class="spec-title">设备尺寸</td>
+              <td>L1000 x W700 x H800 mm（可定制）</td>
             </tr>
             <tr>
-              <td class="spec-title">额定功率</td>
-              <td>最大功率 3000W （单负载500w）</td>
+              <td class="spec-title">额定电压、电流</td>
+              <td>230 VAC 、 25 A</td>
             </tr>
             <tr>
-              <td class="spec-title">电压采样精度</td>
-              <td>精度 0.5 ‰ FS</td>
+              <td class="spec-title">整车质量</td>
+              <td>450kg</td>
             </tr>
             <tr>
-              <td class="spec-title">电流采样精度</td>
-              <td>精度 0.5 ‰ FS</td>
+              <td class="spec-title">控制接口</td>
+              <td>RJ45网口</td>
             </tr>
             <tr>
-              <td class="spec-title">启动时间测量误差值</td>
+              <td class="spec-title">测试射频信号频率</td>
               <td>± 1ms</td>
             </tr>
             <tr>
-              <td class="spec-title">断电延时测量误差值</td>
-              <td>± 1ms</td>
+              <td class="spec-title">定位精度</td>
+              <td>±0.03mm</td>
             </tr>
             <tr>
-              <td class="spec-title">热插拔</td>
-              <td>支持</td>
+              <td class="spec-title">有效工作半径</td>
+              <td>850mm</td>
+            </tr>
+            <tr>
+              <td class="spec-title">安全设施</td>
+              <td>超声波避障、机械防撞、急停保护开关</td>
             </tr>
             </tbody>
           </table>
@@ -111,27 +120,28 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-flash"></span>
+            <span class="glyphicon glyphicon-wrench"></span>
           </div>
-          <h3>单一电源测试</h3>
-          <p>适用于各种开关电源、线性电源等设备的性能测试和老化试验</p>
+          <h3>精密复杂操作</h3>
+          <p>适用于多种工况、环境下的精密操作</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
-          <h3>多个电源测试</h3>
-          <p>支持在“单一电源”基础上，并联多个电源设备,对其进行自动测试和试验</p>
+          <h3>智能化移动测试</h3>
+          <p>测试设备可移动，简化操作，适用于大型试验场所</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-time"></span>
+            <span class="glyphicon glyphicon-tasks"></span>
           </div>
-          <h3>设备老化测试</h3>
-          <p>支持长时间连续运行测试，验证设备的稳定性和可靠性</p>
+          <h3>高度集成测试</h3>
+          <p>全自动，一体化集成设备测试</p>
         </div>
       </div>
     </div>
+
 
     <!-- 平台优势 -->
     <div class="platform-advantages">
@@ -141,29 +151,29 @@
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-cog"></span>
           </div>
-          <h3>易操作</h3>
-          <p>直观的图形界面，操作简单易学</p>
+          <h3>高集成</h3>
+          <p>接口简洁，高度集成，操作简单</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-phone"></span>
+            <span class="glyphicon glyphicon-screenshot"></span>
           </div>
-          <h3>适配强</h3>
-          <p>支持多种设备接入，兼容性强</p>
+          <h3>高精度</h3>
+          <p>机器视觉精准识别定位，测试指标精度高</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-resize-full"></span>
           </div>
-          <h3>可扩展</h3>
-          <p>模块化设计，可根据需求灵活扩展</p>
+          <h3>可定制</h3>
+          <p>可根据客户工艺或测试流程需求定制</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-ok-circle"></span>
           </div>
           <h3>高可用</h3>
-          <p>72小时不间断运行，稳定可靠</p>
+          <p>性能稳定可靠，设备安全有保障</p>
         </div>
       </div>
     </div>
