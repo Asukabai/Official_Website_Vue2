@@ -25,6 +25,8 @@
         </div>
       </div>
     </div>
+    <!-- 在线咨询组件 -->
+    <OnlineConsultation />
   </div>
 </template>
 <script>
@@ -61,9 +63,9 @@ export default {
           eng_title: "Automation System",
           content:
             "<h3>电源智能测试系统</h3>" +
-            "<img src='" + require('../assets/img/电源智能测试系统.png') + "' alt='自动化系统设备示例' class='content-image'>" +
+            "<img src='" + require('../assets/img/电源智能测试系统.png') + "' alt='自动化系统设备示例' class='content-image' style='width:80%;height:80%'>" +
             "<h3>柔性生产线系统</h3>" +
-            "<img src='" + require('../assets/img/柔性生产线系统.png') + "' alt='柔性生产线系统' class='content-image'>"
+            "<img src='" + require('../assets/img/柔性生产线系统.png') + "' alt='柔性生产线系统' class='content-image' style='width:80%;height:80%'>"
         },
         {
           id: "section-2",
@@ -71,25 +73,25 @@ export default {
           eng_title: "Software Platform",
           content:
             "<h3>电源自动化测试系统</h3>" +
-            "<img src='" + require('../assets/img/电源自动化测试系统.png') + "' alt='软件平台开发示例' class='content-image'>"+
+            "<img src='" + require('../assets/img/电源自动化测试系统.png') + "' alt='软件平台开发示例' class='content-image' style='width:80%;height:80%'>"+
             "<h3>实时数据监控采集系统</h3>" +
-            "<img src='" + require('../assets/img/实时数据监控采集系统.png') + "' alt='软件平台开发示例' class='content-image'>"
+            "<img src='" + require('../assets/img/实时数据监控采集系统.png') + "' alt='软件平台开发示例' class='content-image' style='width:80%;height:80%'>"
         },
         {
           id: "section-3",
           title: "仿真分析及相关设备",
           eng_title: "Simulation Analysis",
           content:
-            "<h3>煤岩显微组分图像背景噪声自动识别与剔除系统</h3><img src='" + require('../assets/img/智能调测设备.png') + "' alt='仿真分析设备示例' class='content-image'>" +
-            "<h3>电路板器件识别及缺陷检测</h3><img src='" + require('../assets/img/电路板元器件识别.png') + "' alt='仿真结果示例' class='content-image'>"
+            "<h3>煤岩显微组分图像背景噪声自动识别与剔除系统</h3><img src='" + require('../assets/img/智能调测设备.png') + "' alt='仿真分析设备示例' class='content-image' style='width:80%;height:80%'>" +
+            "<h3>电路板器件识别及缺陷检测</h3><img src='" + require('../assets/img/电路板元器件识别.png') + "' alt='仿真结果示例' class='content-image' style='width:80%;height:80%'>"
         },
         {
           id: "section-4",
           title: "测试仪器、电子设备",
           eng_title: "Test Instruments",
           content:
-            "<h3>高温自动测温仪</h3><img src='" + require('../assets/img/高温自动测温仪.png') + "' alt='测试仪器示例' class='content-image'>" +
-            "<h3>电子负载系列</h3><img src='" + require('../assets/img/超高速超高压电子负载.png') + "' alt='电子设备示例' class='content-image'>"
+            "<h3>高温自动测温仪</h3><img src='" + require('../assets/img/高温自动测温仪.png') + "' alt='测试仪器示例' class='content-image' style='width:80%;height:80%'>" +
+            "<h3>电子负载系列</h3><img src='" + require('../assets/img/超高速超高压电子负载.png') + "' alt='电子设备示例' class='content-image' style='width:80%;height:80%'>"
         }
       ]
     };

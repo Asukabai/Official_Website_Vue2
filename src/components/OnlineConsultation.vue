@@ -92,8 +92,8 @@ z-index: 9999;
 .online-consultation {
   position: fixed;
   bottom: 80px;
-  right: 40px;
-  width: 200px;
+  right: 5px;
+  width: 180px;
   background: #3f83f8;
   color: white;
   border-radius: 10px;
