@@ -27,7 +27,7 @@
             <li>友好的用户界面，操作简便</li>
           </ul>
         </div>
-        <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">点击预览（用户名 ss ；密码 123456）</a>
+        <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">点击预览平台（用户名 ss ；密码 123456）</a>
       </div>
     </div>
 

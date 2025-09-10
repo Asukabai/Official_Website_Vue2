@@ -31,7 +31,36 @@
       <div v-show="activeTab==='资质成果'" class="container">
         <div class="row innovation-container">
           <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-            <img class="img-responsive center-block" src="../assets/img/Patent_Certificate.png">
+            <!-- 将单张图片改为三图轮播 -->
+            <div class="company-image-carousel" style="position: relative; overflow: hidden; height: auto;">
+              <div class="carousel-wrapper" style="overflow: hidden;">
+                <div class="carousel-track" :style="{ transform: 'translateX(' + (-companyImageIndex * 100) + '%)' }" style="display: flex; transition: transform 0.5s ease-in-out;">
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/Patent_Certificate.png" alt="公司专利证书">
+                  </div>
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/证书合集.png" alt="证书合集">
+                  </div>
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/西安总部.png" alt="西安总部">
+                  </div>
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/山西分公司.png" alt="山西分公司">
+                  </div>
+                </div>
+              </div>
+
+              <!-- 轮播导航点 -->
+              <div class="carousel-indicators" style="display: flex; justify-content: center; margin-top: 15px;">
+                <span
+                  v-for="(slide, index) in 4"
+                  :key="index"
+                  :class="{ active: companyImageIndex === index }"
+                  @click="companyImageIndex = index"
+                  style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #ccc; margin: 0 5px; cursor: pointer; transition: background-color 0.3s;"
+                ></span>
+              </div>
+            </div>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6">
             <h3>陕西晟思智能测控有限公司</h3>
@@ -102,6 +131,7 @@
   </div>
 </template>
 
+
 <script>
 import { WOW } from 'wowjs';
 import OnlineConsultation from "../components/OnlineConsultation.vue";
@@ -113,6 +143,7 @@ export default {
       activeTab: '大事记',
       currentIndex: 0,
       patentCurrentIndex: 0,
+      companyImageIndex: 0, // 公司图片轮播索引
       showImageModal: false,
       modalImageSrc: '',
       certificateImages: [
@@ -236,6 +267,7 @@ export default {
     // 设置定时器，每3秒自动切换
     this.startAutoPlay();
     this.startPatentAutoPlay();
+    this.startCompanyImageAutoPlay(); // 启动公司图片自动轮播
   },
   methods: {
     startAutoPlay() {
@@ -274,6 +306,15 @@ export default {
     goToPatentSlide(index) {
       this.patentCurrentIndex = index * 3;
     },
+    // 公司图片自动轮播方法
+    startCompanyImageAutoPlay() {
+      setInterval(() => {
+        this.nextCompanyImage();
+      }, 3000);
+    },
+    nextCompanyImage() {
+      this.companyImageIndex = (this.companyImageIndex + 1) % 4;
+    },
     // 打开图片放大模态框
     openImageModal(src) {
       this.modalImageSrc = src;
@@ -297,6 +338,10 @@ export default {
   }
 }
 </script>
+
+
+
+
 <style scoped>
 .nav{
   margin: 20px 0;
