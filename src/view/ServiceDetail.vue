@@ -10,12 +10,12 @@
               v-for="(item,index) in serviceNavList"
               :key="index"
             >
-              <a href="javascript:void(0)" @click="handleNavClick(item.id)">{{item.title}}</a>
+              <a :href="'#'+item.id">{{item.title}}</a>
             </li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-9 content  wow zoomIn">
-          <div class="content-block" v-for="(item,index) in serviceContentList" :key="index" v-show="item.id === activeSection">
+          <div class="content-block" v-for="(item,index) in serviceContentList" :key="index">
             <h2 :id="item.id">
               {{item.title}}
               <small>/ {{item.eng_title}}</small>
@@ -101,8 +101,22 @@ export default {
     var wow = new WOW();
     wow.init();
 
+    // 初始化 affix
+    $("#myNav").affix({
+      offset: {
+        top: 300
+      }
+    });
+
     // 设置初始激活的section
     this.setActiveSectionFromRoute();
+
+    // 监听滚动事件，根据滚动位置更新激活的section
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    // 清理事件监听器
+    window.removeEventListener('scroll', this.handleScroll);
   },
   // 监听路由变化，处理锚点链接
   watch: {
@@ -134,9 +148,29 @@ export default {
       this.activeSection = "section-1";
     },
 
-    // 点击导航项时的处理函数
-    handleNavClick(sectionId) {
-      this.activeSection = sectionId;
+    // 处理滚动事件，根据滚动位置更新激活的section
+    handleScroll() {
+      const contentBlocks = document.querySelectorAll('.content-block');
+      let currentSection = 'section-1';
+
+      for (let i = 0; i < contentBlocks.length; i++) {
+        const block = contentBlocks[i];
+        const rect = block.getBoundingClientRect();
+
+        // 如果内容块的顶部在视窗内，或者内容块占据视窗的大部分，则认为是当前section
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          const h2Element = block.querySelector('h2');
+          if (h2Element) {
+            currentSection = h2Element.id;
+            break;
+          }
+        }
+      }
+
+      // 只有当当前section在导航列表中时才更新
+      if (this.serviceNavList.some(item => item.id === currentSection)) {
+        this.activeSection = currentSection;
+      }
     }
   }
 };

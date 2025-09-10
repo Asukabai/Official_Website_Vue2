@@ -2,7 +2,7 @@
 <template>
   <div class="online-consultation">
     <div class="consultation-header">
-      <h3>在线咨询</h3>
+      <h3>联系咨询</h3>
     </div>
     <div class="consultation-buttons">
       <button class="btn btn-primary">产品选型支持</button>
