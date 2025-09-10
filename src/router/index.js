@@ -23,8 +23,6 @@ export default new Router({
             title: '首页'
           }
         },
-
-
         {
           path: '/software',
           name: 'software',
@@ -71,14 +69,12 @@ export default new Router({
             }
           ]
         }
-
-
         , {
           path: '/service',
           name: 'service',
           component: resolve => require(['@/view/Service'], resolve),
           meta: {
-            title: '相关服务'
+            title: '解决方案'
           }
         }, {
           path: '/newsinformation',
@@ -96,7 +92,7 @@ export default new Router({
           }
         },
         {
-          path: '/servicedetail',
+          path: '/servicedetail/:id?',
           name: 'servicedetail',
           component: resolve => require(['@/view/ServiceDetail'],resolve),
           meta: {

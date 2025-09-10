@@ -6,16 +6,16 @@
           <ul class="nav nav-tabs nav-stacked center-block" id="myNav">
             <p>特色服务</p>
             <li
-              :class="item.id==id?'active':''"
+              :class="item.id==activeSection?'active':''"
               v-for="(item,index) in serviceNavList"
               :key="index"
             >
-              <a :href="'#'+item.id">{{item.title}}</a>
+              <a href="javascript:void(0)" @click="handleNavClick(item.id)">{{item.title}}</a>
             </li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-9 content  wow zoomIn">
-          <div class="content-block" v-for="(item,index) in serviceContentList" :key="index">
+          <div class="content-block" v-for="(item,index) in serviceContentList" :key="index" v-show="item.id === activeSection">
             <h2 :id="item.id">
               {{item.title}}
               <small>/ {{item.eng_title}}</small>
@@ -37,7 +37,7 @@ export default {
   components: {OnlineConsultation},
   data() {
     return {
-      id: "section-1",
+      activeSection: "section-1",
       serviceNavList: [
         {
           id: "section-1",
@@ -97,16 +97,47 @@ export default {
     };
   },
   mounted() {
-    this.id = this.$route.params.id;
-    var top = document.getElementById(this.id).offsetTop;
-    $(window).scrollTop(top + 300);
-    $("#myNav").affix({
-      offset: {
-        top: 300
-      }
-    });
+    // 初始化 WOW.js 动画
     var wow = new WOW();
     wow.init();
+
+    // 设置初始激活的section
+    this.setActiveSectionFromRoute();
+  },
+  // 监听路由变化，处理锚点链接
+  watch: {
+    '$route'(to) {
+      this.setActiveSectionFromRoute();
+    }
+  },
+  methods: {
+    // 根据路由设置当前激活的section
+    setActiveSectionFromRoute() {
+      // 首先检查路由参数
+      const routeId = this.$route.params.id;
+      if (routeId && this.serviceNavList.some(item => item.id === routeId)) {
+        this.activeSection = routeId;
+        return;
+      }
+
+      // 然后检查hash
+      const hash = this.$route.hash;
+      if (hash) {
+        const hashId = hash.substring(1); // 移除 '#' 字符
+        if (this.serviceNavList.some(item => item.id === hashId)) {
+          this.activeSection = hashId;
+          return;
+        }
+      }
+
+      // 默认section
+      this.activeSection = "section-1";
+    },
+
+    // 点击导航项时的处理函数
+    handleNavClick(sectionId) {
+      this.activeSection = sectionId;
+    }
   }
 };
 </script>

@@ -6,7 +6,7 @@
       <div class="container">
         <div class="server pull-left">
           <span class="glyphicon glyphicon-earphone"></span>客户支持中心热线： 029-85820585 / 王总：18629057799
-<!--          <span class="glyphicon glyphicon-envelope"></span>邮编：710100-->
+          <!--          <span class="glyphicon glyphicon-envelope"></span>邮编：710100-->
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
@@ -161,6 +161,12 @@ export default {
         // 精确匹配
         if (item.path === currentPath) {
           foundIndex = i;
+          break;
+        }
+
+        // 检查是否为service相关路由，如果是则设置为解决方案(索引为2)
+        if (currentPath.startsWith('/service')) {
+          foundIndex = 2;
           break;
         }
 
