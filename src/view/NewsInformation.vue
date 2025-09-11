@@ -42,10 +42,16 @@
                     <img class="img-responsive center-block" src="../assets/img/证书合集.png" alt="证书合集">
                   </div>
                   <div class="carousel-slide" style="flex: 0 0 100%;">
-                    <img class="img-responsive center-block" src="../assets/img/西安总部.png" alt="西安总部">
+                    <img class="img-responsive center-block" src="../assets/img/十周年.png" alt="十周年">
                   </div>
                   <div class="carousel-slide" style="flex: 0 0 100%;">
-                    <img class="img-responsive center-block" src="../assets/img/山西分公司.png" alt="山西分公司">
+                    <img class="img-responsive center-block" src="../assets/img/办公室.png" alt="办公室">
+                  </div>
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/山西工厂工作.png" alt="山西工厂工作">
+                  </div>
+                  <div class="carousel-slide" style="flex: 0 0 100%;">
+                    <img class="img-responsive center-block" src="../assets/img/山西公司工厂.png" alt="山西公司工厂">
                   </div>
                 </div>
               </div>
@@ -53,7 +59,7 @@
               <!-- 轮播导航点 -->
               <div class="carousel-indicators" style="display: flex; justify-content: center; margin-top: 15px;">
                 <span
-                  v-for="(slide, index) in 4"
+                  v-for="(slide, index) in 6"
                   :key="index"
                   :class="{ active: companyImageIndex === index }"
                   @click="companyImageIndex = index"
@@ -313,7 +319,7 @@ export default {
       }, 3000);
     },
     nextCompanyImage() {
-      this.companyImageIndex = (this.companyImageIndex + 1) % 4;
+      this.companyImageIndex = (this.companyImageIndex + 1) % 6;
     },
     // 打开图片放大模态框
     openImageModal(src) {
