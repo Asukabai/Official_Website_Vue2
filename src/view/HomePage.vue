@@ -24,46 +24,46 @@
     </div>
 
 
-    <div id="bigData" class="container-fuild">
-      <div class="row bigData-container">
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <img class="img-responsive" src="../assets/img/多路输出.png" alt="多路输出电源通用测试系统">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <h2 class="bigData-title">
-            多路输出电源通用测试单元
-            <small>/ SS-STM-MCTS-03</small>
-          </h2>
-          <p><strong>全国首创，自主研发 小型化、便携式、模块化通用测试系统 ; 多路电源自动化测试(20通道并行+72小时不间断自动测试）</strong></p>
-          <p><strong>晟思SS-STM-MCTS系列多路输出电源通用自动化测试单元遵循模块化、智能化、可扩展等先进设计思路，具有带载能力强、采集精度高，配置灵活、功能强大等特点。解决了设备连接复杂、体积大、采样不同步导致的相位偏移等痛点，时序采集精度高达5μs。</strong></p>
-<!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
-          <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>
-<!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-<!--          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>-->
-<!--          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>-->
-          <router-link to="/software/electronic_instruments" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</router-link>
+<!--    <div id="bigData" class="container-fuild">-->
+<!--      <div class="row bigData-container">-->
+<!--        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">-->
+<!--          <img class="img-responsive" src="../assets/img/多路输出.png" alt="多路输出电源通用测试系统">-->
+<!--        </div>-->
+<!--        <div class="col-xs-12 col-sm-12 col-md-6">-->
+<!--          <h2 class="bigData-title">-->
+<!--            多路输出电源通用测试系统-->
+<!--            <small>/ SS-STM-MCTS-03</small>-->
+<!--          </h2>-->
+<!--          <p><strong>全国首创，自主研发 小型化、便携式、模块化通用测试系统 ; 多路电源自动化测试(20通道并行+72小时不间断自动测试）</strong></p>-->
+<!--          <p><strong>晟思SS-STM-MCTS系列多路输出电源通用自动化测试单元遵循模块化、智能化、可扩展等先进设计思路，具有带载能力强、采集精度高，配置灵活、功能强大等特点。解决了设备连接复杂、体积大、采样不同步导致的相位偏移等痛点，时序采集精度高达5μs。</strong></p>-->
+<!--&lt;!&ndash;          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>&ndash;&gt;-->
+<!--          <h3 class="bigData-device">多功能/大容量/高精度/全自动</h3>-->
+<!--&lt;!&ndash;          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="#" class="btn btn-lg btn-block custom-info-btn">查看详情</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="#" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</a>&ndash;&gt;-->
+<!--          <router-link to="/software/electronic_instruments" class="btn btn-lg btn-block custom-info-btn half-width-btn">查看详情</router-link>-->
 
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6" style="margin-top: 50px;">
-          <h2 class="bigData-title">
-            智能通用化负载监测平台
-            <small>/ SS-SYS-MCTS-03</small>
-          </h2>
-          <p><strong>智能通用化负载监测平台是专为电源设备测试设计的高精度、多功能测试系统。该平台采用模块化设计，具备强大的数据采集和分析能力，能够满足各种复杂测试场景的需求。</strong></p>
-          <p><strong>平台支持多路信号同步采集，时序精度高达5μs，能够准确捕捉电源设备在各种工作状态下的性能参数，为产品质量控制和研发优化提供可靠的数据支撑。</strong></p>
-          <!--          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>-->
-          <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>
-          <!--          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>-->
-<!--          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示（用户名 ss ；密码 123456）</a>-->
-<!--          在新页面中打开预览网址    -->
-          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn" target="_blank">预览展示（用户名 ss ；密码 123456）</a>
+<!--        </div>-->
+<!--        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">-->
+<!--          <img class="img-responsive" src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台">-->
+<!--        </div>-->
+<!--        <div class="col-xs-12 col-sm-12 col-md-6" style="margin-top: 50px;">-->
+<!--          <h2 class="bigData-title">-->
+<!--            智能通用化负载监测平台-->
+<!--            <small>/ SS-SYS-MCTS-03</small>-->
+<!--          </h2>-->
+<!--          <p><strong>智能通用化负载监测平台是专为电源设备测试设计的高精度、多功能测试系统。该平台采用模块化设计，具备强大的数据采集和分析能力，能够满足各种复杂测试场景的需求。</strong></p>-->
+<!--          <p><strong>平台支持多路信号同步采集，时序精度高达5μs，能够准确捕捉电源设备在各种工作状态下的性能参数，为产品质量控制和研发优化提供可靠的数据支撑。</strong></p>-->
+<!--          &lt;!&ndash;          <h2 class="bigData-device">多功能/大容量/高精度 &nbsp; 全自动</h2>&ndash;&gt;-->
+<!--          <h3 class="bigData-device">易操作/适配强/可扩展/高可用</h3>-->
+<!--          &lt;!&ndash;          <a href="#" class="btn btn-lg btn-block btn-info">查看详情</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">预览展示（用户名 ss ；密码 123456）</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          在新页面中打开预览网址    &ndash;&gt;-->
+<!--          <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn" target="_blank">预览展示（用户名 ss ；密码 123456）</a>-->
 
-        </div>
-      </div>
-    </div>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <!-- 您身边的IT专家 -->
 <!--    <div id="contactUs" class="container-fuild text-center">-->
@@ -82,6 +82,159 @@
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
+
+
+
+
+    <!-- 在 bigData 组件之后添加新的宫格布局 -->
+    <div id="productGrid" class="container-fuild">
+      <div class="container product-grid-container">
+        <!-- 力学负载测试设备 -->
+        <div class="row grid-section">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <h2 class="grid-title">电性能负载测试平台</h2>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/电源自动化测试系统-首页图.png" alt="电源自动化测试系统-首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>电源自动化测试系统</strong></p>
+                <p>类别：固定测试系统<br>宇航级、民用级、特种电源测试、微小放电测试等 ；</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/多路测试系统_首页图.png" alt="多路测试系统_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>多路通用智能测试系统</strong></p>
+                <p>类别：固定测试系统<br>全面特性测试，高度集成，小型化，可长时间老练测试 ；</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/AGV_首页图.png" alt="AGV_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>AGV协作机器人</strong></p>
+                <p>类别：移动测试系统<br>自动导航、避障、 定位校正、射频电缆自动对接、 自动测试、上传数据；</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/电子负载_首页图.png" alt="电子负载_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>超高速 / 高压电子负载</strong></p>
+                <p>连续工作模式+脉冲工作模式 <br>数字化控制、稳定可靠、工作特性灵活，应用高频及高精度测量等场合 ；</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 电性能负载测试设备 -->
+        <div class="row grid-section">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <h2 class="grid-title">力学负载模拟平台</h2>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/力学负载模拟系统.png" alt="FT中小功率电子负载" class="grid-image">
+              <div class="grid-text">
+                <p><strong>旋转类负载模拟系统</strong></p>
+                <p>固定测试系统<br>（宇航级、民用级、特种电源测试、微小放电测试等）</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/直线类负载模拟_首页图.png" alt="直线类负载模拟_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>直线类负载模拟系统</strong></p>
+                <p>电压：0~2250V<br>电流：0~4500A<br>功率：0~180kW</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/起落架负载模拟系统_首页图.png" alt="起落架负载模拟系统_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>起落架、铁鸟类负载模拟系统</strong></p>
+                <p>电压：150V, 600V, 1200V<br>电流：2400A<br>功率：4kW~60kW</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/定制化测试台模拟系统.png" alt="定制化测试台模拟系统" class="grid-image">
+              <div class="grid-text">
+                <p><strong>定制化测试台模拟系统</strong></p>
+                <p>电压：150V, 600V, 1200V<br>电流：60A~300A<br>功率：600W~3000W</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 软件自动化平台，监测管理系统 -->
+        <div class="row grid-section">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <h2 class="grid-title">软件自动化平台，监测管理，仿真识别测试系统</h2>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台" class="grid-image">
+              <div class="grid-text">
+                <p><strong>智能通用化负载监测平台</strong></p>
+                <p>专为电源设备测试设计的高精度、多功能测试系统，支持多路信号同步采集，时序精度高达5μs。</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/视觉检测_首页图.png" alt="视觉检测_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>视觉自动化检测及图像识别平台</strong></p>
+                <p>全国首创，自主研发的小型化、便携式、模块化通用测试系统，支持20通道并行+72小时不间断自动测试。</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/MES_首页图.png" alt="MES_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>MES智能制造执行管理系统</strong></p>
+                <p>电力电子领域和硬件测试领域的工业4.0系统方案提供商，助力企业打造智能工厂，实现精益生产。</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
+            <div class="grid-content">
+              <img src="../assets/img/定制化_首页图.png" alt="定制化_首页图" class="grid-image">
+              <div class="grid-text">
+                <p><strong>定制化智能化解决方案</strong></p>
+                <p>专注于工业自动化测控领域的创新型高科技公司，提供完整的机、电、控、软整体解决方案。</p>
+              </div>
+              <button class="btn btn-sm btn-default grid-button">查看</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
@@ -445,6 +598,122 @@ export default {
   width: 50%;
   margin: 0 ;
 }
+
+/* 添加宫格布局样式 */
+#productGrid {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.product-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-section {
+  margin-bottom: 10px;
+}
+
+.grid-title {
+  font-size: 23px;
+  color: #333;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 4px solid #3f83f8;
+}
+
+.grid-item {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.grid-content {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grid-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.grid-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.grid-text {
+  padding: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px; /* 确保文字与按钮之间有间距 */
+}
+
+.grid-text strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #3f83f8;
+  z-index: 1; /* 确保文字层在按钮之上 */
+}
+
+.grid-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #3f83f8;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 2; /* 确保按钮层在文字之上 */
+}
+
+.grid-button:hover {
+  background-color: #2a66d0;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-section {
+    margin-bottom: 30px;
+  }
+
+  .grid-title {
+    font-size: 23px;
+    margin-bottom: 15px;
+  }
+
+  .grid-item {
+    margin-bottom: 15px;
+  }
+
+  .grid-content {
+    margin-bottom: 10px;
+  }
+
+  .grid-image {
+    height: 120px;
+  }
+
+  .grid-text {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .grid-button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+
 
 /* 为什么选择我们 */
 #whyChooseUs {

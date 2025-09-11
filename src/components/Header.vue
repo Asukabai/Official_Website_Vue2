@@ -4,8 +4,8 @@
     <!-- 头部顶部 -->
     <div class="header-top container-fuild hidden-xs">
       <div class="container">
-        <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>客户支持中心热线： 029-85820585 / 王总：18629057799
+        <div class="server pull-left" @click="copyPhoneNumber">
+          <span class="glyphicon glyphicon-earphone"></span>客户支持中心热线：18629057799（王晓强）
           <!--          <span class="glyphicon glyphicon-envelope"></span>邮编：710100-->
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
@@ -39,7 +39,7 @@
             <i class="underline"></i>
           </router-link>
           <dl v-if="item.children.length>0">
-            <dt v-for="(i,n) in item.children" :key="n">
+            <dt v-for="(i,n) in item.children" :key="n" @click.stop="$router.push(i.path)">
               <router-link :to="i.path">{{i.name}}</router-link>
             </dt>
           </dl>
@@ -184,6 +184,18 @@ export default {
       this.navIndex = foundIndex;
       this.menuName = this.navList[foundIndex].name;
       sessionStorage.setItem('navIndex', foundIndex);
+    },
+    copyPhoneNumber() {
+      const phoneNumber = '18629057799';
+      const textArea = document.createElement('textarea');
+      textArea.value = phoneNumber;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+
+      // 显示提示信息
+      alert('电话号码已复制到剪贴板：' + phoneNumber);
     }
   },
   watch: {
