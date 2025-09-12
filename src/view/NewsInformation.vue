@@ -146,7 +146,7 @@ export default {
   components: {OnlineConsultation},
   data(){
     return{
-      activeTab: '大事记',
+      activeTab: '资质成果',
       currentIndex: 0,
       patentCurrentIndex: 0,
       companyImageIndex: 0, // 公司图片轮播索引

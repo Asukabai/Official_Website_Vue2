@@ -13,7 +13,8 @@
           <a href="https://www.taobao.com" target="_blank" title="前往淘宝店铺" style="display: inline-block; vertical-align: middle;">
             <img src="../assets/img/淘宝图标-圆彩.png" alt="淘宝图标" style="width: 25px; height: 25px; margin-right: 5px;">
           </a>
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
+          <span class="glyphicon glyphicon-hand-right"></span>
+          <span class="contact-text" @click="copyPhoneNumber">赶快联系我们吧！</span>
           <span class="glyphicon glyphicon-hand-left"></span>
         </div>
       </div>
@@ -39,9 +40,19 @@
             <i class="underline"></i>
           </router-link>
           <dl v-if="item.children.length>0">
-            <dt v-for="(i,n) in item.children" :key="n" @click.stop="$router.push(i.path)">
-              <router-link :to="i.path">{{i.name}}</router-link>
-            </dt>
+            <template v-for="(i,n) in item.children">
+              <dt v-if="!i.children || i.children.length === 0" :key="n" @click.stop="$router.push(i.path)">
+                <router-link :to="i.path">{{i.name}}</router-link>
+              </dt>
+              <dt v-else class="has-children" :key="n">
+                <span>{{i.name}}<span class="glyphicon glyphicon-menu-right submenu-icon"></span></span>
+                <div class="submenu">
+                  <div v-for="(subItem, subIndex) in i.children" :key="subIndex" @click.stop="$router.push(subItem.path)">
+                    <router-link :to="subItem.path">{{subItem.name}}</router-link>
+                  </div>
+                </div>
+              </dt>
+            </template>
           </dl>
         </li>
       </ul>
@@ -82,6 +93,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "Header",
@@ -98,23 +110,71 @@ export default {
         },
         {
           name: "产品列表",
-          path: "/software",
+          path: "/productList",
           children: [
             {
-              name: "自动化测控系统",
-              path: "/software/automated_system"
-            },
-            {
-              name: "智能调测设备",
-              path: "/software/intelligent_equipment"
-            },
-            {
-              name: "电子设备测试仪器",
-              path: "/software/electronic_instruments"
-            },
-            {
-              name: "生产管理平台",
-              path: "/software/software_platform"
+              name: "电性能负载测试平台",
+              path: "/productList/electrical_testing_platform",
+              children: [
+                {
+                  name: "电源自动化测试系统",
+                  path: "/productList/electrical_testing_platform/automated_system"
+                },
+                {
+                  name: "多路通用智能测试系统",
+                  path: "/productList/electrical_testing_platform/intelligent_equipment"
+                },
+                {
+                  name: "超高速 / 高压电子负载",
+                  path: "/productList/electrical_testing_platform/electronic_instruments"
+                },
+                {
+                  name: "AGV协作机器人",
+                  path: "/productList/electrical_testing_platform/software_platform"
+                }
+              ]
+            }, {
+              name: "力负载模拟测试平台",
+              path: "/productList/force_testing_platform",
+              children: [
+                {
+                  name: "旋转类负载模拟系统",
+                  path: "/productList/force_testing_platform/automated_system"
+                },
+                {
+                  name: "直线类负载模拟系统",
+                  path: "/productList/force_testing_platform/intelligent_equipment"
+                },
+                {
+                  name: "起落架、铁鸟类负载模拟系统",
+                  path: "/productList/force_testing_platform/electronic_instruments"
+                },
+                {
+                  name: "定制化测试台模拟系统",
+                  path: "/productList/force_testing_platform/software_platform"
+                }
+              ]
+            }, {
+              name: "软件自动化管理平台",
+              path: "/productList/software_testing_platform",
+              children: [
+                {
+                  name: "智能通用化负载监测平台",
+                  path: "/productList/software_testing_platform/automated_system"
+                },
+                {
+                  name: "视觉自动化检测及图像识别平台",
+                  path: "/productList/software_testing_platform/intelligent_equipment"
+                },
+                {
+                  name: "MES智能制造执行管理系统",
+                  path: "/productList/software_testing_platform/electronic_instruments"
+                },
+                {
+                  name: "定制化智能化解决方案",
+                  path: "/productList/software_testing_platform/software_platform"
+                }
+              ]
             }
           ]
         },
@@ -351,6 +411,57 @@ export default {
   cursor: pointer;
   background: #ccc;
 }
+
+/* 三级菜单样式 */
+#header .header-nav .header-nav-wrapper > li > dl > dt.has-children {
+  position: relative;
+}
+
+#header .header-nav .header-nav-wrapper > li > dl > dt.has-children:hover .submenu {
+  display: block;
+}
+
+#header .header-nav .header-nav-wrapper > li > dl > dt.has-children > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submenu-icon {
+  float: right;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+#header .header-nav .header-nav-wrapper > li > dl > dt.has-children:hover .submenu-icon {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 180px;
+  background: #fff;
+  box-shadow: 0 0 3px 1px #ccc;
+  z-index: 9999999;
+}
+
+.submenu > div {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.submenu > div:hover {
+  background: #f5f5f5;
+}
+
+.submenu > div:last-child {
+  border-bottom: none;
+}
+
 @media screen and (max-width: 997px) {
   #header .header-nav-m {
     position: relative;
@@ -433,4 +544,14 @@ export default {
     font-size: 24px;
   }
 }
+
+/* 添加联系我们的文本样式 */
+.contact-text {
+  cursor: pointer;
+}
+
+.contact-text:hover {
+  color: #00b7ee;
+}
 </style>
+

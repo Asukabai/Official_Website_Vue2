@@ -24,47 +24,123 @@ export default new Router({
           }
         },
         {
-          path: '/software',
-          name: 'software',
+          path: '/productList',
+          name: 'productList',
           component: resolve => require(['@/view/Software'], resolve),
           meta: {
             title: '产品列表'
           },
           children: [
             {
-              path: '/software',
-              redirect: '/software/automated_system'
+              path: '/productList',
+              redirect: '/productList/electrical_testing_platform/automated_system'
             },
             {
-              path: '/software/automated_system',
+              path: '/productList/electrical_testing_platform',
+              redirect: '/productList/electrical_testing_platform/automated_system'
+            },
+            {
+              path: '/productList/electrical_testing_platform/automated_system',
               name: 'Software_AutomatedSystem',
               component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
               meta: {
-                title: '软件产品丨自动化测控系统'
+                title: '电源自动化测试系统'
               }
             },
             {
-              path: '/software/intelligent_equipment',
+              path: '/productList/electrical_testing_platform/intelligent_equipment',
               name: 'Software_IntelligentEquipment',
               component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
               meta: {
-                title: '软件产品丨智能调测设备'
+                title: '多路通用智能测试系统'
               }
             },
             {
-              path: '/software/electronic_instruments',
+              path: '/productList/electrical_testing_platform/electronic_instruments',
               name: 'Software_ElectronicInstruments',
               component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
               meta: {
-                title: '软件产品丨电子设备测试仪器'
+                title: '超高速 / 高压电子负载'
               }
             },
             {
-              path: '/software/software_platform',
+              path: '/productList/electrical_testing_platform/software_platform',
               name: 'Software_SoftwarePlatform',
               component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
               meta: {
-                title: '软件产品丨生产管理平台'
+                title: 'AGV协作机器人'
+              }
+            },
+            {
+              path: '/productList/force_testing_platform',
+              redirect: '/productList/force_testing_platform/automated_system'
+            },
+            {
+              path: '/productList/force_testing_platform/automated_system',
+              name: 'Force_AutomatedSystem',
+              component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
+              meta: {
+                title: '旋转类负载模拟系统'
+              }
+            },
+            {
+              path: '/productList/force_testing_platform/intelligent_equipment',
+              name: 'Force_IntelligentEquipment',
+              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
+              meta: {
+                title: '直线类负载模拟系统'
+              }
+            },
+            {
+              path: '/productList/force_testing_platform/electronic_instruments',
+              name: 'Force_ElectronicInstruments',
+              component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
+              meta: {
+                title: '起落架、铁鸟类负载模拟系统'
+              }
+            },
+            {
+              path: '/productList/force_testing_platform/software_platform',
+              name: 'Force_SoftwarePlatform',
+              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              meta: {
+                title: '定制化测试台模拟系统'
+              }
+            },
+            {
+              path: '/productList/software_testing_platform',
+              redirect: '/productList/software_testing_platform/automated_system'
+            },
+            {
+              path: '/productList/software_testing_platform/automated_system',
+              name: 'Platform_AutomatedSystem',
+              component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
+              meta: {
+                title: '智能通用化负载监测平台'
+              }
+            },
+            {
+              path: '/productList/software_testing_platform/intelligent_equipment',
+              name: 'Platform_IntelligentEquipment',
+              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
+              meta: {
+                title: '视觉自动化检测及图像识别平台'
+              }
+            },
+            {
+              path: '/productList/software_testing_platform/electronic_instruments',
+              name: 'Platform_ElectronicInstruments',
+              component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
+              meta: {
+                title: 'MES智能制造执行管理系统'
+              }
+            },
+            {
+              path: '/productList/software_testing_platform/software_platform',
+              name: 'Platform_SoftwarePlatform',
+              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              meta: {
+                title: '定制化智能化解决方案'
               }
             }
           ]
