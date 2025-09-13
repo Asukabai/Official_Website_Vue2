@@ -158,6 +158,10 @@ export default {
   name: 'Software_AutomatedSystem',
   data() {
     return {}
+  },
+  mounted() {
+    // 页面加载时滚动到顶部
+    window.scrollTo(0, 0);
   }
 }
 </script>

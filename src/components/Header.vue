@@ -230,6 +230,12 @@ export default {
           break;
         }
 
+        // 检查是否为service相关路由，如果是则设置为解决方案(索引为2)
+        if (currentPath.startsWith('/productList')) {
+          foundIndex = 1;
+          break;
+        }
+
         // 检查子菜单
         if (item.children && item.children.length > 0) {
           for (let j = 0; j < item.children.length; j++) {

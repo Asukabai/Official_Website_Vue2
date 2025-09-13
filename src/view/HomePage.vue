@@ -32,38 +32,50 @@
             <h2 class="grid-title">电性能负载测试平台</h2>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/automated_system')">
               <img src="../assets/img/电源自动化测试系统-首页图.png" alt="电源自动化测试系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>电源自动化测试系统</strong></p>
                 <p>类别：固定测试系统<br>宇航级、民用级、特种电源测试、微小放电测试等 ；</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/intelligent_equipment')">
               <img src="../assets/img/多路测试系统_首页图.png" alt="多路通用智能测试系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>多路通用智能测试系统</strong></p>
                 <p>类别：固定测试系统<br>全面特性测试，高度集成，小型化，可长时间老练测试 ；</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/electronic_instruments')">
               <img src="../assets/img/电子负载_首页图.png" alt="超高速 / 高压电子负载" class="grid-image">
               <div class="grid-text">
                 <p><strong>超高速 / 高压电子负载</strong></p>
                 <p>类别：固定测试系统<br>连续工作模式+脉冲工作模式，数字化控制、稳定可靠 ；</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/software_platform')">
               <img src="../assets/img/AGV_首页图.png" alt="AGV协作机器人" class="grid-image">
               <div class="grid-text">
                 <p><strong>AGV协作机器人</strong></p>
                 <p>类别：移动测试系统<br>自动导航、避障、定位校正、射频电缆自动对接、自动测试、上传数据 ；</p>
+              </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
               </div>
             </div>
           </div>
@@ -75,38 +87,50 @@
             <h2 class="grid-title">力负载模拟测试平台</h2>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/automated_system')">
               <img src="../assets/img/力学负载模拟系统.png" alt="旋转类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>旋转类负载模拟系统</strong></p>
                 <p>电压：150V, 600V, 1200V<br>电流：2400A<br>功率：4kW~60kW</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/intelligent_equipment')">
               <img src="../assets/img/直线类负载模拟_首页图.png" alt="直线类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>直线类负载模拟系统</strong></p>
                 <p>电压：0~2250V<br>电流：0~4500A<br>功率：0~180kW</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/electronic_instruments')">
               <img src="../assets/img/起落架负载模拟系统_首页图.png" alt="起落架、铁鸟类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>起落架、铁鸟类负载模拟系统</strong></p>
                 <p>电压：150V, 600V, 1200V<br>电流：2400A<br>功率：4kW~60kW</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/software_platform')">
               <img src="../assets/img/定制化测试台模拟系统.png" alt="定制化测试台模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>定制化测试台模拟系统</strong></p>
                 <p>电压：150V, 600V, 1200V<br>电流：60A~300A<br>功率：600W~3000W</p>
+              </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
               </div>
             </div>
           </div>
@@ -118,44 +142,57 @@
             <h2 class="grid-title">软件自动化平台，监测管理，仿真识别测试系统</h2>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/automated_system')">
               <img src="../assets/img/智能通用化负载监测平台.png" alt="智能通用化负载监测平台" class="grid-image">
               <div class="grid-text">
                 <p><strong>智能通用化负载监测平台</strong></p>
                 <p>支持多路信号同步采集，时序精度高达5μs</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/intelligent_equipment')">
               <img src="../assets/img/视觉检测_首页图.png" alt="视觉自动化检测及图像识别平台" class="grid-image">
               <div class="grid-text">
                 <p><strong>视觉自动化检测及图像识别平台</strong></p>
                 <p>支持20通道并行+72小时不间断自动测试</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/electronic_instruments')">
               <img src="../assets/img/MES_首页图.png" alt="MES智能制造执行管理系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>MES智能制造执行管理系统</strong></p>
                 <p>助力企业打造智能工厂，实现精益生产</p>
               </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
+              </div>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/software_platform')">
               <img src="../assets/img/定制化_首页图.png" alt="定制化智能化解决方案" class="grid-image">
               <div class="grid-text">
                 <p><strong>定制化智能化解决方案</strong></p>
                 <p>提供完整的机、电、控、软整体解决方案</p>
+              </div>
+              <div class="overlay">
+                <div class="overlay-text">点击查看详情</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
 
     <!-- 为什么选择我们 -->
@@ -543,6 +580,7 @@ export default {
 .grid-item {
   margin-bottom: 20px;
   position: relative;
+  cursor: pointer;
 }
 
 .grid-content {
@@ -590,6 +628,32 @@ export default {
   font-size: 16px;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(63, 131, 248, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-content:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
 /* 响应式调整 */
 @media screen and (max-width: 768px) {
   .grid-section {
@@ -622,6 +686,11 @@ export default {
   .grid-content:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .overlay-text {
+    font-size: 16px;
+    padding: 10px;
   }
 }
 

@@ -8,7 +8,35 @@
     <!-- 平台简介 -->
     <div class="row platform-intro">
       <div class="col-md-12 text-center">
-        <img src="../assets/img/AGV小车.png" alt="AGV小车" class="img-responsive platform-img">
+        <!-- 图片和视频切换容器 -->
+        <div class="media-container">
+          <!-- 媒体内容展示区 -->
+          <div class="media-content">
+            <img v-show="showMediaType === 'image'" src="../assets/img/AGV小车.png" alt="AGV小车" class="img-responsive platform-img">
+            <video v-show="showMediaType === 'video'" controls class="img-responsive platform-img">
+              <source src="../assets/video/AGV小车.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+
+          <!-- 切换标签区域 -->
+          <div class="media-tabs-container">
+            <div class="media-tabs">
+              <span
+                :class="['media-tab', { active: showMediaType === 'image' }]"
+                @click="showMediaType = 'image'"
+              >
+                图片
+              </span>
+              <span
+                :class="['media-tab', { active: showMediaType === 'video' }]"
+                @click="showMediaType = 'video'"
+              >
+                视频
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md-18">
         <h2>设备概述</h2>
@@ -26,6 +54,7 @@
         </div>
       </div>
     </div>
+
 
     <!-- 技术参数 -->
     <div class="technical-specs">
@@ -184,10 +213,17 @@
 export default {
   name: 'Software_IntelligentEquipment',
   data() {
-    return {}
+    return {
+      showMediaType: 'image' // 默认显示图片
+    }
+  },
+  mounted() {
+    // 页面加载时滚动到顶部
+    window.scrollTo(0, 0);
   }
 }
 </script>
+
 
 <style scoped>
 #Software {
@@ -261,4 +297,72 @@ h3 {
   max-width: 80%;
   max-height: 80px;
 }
+
+.platform-img {
+  max-width: 90%;
+  height: auto;
+  display: inline-block;
+}
+
+.scenario-img {
+  max-width: 80%;
+  max-height: 80px;
+}
+
+/* 媒体切换样式 */
+.media-container {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.media-content {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.media-tabs-container {
+  display: flex;
+  justify-content: center;
+}
+
+.media-tabs {
+  display: inline-flex;
+  background-color: #f8f9fa;
+  border-radius: 30px;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.media-tab {
+  padding: 8px 20px;
+  border-radius: 30px;
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  min-width: 80px;
+  text-align: center;
+}
+
+.media-tab:hover {
+  color: #3F83F8;
+}
+
+.media-tab.active {
+  background-color: #3F83F8;
+  color: white;
+  box-shadow: 0 2px 5px rgba(63, 131, 248, 0.3);
+}
+
+/* 视频样式 */
+video {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
 </style>
