@@ -13,18 +13,18 @@
       <div class="col-md-12">
         <h2>系统概述</h2>
         <p style="text-indent: 2em;">
-          MES智能制造执行管理系统是一套面向制造业的数字化生产管理平台，用于监控和管理从原材料投入到成品产出的整个生产过程。该系统实现了生产计划、过程控制、质量管理、设备维护和资源调度等功能的集成化管理。</p>
+          起落架、铁鸟类负载模拟系统是专门针对航空领域起落架和铁鸟试验台开发的高精度力负载模拟测试平台。该系统能够精确模拟飞行器起降过程中起落架所承受的各种载荷，以及铁鸟试验台中各部件的受力情况，为飞机设计验证和性能测试提供可靠的数据支持。</p>
         <p style="text-indent: 2em;">
-          系统通过实时数据采集和分析，提供准确的生产状态信息，帮助企业优化生产流程，提高生产效率，降低生产成本，确保产品质量符合标准要求。</p>
+          系统通过高精度的液压控制技术和先进的传感器测量技术，实现对复杂载荷谱的精确复现，确保测试数据的准确性和可靠性，满足航空领域对高安全性、高可靠性测试设备的严格要求。</p>
         <div class="features">
           <h3>核心特点：</h3>
           <ul>
-            <li>实时生产数据采集与监控，精确度达99%以上</li>
-            <li>全流程生产追溯，支持产品全生命周期管理</li>
-            <li>多工厂、多车间统一管理平台</li>
-            <li>支持移动端和PC端同步操作</li>
-            <li>模块化设计，可根据企业需求灵活配置功能模块</li>
-            <li>直观的可视化界面，操作简便易用</li>
+            <li>高精度力控制，控制精度可达±0.5%F.S.</li>
+            <li>多通道同步控制，支持复杂载荷谱模拟</li>
+            <li>实时动态响应，响应时间小于20ms</li>
+            <li>安全保护机制完善，具备多重冗余保护</li>
+            <li>模块化设计，可根据测试需求灵活配置</li>
+            <li>直观的人机交互界面，操作简便易用</li>
           </ul>
         </div>
       </div>
@@ -38,20 +38,20 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">系统版本</td>
-              <td>MES-PRO-MFG-2024</td>
+              <td class="spec-title">最大加载能力</td>
+              <td>500kN</td>
             </tr>
             <tr>
-              <td class="spec-title">部署方式</td>
-              <td>云部署</td>
+              <td class="spec-title">控制精度</td>
+              <td>±0.5%F.S.</td>
             </tr>
             <tr>
-              <td class="spec-title">并发用户数</td>
-              <td>支持1000+用户同时在线</td>
+              <td class="spec-title">控制频率</td>
+              <td>0.01-100Hz</td>
             </tr>
             <tr>
-              <td class="spec-title">数据存储</td>
-              <td>支持本地和云端存储</td>
+              <td class="spec-title">位移行程</td>
+              <td>±150mm</td>
             </tr>
 
             </tbody>
@@ -61,20 +61,20 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">操作系统</td>
-              <td>Windows 10/11</td>
+              <td class="spec-title">系统响应时间</td>
+              <td><20ms</td>
             </tr>
             <tr>
-              <td class="spec-title">数据库支持</td>
-              <td>MySQL</td>
+              <td class="spec-title">数据采集频率</td>
+              <td>10kHz</td>
             </tr>
             <tr>
-              <td class="spec-title">移动端支持</td>
-              <td>iOS, Android上的钉钉小程序</td>
+              <td class="spec-title">控制方式</td>
+              <td>力控制/位移控制</td>
             </tr>
             <tr>
-              <td class="spec-title">接口支持</td>
-              <td>RESTful API</td>
+              <td class="spec-title">通信接口</td>
+              <td>EtherCAT、Ethernet</td>
             </tr>
             </tbody>
           </table>
@@ -88,24 +88,24 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="glyphicon glyphicon-plane"></span>
           </div>
-          <h3>生产计划管理</h3>
-          <p>实现生产订单的自动排程和资源分配，优化生产计划执行</p>
+          <h3>起落架测试</h3>
+          <p>模拟飞机起降过程中的各种载荷工况，验证起落架结构强度和疲劳寿命</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-tasks"></span>
           </div>
-          <h3>质量过程控制</h3>
-          <p>实时监控生产过程中的质量数据，自动预警和质量追溯</p>
+          <h3>铁鸟试验</h3>
+          <p>在铁鸟试验台上模拟飞行控制面载荷，验证飞控系统性能</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-stats"></span>
+            <span class="glyphicon glyphicon-cog"></span>
           </div>
-          <h3>设备与物料管理</h3>
-          <p>跟踪设备状态和物料流转，确保生产资源的有效利用</p>
+          <h3>部件测试</h3>
+          <p>对航空器关键承力部件进行静态和动态载荷测试</p>
         </div>
       </div>
     </div>
@@ -116,30 +116,30 @@
       <div class="row">
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-dashboard"></span>
+            <span class="glyphicon glyphicon-screenshot"></span>
           </div>
-          <h3>可视化管理</h3>
-          <p>实时展示生产状态和关键指标，辅助管理决策</p>
+          <h3>高精度控制</h3>
+          <p>采用先进控制算法，确保载荷模拟的高精度和高稳定性</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-retweet"></span>
+            <span class="glyphicon glyphicon-flash"></span>
           </div>
-          <h3>流程优化</h3>
-          <p>通过数据分析识别生产瓶颈，持续优化流程</p>
+          <h3>快速响应</h3>
+          <p>高速液压系统和控制器，实现快速动态响应</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-transfer"></span>
+            <span class="glyphicon glyphicon-lock"></span>
           </div>
-          <h3>系统集成</h3>
-          <p>支持与 ERP 等系统无缝集成</p>
+          <h3>安全可靠</h3>
+          <p>多重安全保护机制，确保人员和设备安全</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-scale"></span>
+            <span class="glyphicon glyphicon-wrench"></span>
           </div>
-          <h3>灵活扩展</h3>
+          <h3>灵活配置</h3>
           <p>模块化架构支持个性化定制和功能扩展</p>
         </div>
       </div>
@@ -149,7 +149,7 @@
 
 <script>
 export default {
-  name: 'Software_SoftwarePlatform',
+  name: 'Software_LandingBirdLoadSimulationSystem',
   data() {
     return {}
   },
@@ -237,4 +237,3 @@ h3 {
   max-height: 80px;
 }
 </style>
-

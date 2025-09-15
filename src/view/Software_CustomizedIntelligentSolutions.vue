@@ -13,18 +13,18 @@
       <div class="col-md-12">
         <h2>系统概述</h2>
         <p style="text-indent: 2em;">
-          MES智能制造执行管理系统是一套面向制造业的数字化生产管理平台，用于监控和管理从原材料投入到成品产出的整个生产过程。该系统实现了生产计划、过程控制、质量管理、设备维护和资源调度等功能的集成化管理。</p>
+          定制化智能化解决方案是一套面向各行业的软件自动化管理平台，为企业提供量身定制的智能化管理工具。该平台融合了人工智能、大数据分析、自动化控制等先进技术，可根据企业特定需求提供个性化的软件解决方案，实现业务流程的自动化和智能化管理。</p>
         <p style="text-indent: 2em;">
-          系统通过实时数据采集和分析，提供准确的生产状态信息，帮助企业优化生产流程，提高生产效率，降低生产成本，确保产品质量符合标准要求。</p>
+          系统通过智能化的数据处理和分析能力，帮助企业优化资源配置、提升管理效率、降低运营成本。平台具备强大的扩展性和兼容性，能够与企业现有系统无缝集成，为企业数字化转型提供强有力的技术支撑。</p>
         <div class="features">
           <h3>核心特点：</h3>
           <ul>
-            <li>实时生产数据采集与监控，精确度达99%以上</li>
-            <li>全流程生产追溯，支持产品全生命周期管理</li>
-            <li>多工厂、多车间统一管理平台</li>
-            <li>支持移动端和PC端同步操作</li>
-            <li>模块化设计，可根据企业需求灵活配置功能模块</li>
-            <li>直观的可视化界面，操作简便易用</li>
+            <li>个性化定制，满足不同行业和企业特定需求</li>
+            <li>智能化算法，实现数据分析和决策支持</li>
+            <li>自动化流程，减少人工干预，提高工作效率</li>
+            <li>可视化界面，直观展示关键指标和业务状态</li>
+            <li>模块化设计，可根据需求灵活配置功能模块</li>
+            <li>开放性架构，支持与多种系统集成</li>
           </ul>
         </div>
       </div>
@@ -38,20 +38,20 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">系统版本</td>
-              <td>MES-PRO-MFG-2024</td>
+              <td class="spec-title">平台架构</td>
+              <td>微服务架构</td>
             </tr>
             <tr>
               <td class="spec-title">部署方式</td>
-              <td>云部署</td>
+              <td>本地部署/云部署/混合部署</td>
             </tr>
             <tr>
-              <td class="spec-title">并发用户数</td>
-              <td>支持1000+用户同时在线</td>
+              <td class="spec-title">并发处理能力</td>
+              <td>支持万级并发用户</td>
             </tr>
             <tr>
               <td class="spec-title">数据存储</td>
-              <td>支持本地和云端存储</td>
+              <td>支持关系型和非关系型数据库</td>
             </tr>
 
             </tbody>
@@ -62,19 +62,19 @@
             <tbody>
             <tr>
               <td class="spec-title">操作系统</td>
-              <td>Windows 10/11</td>
+              <td>Windows/Linux</td>
             </tr>
             <tr>
               <td class="spec-title">数据库支持</td>
-              <td>MySQL</td>
+              <td>MySQL、PostgreSQL、Oracle、MongoDB</td>
             </tr>
             <tr>
               <td class="spec-title">移动端支持</td>
-              <td>iOS, Android上的钉钉小程序</td>
+              <td>响应式设计，支持各类移动设备</td>
             </tr>
             <tr>
               <td class="spec-title">接口支持</td>
-              <td>RESTful API</td>
+              <td>RESTful API、WebSocket、GraphQL</td>
             </tr>
             </tbody>
           </table>
@@ -88,24 +88,24 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="glyphicon glyphicon-cog"></span>
           </div>
-          <h3>生产计划管理</h3>
-          <p>实现生产订单的自动排程和资源分配，优化生产计划执行</p>
+          <h3>智能制造</h3>
+          <p>实现生产过程自动化控制和智能调度，提升制造效率</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-home"></span>
           </div>
-          <h3>质量过程控制</h3>
-          <p>实时监控生产过程中的质量数据，自动预警和质量追溯</p>
+          <h3>智慧建筑</h3>
+          <p>楼宇自动化管理，实现节能控制和智能运维</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-stats"></span>
+            <span class="glyphicon glyphicon-shopping-cart"></span>
           </div>
-          <h3>设备与物料管理</h3>
-          <p>跟踪设备状态和物料流转，确保生产资源的有效利用</p>
+          <h3>智慧零售</h3>
+          <p>商品管理、库存优化和客户行为分析</p>
         </div>
       </div>
     </div>
@@ -116,31 +116,31 @@
       <div class="row">
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-dashboard"></span>
+            <span class="glyphicon glyphicon-wrench"></span>
           </div>
-          <h3>可视化管理</h3>
-          <p>实时展示生产状态和关键指标，辅助管理决策</p>
+          <h3>定制化开发</h3>
+          <p>根据企业需求量身定制，满足个性化业务场景</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-retweet"></span>
+            <span class="glyphicon glyphicon-cloud"></span>
           </div>
-          <h3>流程优化</h3>
-          <p>通过数据分析识别生产瓶颈，持续优化流程</p>
+          <h3>云端部署</h3>
+          <p>支持多种部署方式，灵活适应不同IT环境</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="advantage-icon">
+            <span class="glyphicon glyphicon-stats"></span>
+          </div>
+          <h3>智能分析</h3>
+          <p>基于AI的数据分析，提供决策支持</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-transfer"></span>
           </div>
           <h3>系统集成</h3>
-          <p>支持与 ERP 等系统无缝集成</p>
-        </div>
-        <div class="col-md-3 text-center">
-          <div class="advantage-icon">
-            <span class="glyphicon glyphicon-scale"></span>
-          </div>
-          <h3>灵活扩展</h3>
-          <p>模块化架构支持个性化定制和功能扩展</p>
+          <p>开放API接口，轻松对接现有系统</p>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@
 
 <script>
 export default {
-  name: 'Software_SoftwarePlatform',
+  name: 'Software_CustomizedIntelligentSolutions',
   data() {
     return {}
   },
@@ -237,4 +237,3 @@ h3 {
   max-height: 80px;
 }
 </style>
-

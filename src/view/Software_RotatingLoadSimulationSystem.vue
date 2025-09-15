@@ -13,17 +13,17 @@
       <div class="col-md-12">
         <h2>系统概述</h2>
         <p style="text-indent: 2em;">
-          MES智能制造执行管理系统是一套面向制造业的数字化生产管理平台，用于监控和管理从原材料投入到成品产出的整个生产过程。该系统实现了生产计划、过程控制、质量管理、设备维护和资源调度等功能的集成化管理。</p>
+          旋转类负载模拟系统是一套面向旋转机械设备的高性能力负载模拟测试平台，专门用于模拟和测试电机、减速机、传动系统等旋转设备在各种工况下的负载特性。该系统集成了高精度扭矩控制、转速调节、振动监测等功能，能够真实再现设备在实际运行中的复杂负载情况。</p>
         <p style="text-indent: 2em;">
-          系统通过实时数据采集和分析，提供准确的生产状态信息，帮助企业优化生产流程，提高生产效率，降低生产成本，确保产品质量符合标准要求。</p>
+          系统通过先进的控制算法和高精度传感器，提供准确的力负载模拟和实时数据采集，帮助研发工程师验证产品设计性能，优化控制策略，确保产品质量符合行业标准要求。</p>
         <div class="features">
           <h3>核心特点：</h3>
           <ul>
-            <li>实时生产数据采集与监控，精确度达99%以上</li>
-            <li>全流程生产追溯，支持产品全生命周期管理</li>
-            <li>多工厂、多车间统一管理平台</li>
-            <li>支持移动端和PC端同步操作</li>
-            <li>模块化设计，可根据企业需求灵活配置功能模块</li>
+            <li>扭矩模拟范围：0.1Nm-5000Nm，精度±0.5%</li>
+            <li>转速控制范围：0-10000rpm，控制精度±1rpm</li>
+            <li>支持恒转矩、恒功率、变速变载等多种负载模式</li>
+            <li>实时监测振动、温度、噪声等关键参数</li>
+            <li>模块化设计，可根据测试需求灵活配置功能模块</li>
             <li>直观的可视化界面，操作简便易用</li>
           </ul>
         </div>
@@ -38,20 +38,24 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">系统版本</td>
-              <td>MES-PRO-MFG-2024</td>
+              <td class="spec-title">扭矩范围</td>
+              <td>0.1Nm-5000Nm</td>
             </tr>
             <tr>
-              <td class="spec-title">部署方式</td>
-              <td>云部署</td>
+              <td class="spec-title">扭矩精度</td>
+              <td>±0.5% FS</td>
             </tr>
             <tr>
-              <td class="spec-title">并发用户数</td>
-              <td>支持1000+用户同时在线</td>
+              <td class="spec-title">转速范围</td>
+              <td>0-10000rpm</td>
             </tr>
             <tr>
-              <td class="spec-title">数据存储</td>
-              <td>支持本地和云端存储</td>
+              <td class="spec-title">转速精度</td>
+              <td>±1rpm</td>
+            </tr>
+            <tr>
+              <td class="spec-title">控制响应时间</td>
+              <td>≤10ms</td>
             </tr>
 
             </tbody>
@@ -61,20 +65,28 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">操作系统</td>
-              <td>Windows 10/11</td>
+              <td class="spec-title">负载模式</td>
+              <td>恒转矩/恒功率/变速变载</td>
             </tr>
             <tr>
-              <td class="spec-title">数据库支持</td>
-              <td>MySQL</td>
+              <td class="spec-title">监测参数</td>
+              <td>扭矩、转速、振动、温度、噪声</td>
             </tr>
             <tr>
-              <td class="spec-title">移动端支持</td>
-              <td>iOS, Android上的钉钉小程序</td>
+              <td class="spec-title">通讯接口</td>
+              <td>USB/Ethernet/CAN/RS485</td>
             </tr>
             <tr>
-              <td class="spec-title">接口支持</td>
-              <td>RESTful API</td>
+              <td class="spec-title">控制方式</td>
+              <td>本地控制、远程控制</td>
+            </tr>
+            <tr>
+              <td class="spec-title">工作温度</td>
+              <td>0°C ~ 40°C</td>
+            </tr>
+            <tr>
+              <td class="spec-title">相对湿度</td>
+              <td>≤80% RH</td>
             </tr>
             </tbody>
           </table>
@@ -88,24 +100,24 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="glyphicon glyphicon-cog"></span>
           </div>
-          <h3>生产计划管理</h3>
-          <p>实现生产订单的自动排程和资源分配，优化生产计划执行</p>
+          <h3>电机测试</h3>
+          <p>适用于交流电机、直流电机、伺服电机等各类电机的负载特性测试</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon-refresh"></span>
           </div>
-          <h3>质量过程控制</h3>
-          <p>实时监控生产过程中的质量数据，自动预警和质量追溯</p>
+          <h3>减速机测试</h3>
+          <p>支持各种类型减速机的效率、扭矩、寿命等性能测试</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-stats"></span>
           </div>
-          <h3>设备与物料管理</h3>
-          <p>跟踪设备状态和物料流转，确保生产资源的有效利用</p>
+          <h3>传动系统验证</h3>
+          <p>用于汽车、航空、船舶等传动系统的综合性能验证</p>
         </div>
       </div>
     </div>
@@ -118,22 +130,22 @@
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-dashboard"></span>
           </div>
-          <h3>可视化管理</h3>
-          <p>实时展示生产状态和关键指标，辅助管理决策</p>
+          <h3>高精度控制</h3>
+          <p>采用高精度传感器和先进控制算法，确保负载模拟精度</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-retweet"></span>
           </div>
-          <h3>流程优化</h3>
-          <p>通过数据分析识别生产瓶颈，持续优化流程</p>
+          <h3>多种负载模式</h3>
+          <p>支持多种负载模式，满足不同设备的测试需求</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-transfer"></span>
           </div>
-          <h3>系统集成</h3>
-          <p>支持与 ERP 等系统无缝集成</p>
+          <h3>全面监测</h3>
+          <p>实时监测多种关键参数，提供全面的测试数据分析</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">

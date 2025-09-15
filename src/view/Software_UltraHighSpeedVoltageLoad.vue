@@ -13,17 +13,17 @@
       <div class="col-md-12">
         <h2>系统概述</h2>
         <p style="text-indent: 2em;">
-          MES智能制造执行管理系统是一套面向制造业的数字化生产管理平台，用于监控和管理从原材料投入到成品产出的整个生产过程。该系统实现了生产计划、过程控制、质量管理、设备维护和资源调度等功能的集成化管理。</p>
+          超高速/高压电子负载测试平台是一套面向电源、电池、充电器等电气设备的高性能测试解决方案。该平台集成了高精度测量、快速动态响应和多模式负载控制等功能，能够满足各种复杂电气设备的测试需求。</p>
         <p style="text-indent: 2em;">
-          系统通过实时数据采集和分析，提供准确的生产状态信息，帮助企业优化生产流程，提高生产效率，降低生产成本，确保产品质量符合标准要求。</p>
+          系统通过高速数据采集和精确控制算法，提供准确的电气参数测试结果，帮助企业验证产品性能，优化设计方案，确保产品质量符合行业标准要求。</p>
         <div class="features">
           <h3>核心特点：</h3>
           <ul>
-            <li>实时生产数据采集与监控，精确度达99%以上</li>
-            <li>全流程生产追溯，支持产品全生命周期管理</li>
-            <li>多工厂、多车间统一管理平台</li>
-            <li>支持移动端和PC端同步操作</li>
-            <li>模块化设计，可根据企业需求灵活配置功能模块</li>
+            <li>电压测试范围：0-1500V，电流测试范围：0-200A</li>
+            <li>响应速度高达100kHz，满足超高速动态测试需求</li>
+            <li>支持恒流、恒压、恒阻、恒功率等多种负载模式</li>
+            <li>高精度测量：电压精度±0.1%，电流精度±0.2%</li>
+            <li>模块化设计，支持多通道并联扩展</li>
             <li>直观的可视化界面，操作简便易用</li>
           </ul>
         </div>
@@ -38,20 +38,28 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">系统版本</td>
-              <td>MES-PRO-MFG-2024</td>
+              <td class="spec-title">电压范围</td>
+              <td>0-1500V DC</td>
             </tr>
             <tr>
-              <td class="spec-title">部署方式</td>
-              <td>云部署</td>
+              <td class="spec-title">电流范围</td>
+              <td>0-200A DC</td>
             </tr>
             <tr>
-              <td class="spec-title">并发用户数</td>
-              <td>支持1000+用户同时在线</td>
+              <td class="spec-title">功率范围</td>
+              <td>0-20kW</td>
             </tr>
             <tr>
-              <td class="spec-title">数据存储</td>
-              <td>支持本地和云端存储</td>
+              <td class="spec-title">电压精度</td>
+              <td>±(0.1%+0.1V)</td>
+            </tr>
+            <tr>
+              <td class="spec-title">电流精度</td>
+              <td>±(0.2%+0.2A)</td>
+            </tr>
+            <tr>
+              <td class="spec-title">响应速度</td>
+              <td>≤10μs</td>
             </tr>
 
             </tbody>
@@ -61,20 +69,28 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">操作系统</td>
-              <td>Windows 10/11</td>
+              <td class="spec-title">负载模式</td>
+              <td>CC/CV/CR/CP</td>
             </tr>
             <tr>
-              <td class="spec-title">数据库支持</td>
-              <td>MySQL</td>
+              <td class="spec-title">通讯接口</td>
+              <td>USB/Ethernet/CAN</td>
             </tr>
             <tr>
-              <td class="spec-title">移动端支持</td>
-              <td>iOS, Android上的钉钉小程序</td>
+              <td class="spec-title">控制方式</td>
+              <td>本地控制、远程控制</td>
             </tr>
             <tr>
-              <td class="spec-title">接口支持</td>
-              <td>RESTful API</td>
+              <td class="spec-title">工作温度</td>
+              <td>0°C ~ 40°C</td>
+            </tr>
+            <tr>
+              <td class="spec-title">存储温度</td>
+              <td>-20°C ~ 70°C</td>
+            </tr>
+            <tr>
+              <td class="spec-title">相对湿度</td>
+              <td>≤80% RH</td>
             </tr>
             </tbody>
           </table>
@@ -88,24 +104,24 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-list-alt"></span>
+            <span class="glyphicon glyphicon-flash"></span>
           </div>
-          <h3>生产计划管理</h3>
-          <p>实现生产订单的自动排程和资源分配，优化生产计划执行</p>
+          <h3>电源测试</h3>
+          <p>适用于开关电源、线性电源、模块电源等各类电源产品的性能验证</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="glyphicon glyphicon glyphicon-tasks"></span>
           </div>
-          <h3>质量过程控制</h3>
-          <p>实时监控生产过程中的质量数据，自动预警和质量追溯</p>
+          <h3>电池测试</h3>
+          <p>支持锂电池、铅酸电池、燃料电池等各类电池的充放电测试</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-stats"></span>
+            <span class="glyphicon glyphicon glyphicon-phone"></span>
           </div>
-          <h3>设备与物料管理</h3>
-          <p>跟踪设备状态和物料流转，确保生产资源的有效利用</p>
+          <h3>充电器测试</h3>
+          <p>适用于手机充电器、笔记本充电器、电动车充电器等产品测试</p>
         </div>
       </div>
     </div>
@@ -118,29 +134,29 @@
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-dashboard"></span>
           </div>
-          <h3>可视化管理</h3>
-          <p>实时展示生产状态和关键指标，辅助管理决策</p>
+          <h3>高精度测量</h3>
+          <p>采用高精度传感器和先进的测量算法，确保测试结果准确性</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-retweet"></span>
           </div>
-          <h3>流程优化</h3>
-          <p>通过数据分析识别生产瓶颈，持续优化流程</p>
+          <h3>快速响应</h3>
+          <p>超高速响应能力，能够捕捉瞬间电气参数变化</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-transfer"></span>
           </div>
-          <h3>系统集成</h3>
-          <p>支持与 ERP 等系统无缝集成</p>
+          <h3>多种模式</h3>
+          <p>支持多种负载模式，满足不同设备的测试需求</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-scale"></span>
           </div>
           <h3>灵活扩展</h3>
-          <p>模块化架构支持个性化定制和功能扩展</p>
+          <p>模块化架构支持多通道并联，轻松扩展功率和通道数</p>
         </div>
       </div>
     </div>
