@@ -34,7 +34,11 @@
           :class="index==navIndex?'active':''"
           @click="navClick(index,item.name)"
         >
-          <router-link :to="item.path">
+          <a v-if="item.isExternal" :href="item.path" target="_blank">
+            {{item.name}}
+            <i class="underline"></i>
+          </a>
+          <router-link v-else :to="item.path">
             {{item.name}}
             <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
             <i class="underline"></i>
@@ -83,7 +87,11 @@
             data-toggle="collapse"
             data-target="#menu"
           >
-            <router-link :to="item.path">
+            <a v-if="item.isExternal" :href="item.path" target="_blank">
+              {{item.name}}
+              <i class="underline"></i>
+            </a>
+            <router-link v-else :to="item.path">
               {{item.name}}
               <i class="underline"></i>
             </router-link>
@@ -178,6 +186,12 @@ export default {
             }
           ]
         },
+        {
+          name: "演示demo",
+          path: "https://api-v2.sensor-smart.cn:23012/ssmonitor/web/data-view-instance/preview/k8YMDSdsA0BZ",
+          isExternal: true,
+          children: []
+        } ,
         {
           name: "解决方案",
           path: "/service",
@@ -560,4 +574,3 @@ export default {
   color: #00b7ee;
 }
 </style>
-
