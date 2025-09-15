@@ -45,43 +45,43 @@ export default {
           path: '/productList/software_testing_platform/automated_system',
           name: '智能通用化负载监测平台'
         },{
-          path: '/productList/software_testing_platform/intelligent_equipment',
+          path: '/productList/software_testing_platform/visual_recognition_platform',
           name: '视觉自动化检测及图像识别平台'
         },{
-          path: '/productList/software_testing_platform/electronic_instruments',
+          path: '/productList/software_testing_platform/software_platform',
           name: 'MES智能制造执行管理系统'
         },{
-          path: '/productList/software_testing_platform/software_platform',
+          path: '/productList/software_testing_platform/customized_intelligent_solutions',
           name: '定制化智能化解决方案'
         }
       ],
       electricalList: [
         {
-          path: '/productList/electrical_testing_platform/automated_system',
+          path: '/productList/electrical_testing_platform/power_automation_testing_system',
           name: '电源自动化测试系统'
         },{
-          path: '/productList/electrical_testing_platform/intelligent_equipment',
+          path: '/productList/electrical_testing_platform/electronic_instruments',
           name: '多路通用智能测试系统'
         },{
-          path: '/productList/electrical_testing_platform/electronic_instruments',
+          path: '/productList/electrical_testing_platform/ultra_high_speed_voltage_load',
           name: '超高速 / 高压电子负载'
         },{
-          path: '/productList/electrical_testing_platform/software_platform',
+          path: '/productList/electrical_testing_platform/intelligent_equipment',
           name: 'AGV协作机器人'
         }
       ],
       forceList: [
         {
-          path: '/productList/force_testing_platform/automated_system',
+          path: '/productList/force_testing_platform/rotating_load_simulation_system',
           name: '旋转类负载模拟系统'
         },{
-          path: '/productList/force_testing_platform/intelligent_equipment',
+          path: '/productList/force_testing_platform/linear_load_simulation_system',
           name: '直线类负载模拟系统'
         },{
-          path: '/productList/force_testing_platform/electronic_instruments',
+          path: '/productList/force_testing_platform/landing_bird_load_simulation_system',
           name: '起落架、铁鸟类负载模拟系统'
         },{
-          path: '/productList/force_testing_platform/software_platform',
+          path: '/productList/force_testing_platform/customized_test_system',
           name: '定制化测试台模拟系统'
         }
       ]

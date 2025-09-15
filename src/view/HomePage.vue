@@ -32,7 +32,7 @@
             <h2 class="grid-title">电性能负载测试平台</h2>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/automated_system')">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/power_automation_testing_system')">
               <img src="../assets/img/电源自动化测试系统-首页图.png" alt="电源自动化测试系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>电源自动化测试系统</strong></p>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/intelligent_equipment')">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/electronic_instruments')">
               <img src="../assets/img/多路测试系统_首页图.png" alt="多路通用智能测试系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>多路通用智能测试系统</strong></p>
@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/electronic_instruments')">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/ultra_high_speed_voltage_load')">
               <img src="../assets/img/电子负载_首页图.png" alt="超高速 / 高压电子负载" class="grid-image">
               <div class="grid-text">
                 <p><strong>超高速 / 高压电子负载</strong></p>
@@ -68,7 +68,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/software_platform')">
+            <div class="grid-content" @click="$router.push('/productList/electrical_testing_platform/intelligent_equipment')">
               <img src="../assets/img/AGV_首页图.png" alt="AGV协作机器人" class="grid-image">
               <div class="grid-text">
                 <p><strong>AGV协作机器人</strong></p>
@@ -87,7 +87,7 @@
             <h2 class="grid-title">力负载模拟测试平台</h2>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/automated_system')">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/rotating_load_simulation_system')">
               <img src="../assets/img/力学负载模拟系统.png" alt="旋转类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>旋转类负载模拟系统</strong></p>
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/intelligent_equipment')">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/linear_load_simulation_system')">
               <img src="../assets/img/直线类负载模拟_首页图.png" alt="直线类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>直线类负载模拟系统</strong></p>
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/electronic_instruments')">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/landing_bird_load_simulation_system')">
               <img src="../assets/img/起落架负载模拟系统_首页图.png" alt="起落架、铁鸟类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>起落架、铁鸟类负载模拟系统</strong></p>
@@ -123,7 +123,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/software_platform')">
+            <div class="grid-content" @click="$router.push('/productList/force_testing_platform/customized_test_system')">
               <img src="../assets/img/定制化测试台模拟系统.png" alt="定制化测试台模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>定制化测试台模拟系统</strong></p>
@@ -154,11 +154,11 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/intelligent_equipment')">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/visual_recognition_platform')">
               <img src="../assets/img/视觉检测_首页图.png" alt="视觉自动化检测及图像识别平台" class="grid-image">
               <div class="grid-text">
                 <p><strong>视觉自动化检测及图像识别平台</strong></p>
-                <p>支持20通道并行+72小时不间断自动测试</p>
+                <p>高精度缺陷检测，支持包括焊点、元件、线路等多种缺陷类型检测</p>
               </div>
               <div class="overlay">
                 <div class="overlay-text">点击查看详情</div>
@@ -166,7 +166,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/electronic_instruments')">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/software_platform')">
               <img src="../assets/img/MES_首页图.png" alt="MES智能制造执行管理系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>MES智能制造执行管理系统</strong></p>
@@ -178,7 +178,7 @@
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 grid-item">
-            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/software_platform')">
+            <div class="grid-content" @click="$router.push('/productList/software_testing_platform/customized_intelligent_solutions')">
               <img src="../assets/img/定制化_首页图.png" alt="定制化智能化解决方案" class="grid-image">
               <div class="grid-text">
                 <p><strong>定制化智能化解决方案</strong></p>

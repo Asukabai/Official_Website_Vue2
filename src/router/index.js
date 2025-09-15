@@ -40,19 +40,11 @@ export default new Router({
               redirect: '/productList/electrical_testing_platform/automated_system'
             },
             {
-              path: '/productList/electrical_testing_platform/automated_system',
-              name: 'Software_AutomatedSystem',
-              component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
+              path: '/productList/electrical_testing_platform/power_automation_testing_system',
+              name: 'Software_PowerAutomationTestingSystem',
+              component: resolve => require(['@/view/Software_PowerAutomationTestingSystem'], resolve),
               meta: {
                 title: '电源自动化测试系统'
-              }
-            },
-            {
-              path: '/productList/electrical_testing_platform/intelligent_equipment',
-              name: 'Software_IntelligentEquipment',
-              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
-              meta: {
-                title: '多路通用智能测试系统'
               }
             },
             {
@@ -60,13 +52,21 @@ export default new Router({
               name: 'Software_ElectronicInstruments',
               component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
               meta: {
+                title: '多路通用智能测试系统'
+              }
+            },
+            {
+              path: '/productList/electrical_testing_platform/ultra_high_speed_voltage_load',
+              name: 'Software_UltraHighSpeedVoltageLoad',
+              component: resolve => require(['@/view/Software_UltraHighSpeedVoltageLoad'], resolve),
+              meta: {
                 title: '超高速 / 高压电子负载'
               }
             },
             {
-              path: '/productList/electrical_testing_platform/software_platform',
-              name: 'Software_SoftwarePlatform',
-              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              path: '/productList/electrical_testing_platform/intelligent_equipment',
+              name: 'Software_IntelligentEquipment',
+              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
               meta: {
                 title: 'AGV协作机器人'
               }
@@ -76,33 +76,33 @@ export default new Router({
               redirect: '/productList/force_testing_platform/automated_system'
             },
             {
-              path: '/productList/force_testing_platform/automated_system',
-              name: 'Force_AutomatedSystem',
-              component: resolve => require(['@/view/Software_AutomatedSystem'], resolve),
+              path: '/productList/force_testing_platform/rotating_load_simulation_system',
+              name: 'Software_RotatingLoadSimulationSystem',
+              component: resolve => require(['@/view/Software_RotatingLoadSimulationSystem'], resolve),
               meta: {
                 title: '旋转类负载模拟系统'
               }
             },
             {
-              path: '/productList/force_testing_platform/intelligent_equipment',
-              name: 'Force_IntelligentEquipment',
-              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
+              path: '/productList/force_testing_platform/linear_load_simulation_system',
+              name: 'Software_LinearLoadSimulationSystem',
+              component: resolve => require(['@/view/Software_LinearLoadSimulationSystem'], resolve),
               meta: {
                 title: '直线类负载模拟系统'
               }
             },
             {
-              path: '/productList/force_testing_platform/electronic_instruments',
-              name: 'Force_ElectronicInstruments',
-              component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
+              path: '/productList/force_testing_platform/landing_bird_load_simulation_system',
+              name: 'Software_LandingBirdLoadSimulationSystem',
+              component: resolve => require(['@/view/Software_LandingBirdLoadSimulationSystem'], resolve),
               meta: {
                 title: '起落架、铁鸟类负载模拟系统'
               }
             },
             {
-              path: '/productList/force_testing_platform/software_platform',
-              name: 'Force_SoftwarePlatform',
-              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              path: '/productList/force_testing_platform/customized_test_system',
+              name: 'Software_CustomizedTestSystem',
+              component: resolve => require(['@/view/Software_CustomizedTestSystem'], resolve),
               meta: {
                 title: '定制化测试台模拟系统'
               }
@@ -120,25 +120,25 @@ export default new Router({
               }
             },
             {
-              path: '/productList/software_testing_platform/intelligent_equipment',
-              name: 'Platform_IntelligentEquipment',
-              component: resolve => require(['@/view/Software_IntelligentEquipment'], resolve),
+              path: '/productList/software_testing_platform/visual_recognition_platform',
+              name: 'Software_VisualRecognitionPlatform',
+              component: resolve => require(['@/view/Software_VisualRecognitionPlatform'], resolve),
               meta: {
                 title: '视觉自动化检测及图像识别平台'
               }
             },
             {
-              path: '/productList/software_testing_platform/electronic_instruments',
-              name: 'Platform_ElectronicInstruments',
-              component: resolve => require(['@/view/Software_ElectronicInstruments'], resolve),
+              path: '/productList/software_testing_platform/software_platform',
+              name: 'Software_SoftwarePlatform',
+              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
               meta: {
                 title: 'MES智能制造执行管理系统'
               }
             },
             {
-              path: '/productList/software_testing_platform/software_platform',
-              name: 'Platform_SoftwarePlatform',
-              component: resolve => require(['@/view/Software_SoftwarePlatform'], resolve),
+              path: '/productList/software_testing_platform/customized_intelligent_solutions',
+              name: 'Software_CustomizedIntelligentSolutions',
+              component: resolve => require(['@/view/Software_CustomizedIntelligentSolutions'], resolve),
               meta: {
                 title: '定制化智能化解决方案'
               }

@@ -2,33 +2,31 @@
   <div id="Software">
     <!-- 页面标题 -->
     <div class="page-header">
-      <h1>智能通用化负载监测平台 <small>自动化测控系统</small></h1>
+      <h1>旋转类负载模拟系统 <small>力负载模拟测试平台</small></h1>
     </div>
 
     <!-- 平台简介 -->
     <div class="row platform-intro">
       <div class="col-md-12 text-center">
-        <img src="../assets/img/自动化测试通用负载检测平台.png" alt="智能通用化负载监测平台" class="img-responsive platform-img">
+        <img src="../assets/img/旋转类负载模拟系统_2.png" alt="旋转类负载模拟系统_2" class="img-responsive platform-img">
       </div>
       <div class="col-md-12">
-        <h2>平台概述</h2>
+        <h2>系统概述</h2>
         <p style="text-indent: 2em;">
-          智能通用化负载监测平台是专为电源设备测试设计的高精度、多功能测试系统。该平台采用模块化设计，具备强大的数据采集和分析能力，能够满足各种复杂测试场景的需求。</p>
+          MES智能制造执行管理系统是一套面向制造业的数字化生产管理平台，用于监控和管理从原材料投入到成品产出的整个生产过程。该系统实现了生产计划、过程控制、质量管理、设备维护和资源调度等功能的集成化管理。</p>
         <p style="text-indent: 2em;">
-          平台支持多路信号同步采集，时序精度高达5μs，能够准确捕捉电源设备在各种工作状态下的性能参数，为产品质量控制和研发优化提供可靠的数据支撑。</p>
+          系统通过实时数据采集和分析，提供准确的生产状态信息，帮助企业优化生产流程，提高生产效率，降低生产成本，确保产品质量符合标准要求。</p>
         <div class="features">
           <h3>核心特点：</h3>
           <ul>
-            <li>高精度数据采集，误差小于0.1%</li>
-            <li>多通道同步测量，支持20通道并行自动化测试</li>
-            <li>长时间不间断测试，支持72小时连续运行</li>
-            <li>支持实时动态数据展示实时动态数据展示</li>
-            <li>模块化设计，易于扩展和维护，支持多机并联及扩展</li>
-            <li>友好的用户界面，操作简便</li>
+            <li>实时生产数据采集与监控，精确度达99%以上</li>
+            <li>全流程生产追溯，支持产品全生命周期管理</li>
+            <li>多工厂、多车间统一管理平台</li>
+            <li>支持移动端和PC端同步操作</li>
+            <li>模块化设计，可根据企业需求灵活配置功能模块</li>
+            <li>直观的可视化界面，操作简便易用</li>
           </ul>
         </div>
-<!--        <a href="http://192.168.67.58:22324/ssmonitor/web/login" class="btn btn-lg btn-block custom-info-btn half-width-btn">点击预览平台（用户名 ss ；密码 123456）</a>-->
-        <a href="https://api-v2.sensor-smart.cn:23012/ssmonitor/web/data-view-instance/preview/k8YMDSdsA0BZ" class="btn btn-lg btn-block custom-info-btn half-width-btn">点击预览平台（用户名 ss ；密码 123456）</a>
       </div>
     </div>
 
@@ -40,16 +38,12 @@
           <table class="table table-bordered">
             <tbody>
             <tr>
-              <td class="spec-title">平台版本</td>
-              <td>SS-SYS-MCTS-03</td>
-            </tr>
-            <tr>
-              <td class="spec-title">远程操作</td>
-              <td>支持</td>
+              <td class="spec-title">系统版本</td>
+              <td>MES-PRO-MFG-2024</td>
             </tr>
             <tr>
               <td class="spec-title">部署方式</td>
-              <td>本地/云部署</td>
+              <td>云部署</td>
             </tr>
             <tr>
               <td class="spec-title">并发用户数</td>
@@ -68,16 +62,15 @@
             <tbody>
             <tr>
               <td class="spec-title">操作系统</td>
-              <td>win 10 /11 </td>
-            </tr>
-
-            <tr>
-              <td class="spec-title">实时动态数据展示</td>
-              <td>支持</td>
+              <td>Windows 10/11</td>
             </tr>
             <tr>
               <td class="spec-title">数据库支持</td>
               <td>MySQL</td>
+            </tr>
+            <tr>
+              <td class="spec-title">移动端支持</td>
+              <td>iOS, Android上的钉钉小程序</td>
             </tr>
             <tr>
               <td class="spec-title">接口支持</td>
@@ -95,24 +88,24 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-refresh"></span>
+            <span class="glyphicon glyphicon-list-alt"></span>
           </div>
-          <h3>自动化测试</h3>
-          <p>适用于各种开关电源、线性电源等设备的性能测试和老化试验</p>
+          <h3>生产计划管理</h3>
+          <p>实现生产订单的自动排程和资源分配，优化生产计划执行</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-edit"></span>
+            <span class="glyphicon glyphicon-eye-open"></span>
           </div>
-          <h3>手动测试</h3>
-          <p>支持各类电池充放电测试，容量评估和性能分析</p>
+          <h3>质量过程控制</h3>
+          <p>实时监控生产过程中的质量数据，自动预警和质量追溯</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-stats"></span>
           </div>
-          <h3>数据采集监控</h3>
-          <p>支持长时间连续运行测试，验证设备的稳定性和可靠性</p>
+          <h3>设备与物料管理</h3>
+          <p>跟踪设备状态和物料流转，确保生产资源的有效利用</p>
         </div>
       </div>
     </div>
@@ -123,31 +116,31 @@
       <div class="row">
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-cog"></span>
+            <span class="glyphicon glyphicon-dashboard"></span>
           </div>
-          <h3>易操作</h3>
-          <p>直观的图形界面，操作简单易学</p>
+          <h3>可视化管理</h3>
+          <p>实时展示生产状态和关键指标，辅助管理决策</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-phone"></span>
+            <span class="glyphicon glyphicon-retweet"></span>
           </div>
-          <h3>适配强</h3>
-          <p>支持多种外设接入，兼容性强</p>
+          <h3>流程优化</h3>
+          <p>通过数据分析识别生产瓶颈，持续优化流程</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-resize-full"></span>
+            <span class="glyphicon glyphicon-transfer"></span>
           </div>
-          <h3>可扩展</h3>
-          <p>模块化设计，可根据需求灵活扩展</p>
+          <h3>系统集成</h3>
+          <p>支持与 ERP 等系统无缝集成</p>
         </div>
         <div class="col-md-3 text-center">
           <div class="advantage-icon">
-            <span class="glyphicon glyphicon-ok-circle"></span>
+            <span class="glyphicon glyphicon-scale"></span>
           </div>
-          <h3>高可用</h3>
-          <p>72小时不间断运行，稳定可靠</p>
+          <h3>灵活扩展</h3>
+          <p>模块化架构支持个性化定制和功能扩展</p>
         </div>
       </div>
     </div>
@@ -156,7 +149,7 @@
 
 <script>
 export default {
-  name: 'Software_AutomatedSystem',
+  name: 'Software_SoftwarePlatform',
   data() {
     return {}
   },
@@ -244,3 +237,4 @@ h3 {
   max-height: 80px;
 }
 </style>
+
