@@ -9,11 +9,16 @@
     <p class="address_tel_fax">
       <span>地址：陕西省西安市长安区建工科技创业基地2号楼1单元5层6层</span>
       <span>   </span>
-      <span>客户支持中心热线：（029）85820585</span>
+      <span>客户支持中心热线：18629057799</span>
+      <span>微信号：wangxq1975</span>
     </p>
     <p class="email_wx">
-      <span> 邮箱：hr@sensor-smart.com   </span>
-      <span>微信号：wangxq1975</span>
+<!--      <span> 邮箱：hr@sensor-smart.com   </span>-->
+<!--      <span>微信号：wangxq1975</span>-->
+    </p>
+    <p class="record-info">
+      <span>陕ICP备B2-20150093-8</span>
+      <span>陕公网安备61010201000139号</span>
     </p>
     <p class="copy">Copyright &copy; 2015 - {{ new Date().getFullYear() }} 陕西晟思智能测控有限公司</p>
   </div>
@@ -64,10 +69,18 @@ export default {
   color: #d3d3d3;
   font-size: 14px;
 }
+.record-info {
+  color: #d3d3d3;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.record-info span {
+  margin: 0 10px;
+}
 .copy {
   color: #d3d3d3;
   font-size: 14px;
-  margin: 50px 0 10px;
+  margin: 10px 0 10px;
 }
 @media screen and (max-width: 997px) {
   .logo-title-wrapper {
@@ -83,9 +96,12 @@ export default {
   .email_wx {
     font-size: 12px;
   }
+  .record-info {
+    font-size: 12px;
+  }
   .copy {
     font-size: 12px;
-    margin: 30px 0 10px;
+    margin: 10px 0;
   }
 }
 </style>
