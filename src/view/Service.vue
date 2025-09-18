@@ -64,14 +64,12 @@ export default {
         wow.init();
     },
     methods:{
-        ServiceClick(id){
-            this.$router.push({
-                name: 'servicedetail',
-                params: {
-                    id: id
-                }
-            })
-        }
+      ServiceClick(id){
+        this.$router.push({
+          name: 'servicedetail',
+          hash: '#' + id
+        })
+      }
     }
 }
 </script>

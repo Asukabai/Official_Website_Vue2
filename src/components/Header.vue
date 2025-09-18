@@ -34,11 +34,16 @@
           :class="index==navIndex?'active':''"
           @click="navClick(index,item.name)"
         >
-          <a v-if="item.isExternal" :href="item.path" target="_blank">
+          <a v-if="item.isExternal" href="javascript:void(0)" @click.stop="handleNavClick(item)">
             {{item.name}}
             <i class="underline"></i>
           </a>
-          <router-link v-else :to="item.path">
+          <a v-else-if="item.isParentOnly" href="javascript:void(0)" @click.stop>
+            {{item.name}}
+            <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
+            <i class="underline"></i>
+          </a>
+          <router-link v-else :to="item.path" @click.stop="handleNavClick(item)">
             {{item.name}}
             <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
             <i class="underline"></i>
@@ -87,11 +92,15 @@
             data-toggle="collapse"
             data-target="#menu"
           >
-            <a v-if="item.isExternal" :href="item.path" target="_blank">
+            <a v-if="item.isExternal" href="javascript:void(0)" @click.stop="handleNavClick(item)">
               {{item.name}}
               <i class="underline"></i>
             </a>
-            <router-link v-else :to="item.path">
+            <a v-else-if="item.isParentOnly" href="javascript:void(0)" @click.stop>
+              {{item.name}}
+              <i class="underline"></i>
+            </a>
+            <router-link v-else :to="item.path" @click.stop="handleNavClick(item)">
               {{item.name}}
               <i class="underline"></i>
             </router-link>
@@ -113,12 +122,13 @@ export default {
       navList: [
         {
           name: "首页",
-          path: "/",
+          path: "/home",
           children: []
         },
         {
           name: "产品列表",
           path: "/productList",
+          isParentOnly: true,
           children: [
             {
               name: "电性能负载测试平台",
@@ -188,9 +198,11 @@ export default {
         },
         {
           name: "演示demo",
-          path: "https://api-v2.sensor-smart.cn:23012/ssmonitor/web/data-view-instance/preview/k8YMDSdsA0BZ",
+          // path: "https://api-v2.sensor-smart.cn:23012/sswebsite/web/data-view-instance/preview/k8YMDSdsA0BZ",
+          path: "http://172.18.100.115:22325/ssmonitor/web/login",
           isExternal: true,
-          children: []
+          children: [],
+          openInNewTab: true
         } ,
         {
           name: "解决方案",
@@ -211,7 +223,27 @@ export default {
     };
   },
   methods: {
+    // 在导航方法中添加
+    handleNavClick(item) {
+      if (item.isExternal) {
+        if (item.openInNewTab) {
+          // 在新窗口中打开外部链接
+          window.open(item.path, '_blank');
+        } else {
+          // 在当前窗口中打开外部链接
+          window.location.href = item.path;
+        }
+      } else {
+        // 内部路由跳转
+        this.$router.push(item.path);
+      }
+    },
     navClick(index, name) {
+      // 如果是"产品列表"且标记为仅父级，则不执行跳转
+      if (this.navList[index].isParentOnly) {
+        return;
+      }
+
       this.navIndex = index;
       sessionStorage.setItem('navIndex', index);
       this.menuName = name;
@@ -225,42 +257,58 @@ export default {
     },
     updateNavStatus() {
       // 根据当前路由更新导航状态
-      const currentPath = this.$route.path;
+      const route = this.$route;
       let foundIndex = 0; // 默认为首页
 
-      // 遍历导航列表查找匹配项
-      for (let i = 0; i < this.navList.length; i++) {
-        const item = this.navList[i];
-
-        // 精确匹配
-        if (item.path === currentPath) {
-          foundIndex = i;
-          break;
+      // 首先检查路由 meta 信息中的导航高亮标识
+      if (route.meta && route.meta.navHighlight) {
+        const navHighlight = route.meta.navHighlight;
+        // 根据 navHighlight 值查找对应的导航项
+        for (let i = 0; i < this.navList.length; i++) {
+          if (this.navList[i].name === navHighlight) {
+            foundIndex = i;
+            break;
+          }
         }
+      } else {
+        // 备用方案：根据路径匹配（保持原有的逻辑）
+        const currentPath = route.path;
 
-        // 检查是否为service相关路由，如果是则设置为解决方案(索引为2)
-        if (currentPath.startsWith('/service')) {
-          foundIndex = 2;
-          break;
-        }
+        // 遍历导航列表查找匹配项
+        for (let i = 0; i < this.navList.length; i++) {
+          const item = this.navList[i];
 
-        // 检查是否为service相关路由，如果是则设置为解决方案(索引为2)
-        if (currentPath.startsWith('/productList')) {
-          foundIndex = 1;
-          break;
-        }
+          // 精确匹配
+          if (item.path === currentPath) {
+            foundIndex = i;
+            break;
+          }
 
-        // 检查子菜单
-        if (item.children && item.children.length > 0) {
-          for (let j = 0; j < item.children.length; j++) {
-            if (item.children[j].path === currentPath) {
-              foundIndex = i;
-              break;
+          // 检查是否为productList相关路由，如果是则设置为产品列表(索引为1)
+          if (currentPath.startsWith('/productList')) {
+            foundIndex = 1;
+            break;
+          }
+
+          // 检查是否为service相关路由，如果是则设置为解决方案(索引为3)
+          if (currentPath.startsWith('/service')) {
+            foundIndex = 3;
+            break;
+          }
+
+          // 检查子菜单
+          if (item.children && item.children.length > 0) {
+            for (let j = 0; j < item.children.length; j++) {
+              if (item.children[j].path === currentPath) {
+                foundIndex = i;
+                break;
+              }
             }
           }
         }
       }
 
+      // 更新导航状态
       this.navIndex = foundIndex;
       this.menuName = this.navList[foundIndex].name;
       sessionStorage.setItem('navIndex', foundIndex);
