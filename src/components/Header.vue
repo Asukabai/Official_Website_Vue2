@@ -199,7 +199,7 @@ export default {
         {
           name: "演示demo",
           // path: "https://api-v2.sensor-smart.cn:23012/sswebsite/web/data-view-instance/preview/k8YMDSdsA0BZ",
-          path: "http://172.18.100.115:22325/ssmonitor/web/login",
+          path: "http://192.168.65.234:22325/ssmonitor/web/login",
           isExternal: true,
           children: [],
           openInNewTab: true

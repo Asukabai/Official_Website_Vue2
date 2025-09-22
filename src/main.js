@@ -21,14 +21,23 @@ import './assets/css/reset.min.css'
 /* jquery */
 import 'jquery'
 
-/* bootstarp */
+/* bootstarp
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ *
+ * 中文组件官网：
+ *
+ * https://v3.bootcss.com/components/
+ *
+ */
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.min'
 
 /* animate.css */
 import 'animate.css'
 
- 
+
 /* 头部组件 */
 import Header from './components/Header'
 Vue.component(Header.name,Header)
