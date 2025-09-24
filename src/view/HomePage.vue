@@ -1,4 +1,3 @@
-<!-- src/view/HomePage.vue -->
 <template>
   <div id="HomePage">
     <!-- 轮播图 -->
@@ -732,6 +731,14 @@ export default {
   #swiper {
     height: 200px;
   }
+  #swiper .banner-swiper .swiper-slide-title > h1 {
+    font-size: 24px;
+    margin-top: 10%;
+  }
+  #swiper .banner-swiper .swiper-slide-title > p {
+    font-size: 12px;
+    margin-top: 2%;
+  }
   #bigData {
     padding: 30px;
   }
@@ -818,6 +825,14 @@ export default {
 @media screen and (min-width: 768px) and (max-width: 996px) {
   #swiper {
     height: 400px;
+  }
+  #swiper .banner-swiper .swiper-slide-title > h1 {
+    font-size: 36px;
+    margin-top: 10%;
+  }
+  #swiper .banner-swiper .swiper-slide-title > p {
+    font-size: 16px;
+    margin-top: 1%;
   }
   #bigData {
     padding: 60px;

@@ -85,22 +85,32 @@
         <!-- 导航内容 -->
         <ul id="menu" class="header-nav-m-wrapper collapse">
           <li
-            v-for="(item,index) in navList"
+            v-for="(item,index) in mobileNavList"
             :key="index"
             :class="index==navIndex?'active':''"
-            @click="navClick(index,item.name)"
-            data-toggle="collapse"
-            data-target="#menu"
+            @click="handleMobileNavClick(index, item)"
           >
-            <a v-if="item.isExternal" href="javascript:void(0)" @click.stop="handleNavClick(item)">
+            <a
+              v-if="item.isExternal"
+              href="javascript:void(0)"
+              class="nav-link"
+            >
               {{item.name}}
               <i class="underline"></i>
             </a>
-            <a v-else-if="item.isParentOnly" href="javascript:void(0)" @click.stop>
+            <a
+              v-else-if="item.isParentOnly"
+              href="javascript:void(0)"
+              class="nav-link"
+            >
               {{item.name}}
               <i class="underline"></i>
             </a>
-            <router-link v-else :to="item.path" @click.stop="handleNavClick(item)">
+            <router-link
+              v-else
+              :to="item.path"
+              class="nav-link"
+            >
               {{item.name}}
               <i class="underline"></i>
             </router-link>
@@ -199,7 +209,10 @@ export default {
         {
           name: "演示demo",
           // path: "https://api-v2.sensor-smart.cn:23012/sswebsite/web/data-view-instance/preview/k8YMDSdsA0BZ",
-          path: "http://192.168.65.234:22325/ssmonitor/web/login",
+          // path: "http://192.168.65.234:22325/ssmonitor/web/login",
+          // window.location.origin 是一个Web API属性，它返回当前页面的源（协议+域名+端口号），这样无论项目部署在什么地址下，都会自动获取当前运行环境的实际地址。
+          // 这样修改后，无论项目部署在本地开发环境还是生产环境，都会根据实际运行的地址来拼接完整路径，而不会使用固定的IP和端口。
+          path: window.location.origin + "/ssmonitor/web/login",
           isExternal: true,
           children: [],
           openInNewTab: true
@@ -222,6 +235,12 @@ export default {
       ]
     };
   },
+  computed: {
+    // 为移动端创建一个过滤后的导航列表，排除"产品列表"和"演示demo"
+    mobileNavList() {
+      return this.navList.filter(item => item.name !== "产品列表" && item.name !== "演示demo");
+    }
+  },
   methods: {
     // 在导航方法中添加
     handleNavClick(item) {
@@ -237,6 +256,33 @@ export default {
         // 内部路由跳转
         this.$router.push(item.path);
       }
+    },
+    // 添加移动端导航点击处理函数
+    handleMobileNavClick(index, item) {
+      // 更新导航索引和菜单名称
+      this.navIndex = index;
+      this.menuName = item.name;
+      sessionStorage.setItem('navIndex', index);
+
+      // 处理导航点击
+      if (item.isExternal) {
+        if (item.openInNewTab) {
+          window.open(item.path, '_blank');
+        } else {
+          window.location.href = item.path;
+        }
+      } else if (!item.isParentOnly) {
+        // 不是仅父级的项目才进行路由跳转
+        this.$router.push(item.path);
+      }
+
+      // 手动关闭移动端菜单 - 修复菜单不自动收起的问题
+      this.$nextTick(() => {
+        const menu = document.getElementById('menu');
+        if (menu && menu.classList.contains('in')) {
+          menu.classList.remove('in');
+        }
+      });
     },
     navClick(index, name) {
       // 如果是"产品列表"且标记为仅父级，则不执行跳转
@@ -541,8 +587,8 @@ export default {
   }
   /* 导航栏logo图片 */
   #header .header-nav-m .header-nav-m-logo img {
-    width: 95px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     top: 0;
     left: 0;
@@ -584,14 +630,62 @@ export default {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
   }
-  /* 导航栏 每个导航下面的 a 链接 */
-  #header .header-nav-m .header-nav-m-wrapper > li > a {
+  /* 导航链接样式 */
+  #header .header-nav-m .header-nav-m-wrapper > li > .nav-link {
     color: #fff;
     font-size: 15px;
     font-weight: bold;
-    padding: 15px 0;
     position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  /* router-link 样式 */
+  #header .header-nav-m .header-nav-m-wrapper > li > router-link {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  /* 激活状态的导航项 */
+  #header .header-nav-m .header-nav-m-wrapper > li.active {
+    background-color: rgba(30, 115, 190, 0.3);
+  }
+  /* 导航项悬停效果 */
+  #header .header-nav-m .header-nav-m-wrapper > li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  /* 下划线效果 */
+  #header .header-nav-m .header-nav-m-wrapper > li > .nav-link > i.underline,
+  #header .header-nav-m .header-nav-m-wrapper > li > router-link > i.underline {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    opacity: 0;
+    transition: all 0.6s ease;
+    background-color: #1e73be;
+  }
+  /* 悬停时的下划线效果 */
+  #header .header-nav-m .header-nav-m-wrapper > li:hover > .nav-link > i.underline,
+  #header .header-nav-m .header-nav-m-wrapper > li:hover > router-link > i.underline {
+    opacity: 1;
+    width: 100%;
+    left: 0;
   }
   /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
   #header .header-nav .header-nav-wrapper > li > a > span {

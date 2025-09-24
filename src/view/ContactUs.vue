@@ -52,7 +52,12 @@ export default {
   box-sizing: border-box;
 }
 
+
 @media screen and (max-width: 997px) {
+  .banner {
+    display: none;
+  }
+
   .ContactUs-container {
     padding: 20px 0;
   }
