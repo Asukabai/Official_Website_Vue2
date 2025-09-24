@@ -1,6 +1,6 @@
 <template>
   <div id="ContactUs">
-    <div class="banner container-fuild text-center">联系我们</div>
+    <div class="banner container-fuild text-center">欢迎咨询</div>
     <div class="container">
       <div class="container-fuild ContactUs-container">
         <div class="row">
@@ -16,8 +16,8 @@
         </div>
       </div>
     </div>
-    <!-- 在线咨询组件 -->
-    <OnlineConsultation />
+    <!-- 在线咨询组件 - 仅在PC端显示 -->
+    <OnlineConsultation v-if="!isMobile" />
   </div>
 </template>
 
@@ -28,7 +28,14 @@ export default {
   name: "ContactUs",
   components: {OnlineConsultation},
   data() {
-    return {};
+    return {
+      isMobile: false
+    }
+  },
+  mounted() {
+    // 更完整的移动设备检测，包括各种鸿蒙系统变体
+    const ua = navigator.userAgent;
+    this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
   }
 };
 </script>
@@ -51,15 +58,13 @@ export default {
   transition: all ease 0.5s;
   box-sizing: border-box;
 }
-
-
-@media screen and (max-width: 997px) {
+//移动端页面，不需要背景图和对应的文字说明
+@media screen and (max-width: 768px) {
   .banner {
-    display: none;
+    display: none !important; /* 添加!important确保优先级 */
   }
-
   .ContactUs-container {
-    padding: 20px 0;
+    padding: 0px 0;
   }
 }
 </style>

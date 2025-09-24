@@ -21,7 +21,7 @@ export default {
       this.countdown--;
       if (this.countdown <= 0) {
         clearInterval(timer);
-        this.$router.push('/sswebsite');
+        this.$router.push('/');
       }
     }, 1000);
   }

@@ -27,8 +27,8 @@
         <router-view></router-view>
       </div>
     </div>
-    <!-- 在线咨询组件 -->
-    <OnlineConsultation />
+    <!-- 在线咨询组件 - 仅在PC端显示 -->
+    <OnlineConsultation v-if="!isMobile" />
   </div>
 </template>
 <script>
@@ -39,6 +39,7 @@ export default {
   components: {OnlineConsultation},
   data(){
     return{
+      isMobile: false,
       menuMaxHeight: 600, // 默认最大高度
       softwareList: [
         {
@@ -88,6 +89,11 @@ export default {
     }
   },
   mounted() {
+
+    // 更完整的移动设备检测，包括各种鸿蒙系统变体
+    const ua = navigator.userAgent;
+    this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
+
     var wow = new WOW();
     wow.init();
     this.updateMenuHeight();

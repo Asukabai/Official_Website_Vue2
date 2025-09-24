@@ -131,8 +131,9 @@
         <i class="glyphicon glyphicon-th"></i>
       </div>
     </div>
-    <!-- 在线咨询组件 -->
-    <OnlineConsultation />
+
+    <!-- 在线咨询组件 - 仅在PC端显示 -->
+    <OnlineConsultation v-if="!isMobile" />
 
   </div>
 </template>
@@ -146,6 +147,7 @@ export default {
   components: {OnlineConsultation},
   data(){
     return{
+      isMobile: false,
       activeTab: '资质成果',
       currentIndex: 0,
       patentCurrentIndex: 0,
@@ -267,6 +269,11 @@ export default {
     }
   },
   mounted(){
+
+    // 更完整的移动设备检测，包括各种鸿蒙系统变体
+    const ua = navigator.userAgent;
+    this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
+
     var wow = new WOW();
     wow.init();
 
@@ -348,6 +355,293 @@ export default {
 
 
 
+<!--<style scoped>-->
+<!--.nav{-->
+<!--  margin: 20px 0;-->
+<!--}-->
+<!--.nav>a{-->
+<!--  display: inline-block;-->
+<!--  text-decoration: none;-->
+<!--  width: 120px;-->
+<!--  height: 45px;-->
+<!--  line-height: 45px;-->
+<!--  color: #333;-->
+<!--  border: 1px solid #333;-->
+<!--}-->
+<!--.nav>a.active{-->
+<!--  color: #1e73be;-->
+<!--  border-color: #1e73be;-->
+<!--}-->
+<!--.nav>a:hover{-->
+<!--  color: #1e73be;-->
+<!--  border-color: #1e73be;-->
+<!--}-->
+<!--/* 添加创新成果标签激活样式 */-->
+<!--.nav>a.active {-->
+<!--  color: #1e73be;-->
+<!--  border-color: #1e73be;-->
+<!--}-->
+<!--.news-container{-->
+<!--  overflow: hidden;-->
+<!--  margin-bottom: 0;-->
+<!--}-->
+<!--.news-container>li{-->
+<!--  width: 55.6%;-->
+<!--  height: 120px;-->
+<!--  float: left;-->
+<!--  color: #333;-->
+<!--  text-align: right;-->
+<!--  border-left: 1px solid transparent;-->
+<!--  border-right: 1px solid transparent;-->
+<!--}-->
+<!--.news-container>li:hover{-->
+<!--  color: #1e73be;-->
+<!--  border: 1px solid #1e73be;-->
+<!--  cursor: pointer;-->
+<!--}-->
+<!--.news-container>li:nth-of-type(2n){-->
+<!--  float: right;-->
+<!--  text-align: left;-->
+<!--}-->
+<!--.news-container>li>.content{-->
+<!--  width: 60%;-->
+<!--  float: left;-->
+<!--  padding: 20px 0;-->
+<!--}-->
+
+<!--.news-title {-->
+<!--  font-size: 18px;-->
+<!--  font-weight: bold;-->
+<!--  margin-bottom: 10px;-->
+<!--}-->
+<!--.news-container>li>.time{-->
+<!--  width: 20%;-->
+<!--  float: left;-->
+<!--  padding: 10px 0;-->
+<!--}-->
+<!--.news-container>li>.time>p{-->
+<!--  font-size: 30px;-->
+<!--  margin: 5px 0;-->
+<!--}-->
+<!--.news-container>li>.circle{-->
+<!--  width: 20%;-->
+<!--  height: 100%;-->
+<!--  float: left;-->
+<!--  position: relative;-->
+<!--}-->
+<!--.news-container>li>.circle>img{-->
+<!--  position: absolute;-->
+<!--  top: 0;-->
+<!--  left: 0;-->
+<!--  right: 0;-->
+<!--  bottom: 0;-->
+<!--  margin: auto;-->
+<!--  width: 20px;-->
+<!--  height: 20px;-->
+<!--}-->
+<!--.news-container>li>.circle>i{-->
+<!--  display: block;-->
+<!--  width: 1px;-->
+<!--  height: 100%;-->
+<!--  background: #707070;-->
+<!--}-->
+<!--.news-container>li:nth-of-type(2n)>.content{-->
+<!--  float: right;-->
+<!--}-->
+<!--.news-container>li:nth-of-type(2n)>.time{-->
+<!--  float: right;-->
+<!--}-->
+<!--.news-container>li:nth-of-type(2n)>.circle{-->
+<!--  float: right;-->
+<!--}-->
+<!--.news-container>li:nth-of-type(1)>.circle>i{-->
+<!--  height: 50%;-->
+<!--  position: absolute;-->
+<!--  top: 50%;-->
+<!--  left: 50%;-->
+<!--}-->
+<!--.more{-->
+<!--  font-size: 25px;-->
+<!--  color: #707070;-->
+<!--}-->
+<!--.more>i{-->
+<!--  cursor: pointer;-->
+<!--}-->
+<!--/* 添加创新成果内容样式 */-->
+<!--.innovation-container{-->
+<!--  padding: 100px 0;-->
+<!--  color: #808080;-->
+<!--  transition: all ease 0.5s;-->
+<!--}-->
+<!--.innovation-container>div>p{-->
+<!--  font-size: 14px;-->
+<!--  line-height: 2.5rem;-->
+<!--}-->
+
+<!--/* 轮播图标题样式 */-->
+<!--.carousel-title {-->
+<!--  text-align: center;-->
+<!--  font-weight: bold;-->
+<!--  margin: 30px 0 15px 0;-->
+<!--}-->
+
+<!--/* 轮播图样式 */-->
+<!--.carousel-container {-->
+<!--  margin: 50px 0;-->
+<!--  position: relative;-->
+<!--  overflow: hidden;-->
+<!--}-->
+
+<!--.carousel-wrapper {-->
+<!--  overflow: hidden;-->
+<!--  width: 100%;-->
+<!--}-->
+
+<!--.carousel-track {-->
+<!--  display: flex;-->
+<!--  flex-wrap: nowrap;-->
+<!--  transition: transform 0.5s ease-in-out;-->
+<!--  width: 100%;-->
+<!--}-->
+
+<!--.carousel-slide {-->
+<!--  flex: 0 0 33.33%;-->
+<!--  padding: 0 15px;-->
+<!--  box-sizing: border-box;-->
+<!--  text-align: center;-->
+<!--}-->
+
+<!--.certificate-image {-->
+<!--  width: 100%;-->
+<!--  height: 200px;-->
+<!--  object-fit: cover;-->
+<!--  border: 1px solid #ddd;-->
+<!--  border-radius: 5px;-->
+<!--  cursor: pointer;-->
+<!--  transition: transform 0.3s ease;-->
+<!--}-->
+
+<!--.certificate-image:hover {-->
+<!--  transform: scale(1.05);-->
+<!--}-->
+
+<!--/* 专利图片特殊样式 - 适应长方形 */-->
+<!--.patent-image {-->
+<!--  height: 450px;-->
+<!--}-->
+
+<!--.certificate-title {-->
+<!--  margin-top: 10px;-->
+<!--  font-size: 14px;-->
+<!--  color: #333;-->
+<!--}-->
+
+<!--.carousel-indicators {-->
+<!--  display: flex;-->
+<!--  justify-content: center;-->
+<!--  margin-top: 20px;-->
+<!--}-->
+
+<!--.carousel-indicators span {-->
+<!--  display: inline-block;-->
+<!--  width: 12px;-->
+<!--  height: 12px;-->
+<!--  border-radius: 50%;-->
+<!--  background-color: #ccc;-->
+<!--  margin: 0 5px;-->
+<!--  cursor: pointer;-->
+<!--  transition: background-color 0.3s;-->
+<!--}-->
+
+<!--.carousel-indicators span.active {-->
+<!--  background-color: #1e73be;-->
+<!--}-->
+
+<!--/* 图片放大模态框样式 */-->
+<!--.image-modal {-->
+<!--  display: block;-->
+<!--  position: fixed;-->
+<!--  z-index: 1000;-->
+<!--  left: 0;-->
+<!--  top: 0;-->
+<!--  width: 100%;-->
+<!--  height: 100%;-->
+<!--  overflow: auto;-->
+<!--  background-color: rgba(0, 0, 0, 0.9);-->
+<!--}-->
+
+<!--.modal-content {-->
+<!--  display: block;-->
+<!--  margin: 5% auto;-->
+<!--  max-width: 90%;-->
+<!--  max-height: 90%;-->
+<!--  object-fit: contain;-->
+<!--}-->
+
+<!--.close {-->
+<!--  position: absolute;-->
+<!--  top: 30px;-->
+<!--  right: 45px;-->
+<!--  color: #f1f1f1;-->
+<!--  font-size: 50px;-->
+<!--  font-weight: bold;-->
+<!--  cursor: pointer;-->
+<!--  transition: 0.3s;-->
+<!--}-->
+
+<!--.close:hover,-->
+<!--.close:focus {-->
+<!--  color: #bbb;-->
+<!--  text-decoration: none;-->
+<!--}-->
+
+<!--@media screen and (max-width: 997px){-->
+<!--  .innovation-container{-->
+<!--    padding: 10px 0;-->
+<!--    color: #808080;-->
+<!--  }-->
+<!--}-->
+<!--@media screen and (max-width: 767px){-->
+<!--  .news-container>li{-->
+<!--    width: 100%;-->
+<!--  }-->
+<!--  .news-container>li>.content{-->
+<!--    width: 70%;-->
+<!--    text-align: left;-->
+<!--    float: right;-->
+<!--  }-->
+<!--  .news-container>li>.time{-->
+<!--    width: 30%;-->
+<!--    text-align: left;-->
+<!--    float: right;-->
+<!--  }-->
+<!--  .news-container>li>.circle{-->
+<!--    display: none;-->
+<!--  }-->
+
+<!--  .carousel-slide {-->
+<!--    flex: 0 0 100%;-->
+<!--  }-->
+
+<!--  .modal-content {-->
+<!--    width: 95%;-->
+<!--  }-->
+
+<!--  .close {-->
+<!--    top: 15px;-->
+<!--    right: 20px;-->
+<!--    font-size: 35px;-->
+<!--  }-->
+
+<!--  /* 移动端专利图片高度调整 */-->
+<!--  .patent-image {-->
+<!--    height: 200px;-->
+<!--  }-->
+<!--}-->
+<!--</style>-->
+
+
+// ... existing code ...
 <style scoped>
 .nav{
   margin: 20px 0;
@@ -595,21 +889,83 @@ export default {
   }
 }
 @media screen and (max-width: 767px){
+  /* 修改大事记列表布局为flex，以便控制子元素顺序 */
   .news-container>li{
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: auto !important;
+    padding: 15px 0;
+    /* 移除float样式，使用flex布局 */
+    float: none !important;
   }
-  .news-container>li>.content{
-    width: 70%;
-    text-align: left;
-    float: right;
-  }
+
+  /* 时间部分先显示 (order: 1) */
   .news-container>li>.time{
-    width: 30%;
+    order: 1;
+    width: 100% !important;
     text-align: left;
-    float: right;
+    float: none;
+    padding: 5px 0;
+    /* 为时间部分添加底部间距 */
+    margin-bottom: 8px;
   }
+
+  /* 内容部分后显示 (order: 2) */
+  .news-container>li>.content{
+    order: 2;
+    width: 100% !important;
+    text-align: left;
+    float: none;
+    padding: 5px 0;
+  }
+
+  /* 保持其他移动端样式不变 */
   .news-container>li>.circle{
     display: none;
+  }
+  .news-title {
+    font-size: 18px !important;
+    line-height: 1.4;
+  }
+  .news-container>li>.time>p{
+    font-size: 22px !important;
+    margin: 3px 0;
+  }
+  .news-container>li p{
+    font-size: 16px !important;
+    line-height: 1.5;
+  }
+  .introduce {
+    font-size: 13px !important;
+    text-indent: 1.5em;
+  }
+
+  /* 增加文字间距优化可读性 */
+  .news-container>li {
+    padding: 18px 0 !important;
+  }
+  .news-title {
+    margin-bottom: 8px !important;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .close {
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+  }
+
+  /* 移动端专利图片高度调整 */
+  .patent-image {
+    height: 200px;
   }
 
   .carousel-slide {

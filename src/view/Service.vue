@@ -22,46 +22,51 @@
                 </div>
             </div>
         </div>
-      <!-- 在线咨询组件 -->
-      <OnlineConsultation />
+      <!-- 在线咨询组件 - 仅在PC端显示 -->
+      <OnlineConsultation v-if="!isMobile" />
     </div>
 </template>
 <script>
 import { WOW } from 'wowjs';
 import OnlineConsultation from "../components/OnlineConsultation.vue";
 export default {
-    name: 'Service',
+  name: 'Service',
   components: {OnlineConsultation},
     data(){
         return{
-            serviceList: [
-                {
-                    id: 'section-1',
-                    title: '自动化系统设备的设计和研制、生产',
-                    eng_title: 'Customize App',
-                    img: require('../assets/img/自动化系统设备.png')
-                },{
-                    id: 'section-2',
-                    title: '信息化、自动化软件平台定制化开发',
-                    eng_title: 'Outsourcing',
-                    img: require('../assets/img/煤研所.png')
-                },{
-                    id: 'section-3',
-                    title: '仿真分析及相关设备',
-                    eng_title: 'eCommerce Site',
-                    img: require('../assets/img/3D扫描检测平台.png')
-                },{
-                    id: 'section-4',
-                    title: '测试仪器、电子设备',
-                    eng_title: 'iOS App Dev',
-                    img: require('../assets/img/高精度磨抛装置.png')
-                }
-            ]
+          isMobile: false,
+          serviceList: [
+              {
+                  id: 'section-1',
+                  title: '自动化系统设备的设计和研制、生产',
+                  eng_title: 'Customize App',
+                  img: require('../assets/img/自动化系统设备.png')
+              },{
+                  id: 'section-2',
+                  title: '信息化、自动化软件平台定制化开发',
+                  eng_title: 'Outsourcing',
+                  img: require('../assets/img/煤研所.png')
+              },{
+                  id: 'section-3',
+                  title: '仿真分析及相关设备',
+                  eng_title: 'eCommerce Site',
+                  img: require('../assets/img/3D扫描检测平台.png')
+              },{
+                  id: 'section-4',
+                  title: '测试仪器、电子设备',
+                  eng_title: 'iOS App Dev',
+                  img: require('../assets/img/高精度磨抛装置.png')
+              }
+          ]
         }
     },
     mounted(){
-        var wow = new WOW();
-        wow.init();
+      // 更完整的移动设备检测，包括各种鸿蒙系统变体
+      const ua = navigator.userAgent;
+      this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
+
+      var wow = new WOW();
+      wow.init();
     },
     methods:{
       ServiceClick(id){

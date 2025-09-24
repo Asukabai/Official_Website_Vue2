@@ -68,9 +68,10 @@
     </div>
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
-      <div class="header-nav-m-logo">
-        <img class="center-block" src="../assets/img/logo_white.png" alt="logo">
-      </div>
+    <div class="header-nav-m-logo" style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 80px;">
+      <img src="../assets/img/logo_white.png" alt="logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      <p style="margin: 0; color: #000; font-size: 22px; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">陕西晟思智能测控有限公司</p>
+    </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
         {{menuName}}
@@ -579,22 +580,6 @@ export default {
 @media screen and (max-width: 997px) {
   #header .header-nav-m {
     position: relative;
-  }
-  /* 导航栏logo容器 */
-  #header .header-nav-m .header-nav-m-logo {
-    height: 80px;
-    position: relative;
-  }
-  /* 导航栏logo图片 */
-  #header .header-nav-m .header-nav-m-logo img {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
   }
   /* 导航栏  菜单容器 */
   #header .header-nav-m .header-nav-m-menu {

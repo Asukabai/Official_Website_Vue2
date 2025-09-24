@@ -25,8 +25,8 @@
         </div>
       </div>
     </div>
-    <!-- 在线咨询组件 -->
-    <OnlineConsultation />
+    <!-- 在线咨询组件 - 仅在PC端显示 -->
+    <OnlineConsultation v-if="!isMobile" />
   </div>
 </template>
 <script>
@@ -37,6 +37,7 @@ export default {
   components: {OnlineConsultation},
   data() {
     return {
+      isMobile: false,
       activeSection: "section-1",
       serviceNavList: [
         {
@@ -97,6 +98,11 @@ export default {
     };
   },
   mounted() {
+
+    // 更完整的移动设备检测，包括各种鸿蒙系统变体
+    const ua = navigator.userAgent;
+    this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
+
     // 初始化 WOW.js 动画
     var wow = new WOW();
     wow.init();

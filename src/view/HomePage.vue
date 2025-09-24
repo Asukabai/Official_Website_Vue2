@@ -268,8 +268,8 @@
       </div>
     </div>
 
-    <!-- 在线咨询组件 -->
-    <OnlineConsultation />
+    <!-- 在线咨询组件 - 仅在PC端显示 -->
+    <OnlineConsultation v-if="!isMobile" />
   </div>
 </template>
 
@@ -285,6 +285,7 @@ export default {
   },
   data() {
     return {
+      isMobile: false,
       swiperList: [
         {
           img: require("@/assets/img/banner.png"),
@@ -353,6 +354,9 @@ export default {
     };
   },
   mounted() {
+    // 更完整的移动设备检测，包括各种鸿蒙系统变体
+    const ua = navigator.userAgent;
+    this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
     /* banner-swiper 用于初始化 Swiper 轮播图的配置 delay: 3000：每张图片停留 3 秒。
      stopOnLastSlide: false：到达最后一张后继续循环播放。
      disableOnInteraction: false：用户手动滑动时不会停止自动播放。*/
@@ -779,12 +783,12 @@ export default {
     background: #fff;
   }
   #customer .customer-title {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: bold;
   }
   #customer .customer-logo img {
-    width: 48px;
-    height: 48px;
+    width: 90px;
+    height: 90px;
   }
   #customer .customer-block {
     padding: 30px;
