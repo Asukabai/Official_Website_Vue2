@@ -213,10 +213,9 @@ export default {
           // path: "http://192.168.65.234:22325/ssmonitor/web/login",
           // window.location.origin 是一个Web API属性，它返回当前页面的源（协议+域名+端口号），这样无论项目部署在什么地址下，都会自动获取当前运行环境的实际地址。
           // 这样修改后，无论项目部署在本地开发环境还是生产环境，都会根据实际运行的地址来拼接完整路径，而不会使用固定的IP和端口。
-          path: window.location.origin + "/ssmonitor/web/login",
-          isExternal: true,
+          // path: window.location.origin + "/ssmonitor/web/login",
+          path: "/serviceDemo",
           children: [],
-          openInNewTab: true
         } ,
         {
           name: "解决方案",
@@ -237,9 +236,9 @@ export default {
     };
   },
   computed: {
-    // 为移动端创建一个过滤后的导航列表，排除"产品列表"和"演示demo"
+    // 为移动端创建一个过滤后的导航列表，排除"产品列表"
     mobileNavList() {
-      return this.navList.filter(item => item.name !== "产品列表" && item.name !== "演示demo");
+      return this.navList.filter(item => item.name !== "产品列表" );
     }
   },
   methods: {

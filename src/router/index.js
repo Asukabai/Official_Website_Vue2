@@ -165,6 +165,15 @@ export default new Router({
           ]
         }
         , {
+          path: '/serviceDemo',
+          name: 'serviceDemo',
+          component: resolve => require(['@/view/ServiceDemo'], resolve),
+          meta: {
+            title: '演示demo',
+            navHighlight: '解决方案'
+          }
+        }
+        , {
           path: '/service',
           name: 'service',
           component: resolve => require(['@/view/Service'], resolve),
@@ -177,7 +186,7 @@ export default new Router({
           name: 'newsinformation',
           component: resolve => require(['@/view/NewsInformation'], resolve),
           meta: {
-            title: '新闻动态'
+            title: '公司介绍'
           }
         },  {
           path: '/contactus',
