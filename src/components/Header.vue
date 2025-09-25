@@ -209,12 +209,10 @@ export default {
         },
         {
           name: "演示demo",
-          // path: "https://api-v2.sensor-smart.cn:23012/sswebsite/web/data-view-instance/preview/k8YMDSdsA0BZ",
-          // path: "http://192.168.65.234:22325/ssmonitor/web/login",
           // window.location.origin 是一个Web API属性，它返回当前页面的源（协议+域名+端口号），这样无论项目部署在什么地址下，都会自动获取当前运行环境的实际地址。
           // 这样修改后，无论项目部署在本地开发环境还是生产环境，都会根据实际运行的地址来拼接完整路径，而不会使用固定的IP和端口。
           // path: window.location.origin + "/ssmonitor/web/login",
-          path: "/serviceDemo",
+          path: "/onlineDemo",
           children: [],
         } ,
         {
@@ -336,8 +334,8 @@ export default {
             break;
           }
 
-          // 检查是否为service相关路由，如果是则设置为解决方案(索引为3)
-          if (currentPath.startsWith('/service')) {
+          // 修复：精确匹配/service路径，避免/serviceDemo被误认为是/service
+          if (currentPath === '/service' || currentPath.startsWith('/service/')) {
             foundIndex = 3;
             break;
           }

@@ -165,12 +165,12 @@ export default new Router({
           ]
         }
         , {
-          path: '/serviceDemo',
-          name: 'serviceDemo',
+          path: '/onlineDemo',
+          name: 'onlineDemo',
           component: resolve => require(['@/view/ServiceDemo'], resolve),
           meta: {
             title: '演示demo',
-            navHighlight: '解决方案'
+            navHighlight: '演示demo'
           }
         }
         , {
