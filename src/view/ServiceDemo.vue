@@ -80,7 +80,9 @@ export default {
 
       // 处理第二个卡片点击事件（索引1）
       if (index === 1) {
-        alert('暂时无法预览');
+        // alert('暂时无法预览');
+        const url = window.location.origin + "/ss3dsimulation/home/";
+        window.open(url, '_blank');
         return;
       }
 
