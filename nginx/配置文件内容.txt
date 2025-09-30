@@ -1,0 +1,182 @@
+#user  nobody;
+# 指定Nginx运行的用户和组，注释掉表示使用默认用户（通常是nobody）
+worker_processes  1;
+# 设置Nginx工作进程数量，1表示单进程运行
+ 
+events {
+    worker_connections  1024;
+    # 每个工作进程可同时处理的最大连接数
+}
+ 
+http {
+    include       mime.types;
+    # 包含MIME类型定义文件，用于正确设置Content-Type响应头
+    default_type  application/octet-stream;
+    # 默认的MIME类型
+    sendfile        on;
+    # 启用sendfile系统调用，提高文件传输性能
+    keepalive_timeout  65;
+    # 保持连接的超时时间（秒）
+ 
+    # Vue 项目配置
+    server {
+        listen       8003;
+        # 监听8003端口，用于直接访问Vue项目
+        server_name  localhost;
+        # 服务器名称，这里设置为localhost
+        
+        root   html;
+        # 网站根目录
+        index  index.html index.htm;
+        # 默认首页文件
+ 
+        location /sswebsite/ {
+            # 处理/sswebsite/开头的请求
+            try_files $uri $uri/ /sswebsite/index.html;
+            # 尝试按顺序查找文件：
+            # 1. $uri（当前请求的URI）
+            # 2. $uri/（目录形式）
+            # 3. /sswebsite/index.html（Vue Router history模式的回退）
+            # 这是Vue Router history模式的关键配置，确保前端路由正常工作
+        }
+ 
+        # 静态资源缓存配置
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+            # 匹配常见的静态资源文件扩展名
+            expires 1y;
+            # 设置缓存过期时间为1年
+            add_header Cache-Control "public, immutable";
+            # 添加缓存控制头，标记为公共缓存且内容不可变
+        }
+ 
+        error_page   500 502 503 504  /50x.html;
+        # 定义5xx错误的错误页面
+        location = /50x.html {
+            # 精确匹配50x.html错误页面
+            root   html;
+            # 错误页面的根目录
+        }
+    }
+ 
+    # 统一代理服务器 - 监听22325端口
+    server {
+        listen       22325;
+        # 监听22325端口，作为统一代理服务器
+        server_name  192.168.65.234 localhost;  # 同时支持两种方式
+        # 服务器名称，支持IP和localhost两种访问方式
+        
+        # 显式处理不带斜杠的/sswebsite路径，解决端口跳转问题
+        location = /sswebsite {
+            # 精确匹配/sswebsite（不带末尾斜杠）
+            return 301 $scheme://$http_host/sswebsite/;
+            # 301永久重定向到带斜杠的路径
+            # 关键点1: $scheme - 自动使用原始请求的协议（http或https）
+            # 关键点2: $http_host - 包含原始请求中的完整Host头（包括端口号）
+            # 例如：如果原始请求是 https://api-v2.sensor-smart.cn:23012/sswebsite
+            # 则重定向到 https://api-v2.sensor-smart.cn:23012/sswebsite/
+            # 这解决了端口跳转错误的核心问题
+        }
+        
+        # 优先处理静态资源 - 明确指定路径
+        location ~* ^/ssmonitor/.*\.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+            # 匹配/ssmonitor/开头且以指定扩展名结尾的静态资源
+            proxy_pass http://127.0.0.1:22324;
+            # 代理请求到本地22324端口
+            proxy_set_header Host $http_host;  # 关键修改：使用$http_host
+            # 关键点: 使用$http_host而不是$host
+            # $http_host包含原始请求中的完整Host头（包括端口号）
+            # $host只包含主机名，不包含端口号
+            # 例如：原始请求Host为 api-v2.sensor-smart.cn:23012
+            # $http_host = "api-v2.sensor-smart.cn:23012"
+            # $host = "api-v2.sensor-smart.cn"
+            # 使用$http_host确保后端服务知道原始请求的端口号
+            
+            proxy_set_header X-Real-IP $remote_addr;
+            # 将客户端真实IP传递给后端
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            # 添加客户端IP到X-Forwarded-For头
+            proxy_set_header X-Forwarded-Proto $scheme;
+            # 传递原始请求的协议（http/https）
+            
+            # 缓存设置
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+        
+        # 现有应用代理 - 指向22324端口
+        location /ssmonitor/ {
+            # 匹配/ssmonitor/开头的请求
+            # 移除 rewrite 规则，直接代理到正确路径
+            proxy_pass http://127.0.0.1:22324/ssmonitor/;
+            # 代理请求到本地22324端口的/ssmonitor/路径
+            proxy_set_header Host $http_host;  # 关键修改：使用$http_host
+            # 同上，使用$http_host确保传递完整Host头
+            
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            
+            # 特别处理SSE连接
+            proxy_http_version 1.1;
+            # 使用HTTP/1.1协议
+            proxy_set_header Connection '';
+            # 清除Connection头，防止代理干扰SSE连接
+            proxy_buffering off;
+            # 关闭缓冲，SSE需要实时传输数据
+            proxy_cache off;
+            # 关闭缓存，SSE是实时数据流
+            
+            # 增加超时设置
+            proxy_connect_timeout 75s;
+            # 代理连接超时时间
+            proxy_read_timeout 300s;
+            # 代理读取超时时间
+        }
+        
+        # Vue项目代理
+        location /sswebsite/ {
+            # 匹配/sswebsite/开头的请求
+            proxy_pass http://127.0.0.1:8003/sswebsite/;
+            # 代理请求到本地8003端口的Vue项目
+            proxy_set_header Host $http_host;  # 关键修改：使用$http_host
+            # 这是最关键的部分，确保Vue项目知道原始请求的完整Host信息
+            
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            
+            # 处理Vue Router的history模式
+            proxy_intercept_errors on;
+            # 允许Nginx拦截后端返回的错误
+            error_page 404 = /sswebsite/index.html;
+            # 当后端返回404时，返回Vue的入口文件
+            # 这是Vue Router history模式的必要配置
+        }
+        
+        # 通用静态资源处理 (仅用于Vue项目)
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+            # 匹配常见的静态资源文件扩展名
+            proxy_pass http://127.0.0.1:8003;
+            # 代理静态资源请求到Vue项目服务器
+            proxy_set_header Host $http_host;  # 关键修改：使用$http_host
+            # 确保静态资源请求也使用正确的Host头
+            
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            
+            # 缓存设置
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+       
+        # 错误页面处理
+        error_page   500 502 503 504  /50x.html;
+        # 定义5xx错误的错误页面
+        location = /50x.html {
+            # 精确匹配50x.html错误页面
+            root D:/software/nginx/html;
+            # 错误页面的根目录
+        }
+    }
+}
