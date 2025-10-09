@@ -13,14 +13,12 @@
       <span>微信号：wangxq1975</span>
     </p>
     <p class="email_wx">
-<!--      <span> 邮箱：hr@sensor-smart.com   </span>-->
-<!--      <span>微信号：wangxq1975</span>-->
     </p>
     <p class="record-info">
       <span>陕ICP备B2-20150093-8</span>
       <span>陕公网安备61010201000139号</span>
     </p>
-    <p class="copy">Copyright &copy; 2015 - {{ new Date().getFullYear() }} 陕西晟思智能测控有限公司</p>
+    <p class="copy">Copyright &copy; 2015 - {{ new Date().getFullYear() }}  陕西晟思智能测控有限公司 <span class="version">V 0.1.0</span></p>
   </div>
 </template>
 <script>
@@ -60,6 +58,11 @@ export default {
   font-size: 25px;
   margin: 0 0 0 20px;
 }
+
+.version {
+  font-weight: bold;
+}
+
 .address_tel_fax {
   color: #d3d3d3;
   font-size: 14px;

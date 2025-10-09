@@ -27,9 +27,9 @@
       <button class="close-button" @click="closeConsultation">×</button>
     </div>
     <div class="consultation-buttons">
-      <button class="btn btn-primary">产品选型支持</button>
-      <button class="btn btn-primary">查询产品价格</button>
-      <button class="btn btn-primary">查询产品库存</button>
+<!--      <button class="btn btn-primary">产品选型支持</button>-->
+<!--      <button class="btn btn-primary">查询产品价格</button>-->
+<!--      <button class="btn btn-primary">查询产品库存</button>-->
       <button class="btn btn-primary" @click="goToTaobao">跳转至淘宝店铺</button>
     </div>
     <div class="consultation-qrcode">
