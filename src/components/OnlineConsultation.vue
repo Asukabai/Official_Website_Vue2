@@ -23,7 +23,7 @@
 <template>
   <div class="online-consultation" v-show="isVisible">
     <div class="consultation-header">
-      <h3>联系咨询</h3>
+      <h3>产品咨询</h3>
       <button class="close-button" @click="closeConsultation">×</button>
     </div>
     <div class="consultation-buttons">
