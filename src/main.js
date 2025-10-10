@@ -52,8 +52,10 @@ import GoTop from './components/GoTop'
 Vue.component(GoTop.name,GoTop)
 
 Vue.config.productionTip = false
-
-
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+})
 router.beforeEach((to, from, next) => {
     if(to.meta.title){
       document.title = to.meta.title
