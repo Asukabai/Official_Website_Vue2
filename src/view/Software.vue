@@ -2,7 +2,7 @@
   <div id="Software" class="container">
     <div class="row">
       <!-- 桌面端显示左侧菜单，移动端隐藏 -->
-      <div v-if="!isMobile" id="left" class="col-md-3 col-md-offset-1 col-xs-12">
+      <div v-if="!isMobile" id="left" class="col-md-2 col-md-offset-1 col-xs-12">
         <div class="menu-wrapper" :style="{ maxHeight: menuMaxHeight + 'px' }">
           <ul class="left-container wow bounceInLeft">
             <p>电性能负载测试平台</p>
@@ -26,7 +26,7 @@
       </div>
 
       <!-- 右侧内容区域，移动端时占满整个宽度 -->
-      <div :class="isMobile ? 'col-xs-12' : 'col-md-7 col-xs-12'" id="right" class="wow bounceInRight">
+      <div :class="isMobile ? 'col-xs-12' : 'col-md-8 col-xs-12'" id="right" class="wow bounceInRight">
         <router-view></router-view>
       </div>
     </div>
