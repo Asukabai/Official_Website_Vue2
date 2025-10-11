@@ -15,8 +15,8 @@
     <p class="email_wx">
     </p>
     <p class="record-info">
-      <span>陕ICP备B2-20150093-8</span>
-      <span>陕公网安备61010201000139号</span>
+      <span>陕ICP备19022416号-1</span>
+      <span>陕公网安备00000000000000号</span>
     </p>
     <p class="copy">Copyright &copy; 2015 - {{ new Date().getFullYear() }}  陕西晟思智能测控有限公司 <span class="version">V 0.1.0</span></p>
   </div>
