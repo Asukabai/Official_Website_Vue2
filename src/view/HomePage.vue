@@ -90,7 +90,7 @@
               <img src="../assets/img/力学负载模拟系统.png" alt="旋转类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>旋转类负载模拟系统</strong></p>
-                <p>电压：150V, 600V, 1200V<br>电流：2400A<br>功率：4kW~60kW</p>
+                <p>转动惯量：120kg·m² ～ 200kg·m²<br>力矩可调范围：700～3500N·m<br>负载台转角精度：0.01°</p>
               </div>
               <div class="overlay">
                 <div class="overlay-text">点击查看详情</div>
@@ -102,7 +102,7 @@
               <img src="../assets/img/直线类负载模拟_首页图.png" alt="直线类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>直线类负载模拟系统</strong></p>
-                <p>电压：0~2250V<br>电流：0~4500A<br>功率：0~180kW</p>
+                <p>静态加载力：±1%FS<br>传动机构刚度：≥1X109N/m<br>力测量精度：≤0.1%FS</p>
               </div>
               <div class="overlay">
                 <div class="overlay-text">点击查看详情</div>
@@ -114,7 +114,7 @@
               <img src="../assets/img/起落架负载模拟系统_首页图.png" alt="起落架、铁鸟类负载模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>起落架、铁鸟类负载模拟系统</strong></p>
-                <p>电压：150V, 600V, 1200V<br>电流：2400A<br>功率：4kW~60kW</p>
+                <p>加载力矩控制：精度±2%<br>转弯力矩：大于4000Nm<br>支柱定向转角：±15°、±30°</p>
               </div>
               <div class="overlay">
                 <div class="overlay-text">点击查看详情</div>
@@ -126,7 +126,7 @@
               <img src="../assets/img/定制化测试台模拟系统.png" alt="定制化测试台模拟系统" class="grid-image">
               <div class="grid-text">
                 <p><strong>定制化测试台模拟系统</strong></p>
-                <p>电压：150V, 600V, 1200V<br>电流：60A~300A<br>功率：600W~3000W</p>
+                <p>加载精度：±5% <br>角速度平稳性：±0.3%（360°平均）<br>回转精度 ：≤10°°</p>
               </div>
               <div class="overlay">
                 <div class="overlay-text">点击查看详情</div>

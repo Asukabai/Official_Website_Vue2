@@ -97,15 +97,15 @@
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-home"></span>
           </div>
-          <h3>智慧建筑</h3>
-          <p>楼宇自动化管理，实现节能控制和智能运维</p>
+          <h3>智慧产线</h3>
+          <p>产线自动化管理，实现节能控制和智能运维</p>
         </div>
         <div class="col-md-4 text-center">
           <div class="advantage-icon">
             <span class="glyphicon glyphicon-shopping-cart"></span>
           </div>
-          <h3>智慧零售</h3>
-          <p>商品管理、库存优化和客户行为分析</p>
+          <h3>数字化管理</h3>
+          <p>对产品数据、和客户行为数据实时分析，数字化管理</p>
         </div>
       </div>
     </div>

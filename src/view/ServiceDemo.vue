@@ -73,16 +73,17 @@ export default {
     handleServiceClick(item, index) {
       // 处理第一个卡片点击事件（索引0）
       if (index === 0) {
-        const url = window.location.origin + "/ssmonitor/web/login";
-        window.open(url, '_blank');
+        alert('暂时无法预览 ！');
+        // const url = window.location.origin + "/ssmonitor/web/login";
+        // window.open(url, '_blank');
         return;
       }
 
       // 处理第二个卡片点击事件（索引1）
       if (index === 1) {
-        // alert('暂时无法预览');
-        const url = window.location.origin + "/ss3dsimulation/home/";
-        window.open(url, '_blank');
+        alert('暂时无法预览 ！');
+        // const url = window.location.origin + "/ss3dsimulation/home/";
+        // window.open(url, '_blank');
         return;
       }
 

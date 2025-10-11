@@ -47,7 +47,7 @@ export default {
   name: 'OnlineConsultation',
   data() {
     return {
-      qrcodeUrl: require('../assets/img/qrcode.png'), // 固定二维码路径
+      qrcodeUrl: require('../assets/img/二维码.jpg'), // 固定二维码路径
       isVisible: true
     };
   },
