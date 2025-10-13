@@ -47,13 +47,13 @@ export default {
   name: 'OnlineConsultation',
   data() {
     return {
-      qrcodeUrl: require('../assets/img/二维码.jpg'), // 固定二维码路径
+      qrcodeUrl: require('../assets/img/淘宝店铺.png'), // 固定二维码路径
       isVisible: true
     };
   },
   methods: {
     goToTaobao() {
-      window.open('https://www.taobao.com', '_blank');
+      window.open('https://4mfxnojkoqcypyib0bjerr60mcoj02v.taobao.com/', '_blank');
     },
     copyPhoneNumber() {
       const phoneNumber = '18629057799';

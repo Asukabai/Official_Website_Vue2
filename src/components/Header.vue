@@ -10,7 +10,7 @@
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
-          <a href="https://www.taobao.com" target="_blank" title="前往淘宝店铺" style="display: inline-block; vertical-align: middle;">
+          <a href="https://4mfxnojkoqcypyib0bjerr60mcoj02v.taobao.com/" target="_blank" title="前往淘宝店铺" style="display: inline-block; vertical-align: middle;">
             <img src="../assets/img/淘宝图标-圆彩.png" alt="淘宝图标" style="width: 25px; height: 25px; margin-right: 5px;">
           </a>
           <span class="glyphicon glyphicon-hand-right"></span>
