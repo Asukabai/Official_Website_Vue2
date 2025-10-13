@@ -66,24 +66,59 @@ export default {
     const ua = navigator.userAgent;
     this.isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|HarmonyOS|OpenHarmony/i.test(ua);
 
-    var wow = new WOW();
+    const wow = new WOW();
     wow.init();
   },
   methods:{
-    handleServiceClick(item, index) {
+    async handleServiceClick(item, index) {
       // 处理第一个卡片点击事件（索引0）
       if (index === 0) {
-        alert('暂时无法预览 ！');
-        // const url = window.location.origin + "/ssmonitor/web/login";
-        // window.open(url, '_blank');
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        try {
+          const response = await fetch(window.location.origin + "/ssmonitor/web/login", {
+            method: 'HEAD',
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          if (response.ok) {
+            const url = window.location.origin + "/ssmonitor/web/login";
+            window.open(url, '_blank');
+          } else {
+            alert('演示暂不支持，请稍后再试！');
+          }
+        } catch (error) {
+          clearTimeout(timeoutId);
+          if (error.name === 'AbortError') {
+            alert('请求超时，请稍后再试！');
+          } else {
+            alert('演示暂不支持，请稍后再试！');
+          }
+        }
         return;
       }
 
       // 处理第二个卡片点击事件（索引1）
       if (index === 1) {
-        alert('暂时无法预览 ！');
-        // const url = window.location.origin + "/ss3dsimulation/home/";
-        // window.open(url, '_blank');
+        try {
+          // 发送请求检查demo是否在线
+          const response = await fetch(window.location.origin + "/ss3dsimulation/home/", {
+            method: 'HEAD', // 使用HEAD请求只检查状态，不下载完整内容
+            timeout: 5000 // 设置5秒超时
+          });
+
+          if (response.ok) {
+            // 服务在线，直接跳转
+            const url = window.location.origin + "/ss3dsimulation/home/";
+            window.open(url, '_blank');
+          } else {
+            // 服务不在线，提示暂不支持
+            alert('演示暂不支持，请稍后再试！');
+          }
+        } catch (error) {
+          // 网络错误或超时，提示暂不支持
+          alert('演示暂不支持，请稍后再试！');
+        }
         return;
       }
 
