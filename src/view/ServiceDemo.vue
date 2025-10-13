@@ -73,26 +73,54 @@ export default {
     async handleServiceClick(item, index) {
       // 处理第一个卡片点击事件（索引0）
       if (index === 0) {
+        // 防止重复点击
+        if (this.loading) {
+          return;
+        }
+
+        this.loading = true;
+        // 显示加载提示
+        alert('正在检查演示环境，请稍候...');
+
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         try {
           const response = await fetch(window.location.origin + "/ssmonitor/web/login", {
             method: 'HEAD',
             signal: controller.signal
           });
+
           clearTimeout(timeoutId);
+          this.loading = false;
+
+          // 根据HTTP状态码进行不同处理
           if (response.ok) {
+            // 2xx 状态码表示成功
             const url = window.location.origin + "/ssmonitor/web/login";
             window.open(url, '_blank');
+          } else if (response.status >= 400 && response.status < 500) {
+            // 4xx 客户端错误
+            alert(`演示环境配置错误 (${response.status})，请联系管理员！`);
+          } else if (response.status >= 500) {
+            // 5xx 服务器错误
+            alert(`演示服务暂时不可用 (${response.status})，请稍后再试！`);
           } else {
+            // 其他状态码
             alert('演示暂不支持，请稍后再试！');
           }
         } catch (error) {
           clearTimeout(timeoutId);
+          this.loading = false;
+
+          // 区分不同类型的错误
           if (error.name === 'AbortError') {
-            alert('请求超时，请稍后再试！');
+            alert('请求超时，请检查网络连接或稍后再试！');
+          } else if (error.name === 'TypeError') {
+            // 网络错误（如DNS解析失败、连接拒绝等）
+            alert('网络连接失败，请检查网络设置！');
           } else {
-            alert('演示暂不支持，请稍后再试！');
+            alert('演示环境暂时不可用，请稍后再试！');
           }
         }
         return;
@@ -100,24 +128,49 @@ export default {
 
       // 处理第二个卡片点击事件（索引1）
       if (index === 1) {
+        // 防止重复点击
+        if (this.loading) {
+          return;
+        }
+
+        this.loading = true;
+        // 显示加载提示
+        alert('正在检查演示环境，请稍候...');
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         try {
-          // 发送请求检查demo是否在线
           const response = await fetch(window.location.origin + "/ss3dsimulation/home/", {
-            method: 'HEAD', // 使用HEAD请求只检查状态，不下载完整内容
-            timeout: 5000 // 设置5秒超时
+            method: 'HEAD',
+            signal: controller.signal
           });
 
+          clearTimeout(timeoutId);
+          this.loading = false;
+
+          // 根据HTTP状态码进行不同处理
           if (response.ok) {
-            // 服务在线，直接跳转
             const url = window.location.origin + "/ss3dsimulation/home/";
             window.open(url, '_blank');
+          } else if (response.status >= 400 && response.status < 500) {
+            alert(`演示环境配置错误 (${response.status})，请联系管理员！`);
+          } else if (response.status >= 500) {
+            alert(`演示服务暂时不可用 (${response.status})，请稍后再试！`);
           } else {
-            // 服务不在线，提示暂不支持
             alert('演示暂不支持，请稍后再试！');
           }
         } catch (error) {
-          // 网络错误或超时，提示暂不支持
-          alert('演示暂不支持，请稍后再试！');
+          clearTimeout(timeoutId);
+          this.loading = false;
+
+          if (error.name === 'AbortError') {
+            alert('请求超时，请检查网络连接或稍后再试！');
+          } else if (error.name === 'TypeError') {
+            alert('网络连接失败，请检查网络设置！');
+          } else {
+            alert('演示环境暂时不可用，请稍后再试！');
+          }
         }
         return;
       }
