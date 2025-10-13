@@ -71,115 +71,85 @@ export default {
   },
   methods:{
     async handleServiceClick(item, index) {
-      // 处理第一个卡片点击事件（索引0）
-      if (index === 0) {
+      // 提取公共检查逻辑为独立函数
+      const checkAndOpenDemo = async (url, serviceName) => {
         // 防止重复点击
         if (this.loading) {
           return;
         }
 
         this.loading = true;
-        // 显示加载提示
-        alert('正在检查演示环境，请稍候...');
+
+        // 创建加载提示元素而不是使用alert
+        const loadingElement = document.createElement('div');
+        loadingElement.innerHTML = `
+      <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                  background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px;
+                  z-index: 9999; text-align: center;">
+        <div>正在检查${serviceName}演示环境...</div>
+        <div style="margin-top: 10px; font-size: 12px;">请稍候</div>
+      </div>
+    `;
+        document.body.appendChild(loadingElement);
 
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000);
 
         try {
-          const response = await fetch(window.location.origin + "/ssmonitor/web/login", {
+          const response = await fetch(url, {
             method: 'HEAD',
             signal: controller.signal
           });
 
           clearTimeout(timeoutId);
+          document.body.removeChild(loadingElement);
           this.loading = false;
 
           // 根据HTTP状态码进行不同处理
           if (response.ok) {
             // 2xx 状态码表示成功
-            const url = window.location.origin + "/ssmonitor/web/login";
             window.open(url, '_blank');
           } else if (response.status >= 400 && response.status < 500) {
             // 4xx 客户端错误
-            alert(`演示环境配置错误 (${response.status})，请联系管理员！`);
+            alert(`${serviceName}演示环境配置错误 (${response.status})，请联系管理员！`);
           } else if (response.status >= 500) {
             // 5xx 服务器错误
-            alert(`演示服务暂时不可用 (${response.status})，请稍后再试！`);
+            alert(`${serviceName}演示服务暂时不可用 (${response.status})，请稍后再试！`);
           } else {
             // 其他状态码
-            alert('演示暂不支持，请稍后再试！');
+            alert(`${serviceName}演示暂不支持，请稍后再试！`);
           }
         } catch (error) {
           clearTimeout(timeoutId);
+          if (document.body.contains(loadingElement)) {
+            document.body.removeChild(loadingElement);
+          }
           this.loading = false;
 
           // 区分不同类型的错误
           if (error.name === 'AbortError') {
-            alert('请求超时，请检查网络连接或稍后再试！');
+            alert(`请求超时，${serviceName}演示环境连接超时，请检查网络连接或稍后再试！`);
           } else if (error.name === 'TypeError') {
             // 网络错误（如DNS解析失败、连接拒绝等）
-            alert('网络连接失败，请检查网络设置！');
+            alert(`网络连接失败，无法连接到${serviceName}演示环境，请检查网络设置！`);
           } else {
-            alert('演示环境暂时不可用，请稍后再试！');
+            alert(`${serviceName}演示环境暂时不可用，请稍后再试！`);
           }
         }
+      };
+
+      // 处理第一个卡片点击事件（索引0）
+      if (index === 0) {
+        const url = window.location.origin + "/ssmonitor/web/login";
+        await checkAndOpenDemo(url, '智能通用化负载监测平台');
         return;
       }
-
       // 处理第二个卡片点击事件（索引1）
       if (index === 1) {
-        // 防止重复点击
-        if (this.loading) {
-          return;
-        }
-
-        this.loading = true;
-        // 显示加载提示
-        alert('正在检查演示环境，请稍候...');
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-        try {
-          const response = await fetch(window.location.origin + "/ss3dsimulation/home/", {
-            method: 'HEAD',
-            signal: controller.signal
-          });
-
-          clearTimeout(timeoutId);
-          this.loading = false;
-
-          // 根据HTTP状态码进行不同处理
-          if (response.ok) {
-            const url = window.location.origin + "/ss3dsimulation/home/";
-            window.open(url, '_blank');
-          } else if (response.status >= 400 && response.status < 500) {
-            alert(`演示环境配置错误 (${response.status})，请联系管理员！`);
-          } else if (response.status >= 500) {
-            alert(`演示服务暂时不可用 (${response.status})，请稍后再试！`);
-          } else {
-            alert('演示暂不支持，请稍后再试！');
-          }
-        } catch (error) {
-          clearTimeout(timeoutId);
-          this.loading = false;
-
-          if (error.name === 'AbortError') {
-            alert('请求超时，请检查网络连接或稍后再试！');
-          } else if (error.name === 'TypeError') {
-            alert('网络连接失败，请检查网络设置！');
-          } else {
-            alert('演示环境暂时不可用，请稍后再试！');
-          }
-        }
+        const url = window.location.origin + "/ss3dsimulation/home/";
+        await checkAndOpenDemo(url, '3D仿真模拟测试平台');
         return;
       }
-
-      // 处理其他卡片点击事件
-      this.$router.push({
-        name: 'servicedetail',
-        hash: '#' + item.id
-      });
     }
   }
 }
