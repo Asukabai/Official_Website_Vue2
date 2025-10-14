@@ -15,8 +15,11 @@
     <p class="email_wx">
     </p>
     <p class="record-info">
-      <span>ICP备案/许可证号：<a href="https://beian.miit.gov.cn" target="_blank">陕ICP备19022416号-1</a></span>
-      <span>陕公网安备号<a href="https://beian.mps.gov.cn/#/" target="_blank"> 00000000000000</a></span>
+      <span class="icp-info">ICP备案/许可证号：<a href="https://beian.miit.gov.cn" target="_blank">陕ICP备19022416号-1</a></span>
+      <span class="security-info">
+        <img src="../assets/img/国徽示例.png" alt="国徽" class="national-emblem">
+        陕公网安备号<a href="https://beian.mps.gov.cn/#/" target="_blank"> 00000000000000</a>
+      </span>
     </p>
     <p class="copy">Copyright &copy; 2019 - {{ new Date().getFullYear() }}  陕西晟思智能测控有限公司 <span class="version">V 0.1.2</span></p>
   </div>
@@ -30,10 +33,6 @@ export default {
 };
 </script>
 
-<!--//  默认链接样式：浏览器默认会给 <a> 标签应用蓝色字体颜色和下划线样式
-// CSS优先级：虽然 .record-info 设置了 color: #d3d3d3，但 <a> 标签的默认样式优先级更高链接文字颜色与普通文本保持一致（#d3d3d3）
-// 去除默认下划线
-// 鼠标悬停时变为白色并显示下划线，提升用户体验-->
 <style scoped>
 #footer {
   width: 100%;
@@ -78,19 +77,29 @@ export default {
   font-size: 14px;
 }
 .record-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
   color: #d3d3d3;
   font-size: 14px;
   margin: 10px 0;
 }
-.record-info span {
-  margin: 0 10px;
+.security-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-
+.national-emblem {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
 .record-info a {
   color: #d3d3d3;
   text-decoration: none;
 }
-
 .record-info a:hover {
   color: #ffffff;
   text-decoration: underline;
@@ -116,6 +125,8 @@ export default {
   }
   .record-info {
     font-size: 12px;
+    flex-direction: column;
+    gap: 8px;
   }
   .copy {
     font-size: 12px;
