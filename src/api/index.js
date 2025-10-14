@@ -14,7 +14,7 @@ const systemConfigure = {
 // 设置 Axios 库的默认请求基础路径为 "/ding"，这意味着所有的请求会发送到以 "/ding" 开头的路径下
 // axios.defaults.baseURL = "/ding"
 // axios.defaults.baseURL = "/"
-const baseURL =  '/ding/pack';
+const baseURL = process.env.VUE_APP_API_URL || '/ding/pack';
 
 // 定义了两个常量，分别用于存储钉钉用户令牌和时间戳在本地存储中的键名。
 export const key_DingTokenJWT = "sensor_DingTokenJWT"
@@ -52,15 +52,20 @@ export function PostDataUrl(postUrlName, data, isJson, callSuccess, callFail) {
   }
   // let urlSend = "/pack" //systemConfigure.serverrUrl + postURL
   // let urlSend = systemConfigure.serverrUrl
-
   // let urlSend = "/"+postUrlName;
   // let urlSend = postUrlName;
-
   let postJson = JSON.stringify(postPack)
   // if (systemConfigure.isDebugMode) {
   //   alert('urlSend: ' + urlSend);
   //   alert('postJson: ' + postJson);
   // }
+
+  // 添加调试信息
+  console.log('【API请求】发送数据:', {
+    url: baseURL,
+    method: postUrlName,
+    data: postPack
+  });
 
   //    axios.post(urlSend, postJson, {
   axios.post(baseURL, postJson, {
@@ -69,6 +74,7 @@ export function PostDataUrl(postUrlName, data, isJson, callSuccess, callFail) {
     }
   })
     .then(function (response) {
+      console.log('【API响应】接收数据:', response.data);
       if (systemConfigure.isDebugMode) {
         alert('responseJson: ' + JSON.stringify(response.data));
       }
@@ -84,6 +90,7 @@ export function PostDataUrl(postUrlName, data, isJson, callSuccess, callFail) {
       }
     })
     .catch(function (error) {
+      console.error('【API错误】请求失败:', error);
       console.log(error);
       if (callFail) {
         callFail(error)

@@ -11,7 +11,7 @@ import * as ssDing from '../api/index.js';
       },
       // 保存官网用户访问信息
       saveLogServer(param, callSuccess, callFail) {
-        ssDing.PostDataUrl("saveLogServer", param, true, respData => {
+        ssDing.PostDataUrl("AccessRecordInfoAddFun", param, true, respData => {
           callSuccess(respData);
         }, callFail);
       }

@@ -28,15 +28,12 @@ import 'jquery'
  */
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.min'
-
 /* animate.css */
 import 'animate.css'
-
 
 /* 头部组件 */
 import Header from './components/Header'
 Vue.component(Header.name,Header)
-
 
 /* 尾部组件 */
 import Footer from './components/Footer'
@@ -71,27 +68,26 @@ function recordVisitLog(pagePath) {
       console.log('【访问日志】检测到回访用户，用户ID:', currentUserId);
     }
 
-    // 构造符合要求格式的请求体数据
+// 构造符合要求格式的请求体数据（所有字段均为字符串）
     const logData = {
-      timestamp: new Date().toISOString(),
-      page: pagePath,
-      userAgent: navigator.userAgent,
-      language: navigator.language,
-      screenSize: `${screen.width}x${screen.height}`,
-      referrer: document.referrer,
-      url: window.location.href,
-      userType: userType,
-      userId: currentUserId,
-      latitude: null,
-      longitude: null,
-      locationAccuracy: null,
-      locationMethod: 'unsupported'
+      timestamp: new Date().toISOString(),                           // ISO格式时间字符串
+      page: pagePath,                                               // 页面路径字符串
+      userAgent: navigator.userAgent,                               // 用户代理字符串
+      language: navigator.language,                                 // 语言设置字符串
+      screenSize: `${screen.width}x${screen.height}`,              // 屏幕尺寸字符串
+      referrer: document.referrer,                                  // 来源页面字符串
+      url: window.location.href,                                    // 当前URL字符串
+      userType: userType,                                           // 用户类型字符串
+      userId: currentUserId,                                        // 用户ID字符串
+      latitude: "null",                                             // 纬度字符串（或数值字符串）
+      longitude: "null",                                            // 经度字符串（或数值字符串）
+      locationAccuracy: "null",                                     // 位置精度字符串（或数值字符串）
+      locationMethod: "unsupported"                                 // 定位方法字符串
     };
 
     console.log('【访问日志】准备发送的数据:', JSON.stringify(logData, null, 2));
-
     // 调用后端saveLogServer接口保存访问日志
-    SensorRequest.saveLogServer(logData,
+    SensorRequest.saveLogServer(JSON.stringify(logData),
       (respData) => {
         console.log('【访问日志】日志记录成功，响应数据:', respData);
       },
@@ -104,7 +100,6 @@ function recordVisitLog(pagePath) {
   }
 }
 
-
 router.beforeEach((to, from, next) => {
   if(to.meta.title){
     document.title = to.meta.title
@@ -113,7 +108,6 @@ router.beforeEach((to, from, next) => {
   recordVisitLog(to.fullPath);
   next();
 });
-
 
 new Vue({
   el: '#app',

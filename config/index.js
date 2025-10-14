@@ -18,12 +18,13 @@ module.exports = {
         target:'https://api-v2.sensor-smart.cn:22027/ss-proxy/p35001',
         // target:'http://192.168.2.107:22027/',
         changeOrigin:true, // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
-        // pathRewrite:{  // 路径重写，
-        //   '^/': ''  // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
+        pathRewrite:{  // 路径重写，
+          '^/': ''  // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
+        },
+        logLevel: 'debug'  // 添加调试日志
+        // pathRewrite: {
+        //   '^/ding/pack': '' // 请求路径中去掉 '/ss-proxy'
         // }
-        pathRewrite: {
-          '^/ding/pack': '' // 请求路径中去掉 '/ss-proxy'
-        }
       }
     },
     // Various Dev Server settings
