@@ -17,57 +17,84 @@
         <div class="col-md-3">
           <div class="stat-card">
             <h3>{{ uniqueUsers }}</h3>
-            <p>独立用户</p>
+            <p>用户数量</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="stat-card">
             <h3>{{ newUsers }}</h3>
-            <p>新用户</p>
+            <p>新用户数量</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="stat-card">
             <h3>{{ returningUsers }}</h3>
-            <p>回访用户</p>
+            <p>用户回访量</p>
           </div>
         </div>
       </div>
 
-      <!-- 日志列表 -->
-      <div class="log-table-container">
+      <!-- 日志列表（可折叠面板形式） -->
+      <div class="log-accordion-container">
         <h2>访问记录列表</h2>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-            <tr>
-              <th>序号</th>
-              <th>访问时间</th>
-              <th>用户ID</th>
-              <th>用户类型</th>
-              <th>访问页面</th>
-              <th>IP地址</th>
-              <th>设备信息</th>
-              <th>来源</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(log, index) in paginatedLogs" :key="index">
-              <td>{{ (currentPage - 1) * pageSize + index + 1 }}</td>
-              <td>{{ formatTime(log.timestamp) }}</td>
-              <td>{{ log.userId }}</td>
-              <td>
+
+        <!-- 表头说明 -->
+        <div class="log-table-header">
+          <div class="log-summary-row header">
+            <span class="log-index">序号</span>
+            <span class="log-time">访问时间</span>
+            <span class="log-user">用户ID</span>
+            <span class="log-page">访问页面</span>
+<!--            <span class="log-user-type">用户类型</span>-->
+            <span class="log-actions">展示所有</span>
+          </div>
+        </div>
+
+        <div class="panel-group" id="logAccordion">
+          <div class="panel panel-default" v-for="(log, index) in paginatedLogs" :key="index">
+            <div class="panel-heading" @click="toggleLogDetail(index)">
+              <h4 class="panel-title">
+                <div class="log-summary-row">
+                  <span class="log-index">{{ (currentPage - 1) * pageSize + index + 1 }}</span>
+                  <span class="log-time">{{ formatTime(log.timestamp) }}</span>
+                  <span class="log-user">{{ log.userId }}</span>
+                  <span class="log-page">{{ log.page }}</span>
                   <span :class="['user-type-badge', log.userType]">
                     {{ log.userType === 'new' ? '新用户' : '回访用户' }}
                   </span>
-              </td>
-              <td>{{ log.page }}</td>
-              <td>{{ log.url || '未知' }}</td>
-              <td>{{ getDeviceInfo(log) }}</td>
-              <td>{{ log.referrer || '直接访问' }}</td>
-            </tr>
-            </tbody>
-          </table>
+
+
+                  <i :class="['pull-right', 'glyphicon', logExpanded[index] ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down']"></i>
+                </div>
+              </h4>
+            </div>
+            <div :class="['panel-collapse', 'collapse', logExpanded[index] ? 'in' : '']">
+              <div class="panel-body">
+                <div class="log-detail-row">
+                  <div class="detail-item">
+                    <label>IP地址:</label>
+                    <span>{{ log.url || '未知' }}</span>
+                  </div>
+                  <div class="detail-item">
+                    <label>设备信息:</label>
+                    <span>{{ getDeviceInfo(log) }}</span>
+                  </div>
+                  <div class="detail-item">
+                    <label>来源:</label>
+                    <span>{{ log.referrer || '直接访问' }}</span>
+                  </div>
+                  <div class="detail-item">
+                    <label>语言:</label>
+                    <span>{{ log.language }}</span>
+                  </div>
+                  <div class="detail-item">
+                    <label>屏幕尺寸:</label>
+                    <span>{{ log.screenSize }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- 分页 -->
@@ -98,7 +125,8 @@ export default {
     return {
       logs: [],
       currentPage: 1,
-      pageSize: 10
+      pageSize: 10,
+      logExpanded: {} // 用于管理每个日志项的展开状态
     }
   },
   computed: {
@@ -180,6 +208,10 @@ export default {
     },
     goToPage(page) {
       this.currentPage = page;
+    },
+    // 切换日志详情的展开状态
+    toggleLogDetail(index) {
+      this.$set(this.logExpanded, index, !this.logExpanded[index]);
     }
   }
 }
@@ -226,17 +258,103 @@ export default {
   font-size: 14px;
 }
 
-.log-table-container {
+/* 可折叠面板样式 */
+.log-accordion-container {
   background: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.log-table-container h2 {
+.log-accordion-container h2 {
   margin-top: 0;
   margin-bottom: 20px;
   color: #333;
+}
+
+/* 表头样式 */
+.log-table-header {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 12px 15px;
+}
+
+.log-table-header .log-summary-row {
+  font-weight: bold;
+  color: #333;
+}
+
+/* 统一的列宽定义 - 使用自适应宽度 */
+.log-index,
+.log-table-header .log-index {
+  min-width: 90px;
+  width: auto;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.log-time,
+.log-table-header .log-time {
+  min-width: 180px;
+  width: auto;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.log-user,
+.log-table-header .log-user {
+  min-width: 180px;
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+}
+
+.log-user-type,
+.log-table-header .log-user-type {
+  min-width: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.log-page,
+.log-table-header .log-page {
+  min-width: 200px;
+  flex: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.log-actions,
+.log-table-header .log-actions {
+  min-width: 80px;
+  width: auto;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.log-summary-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.panel-heading {
+  cursor: pointer;
+  padding: 12px 15px;
+}
+
+.panel-heading:hover {
+  background-color: #f5f5f5;
+}
+
+.panel-title {
+  margin: 0;
 }
 
 .user-type-badge {
@@ -254,6 +372,45 @@ export default {
 .user-type-badge.returning {
   background-color: #17a2b8;
   color: white;
+}
+
+.panel-default {
+  border-top: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.panel-default:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.panel-default:last-child {
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 0 4px 4px;
+}
+
+/* 详情内容样式 */
+.log-detail-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 15px 0;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.detail-item span {
+  font-size: 14px;
+  color: #333;
 }
 
 .pagination-container {
@@ -331,5 +488,24 @@ export default {
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .log-summary-row {
+    flex-wrap: wrap;
+  }
+
+  .log-index, .log-time, .log-user, .log-user-type, .log-page, .log-actions {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .log-detail-row {
+    grid-template-columns: 1fr;
+  }
+
+  .log-table-header {
+    display: none;
+  }
 }
 </style>
