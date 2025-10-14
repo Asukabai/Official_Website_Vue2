@@ -5,7 +5,7 @@ import * as ssDing from '../api/index.js';
 
       // 获取官网用户访问信息
       GetLogServer(param, callSuccess, callFail) {
-        ssDing.PostDataUrl("GetLogServer", param, true, respData => {
+        ssDing.PostDataUrl("AccessRecordInfoGetFun", param, true, respData => {
             callSuccess(respData);
         }, callFail);
       },

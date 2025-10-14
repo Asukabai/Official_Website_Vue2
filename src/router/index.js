@@ -204,6 +204,16 @@ export default new Router({
             title: '相关服务',
             navHighlight: '解决方案'
           }
+        },
+        // 在路由配置中添加新的路由项
+        {
+          path: '/visit_log',
+          name: 'visitLog',
+          component: resolve => require(['@/view/VisitLog'], resolve),
+          meta: {
+            title: '访问日志',
+            navHighlight: '访问日志'
+          }
         }
       ]
     }
