@@ -10,8 +10,22 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable: {   //       '/ding/pack': {   https://api-v2.sensor-smart.cn:29028/ddinguic/index.html
+      '/ding/pack': {
+        // target:'https://api-v2.sensor-smart.cn:22027/ding/pack',
+        // target:'https://api-v2.sensor-smart.cn:22027/ss-proxy/p22027',
+        // target:'http://192.168.2.139:29027/ss-proxy/p29021',
+        target:'https://api-v2.sensor-smart.cn:22027/ss-proxy/p35001',
+        // target:'http://192.168.2.107:22027/',
+        changeOrigin:true, // 在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
+        // pathRewrite:{  // 路径重写，
+        //   '^/': ''  // 替换target中的请求地址，也就是说以后你在请求http://api.douban.com/v2/XXXXX这个地址的时候直接写成/api即可。
+        // }
+        pathRewrite: {
+          '^/ding/pack': '' // 请求路径中去掉 '/ss-proxy'
+        }
+      }
+    },
     // Various Dev Server settings
     // host: 'localhost', // can be overwritten by process.env.HOST
     host: '192.168.65.76', // can be overwritten by process.env.HOST    host: '192.168.65.76', // can be overwritten by process.env.HOST
@@ -21,19 +35,15 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-
     /**
      * Source Maps
      */
-
     // https://webpack.js.org/configuration/devtool/#development
     devtool: 'cheap-module-eval-source-map',
-
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
-
     cssSourceMap: true
   },
 

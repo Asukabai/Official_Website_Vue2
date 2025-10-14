@@ -15,7 +15,7 @@ export default new Router({
       }
     }, {
       path: '/',
-      name: 'PageView',
+      // name: 'PageView',
       component: resolve => require(['@/view/PageView'], resolve),
       children: [
         {
