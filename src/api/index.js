@@ -15,7 +15,7 @@ const systemConfigure = {
 // axios.defaults.baseURL = "/ding"
 // axios.defaults.baseURL = "/"
 const baseURL = process.env.VUE_APP_API_URL || '/ding/pack';
-
+// const baseURL = systemConfigure.serverrUrl;
 // 定义了两个常量，分别用于存储钉钉用户令牌和时间戳在本地存储中的键名。
 export const key_DingTokenJWT = "sensor_DingTokenJWT"
 

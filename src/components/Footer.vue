@@ -4,7 +4,11 @@
       <div class="logo">
         <img src="../assets/img/logo_white.png" alt="logo图">
       </div>
-      <p class="title">陕西晟思智能测控有限公司</p>
+      <div class="title">陕西晟思智能测控有限公司</div>
+      <div class="qrcodes-wrapper">
+        <img src="../assets/img/公众号.jpg" alt="公众号二维码" class="qr-code">
+        <img src="../assets/img/抖音二维码2.png" alt="抖音二维码" class="qr-code">
+      </div>
     </div>
     <p class="address_tel_fax">
       <span>地址：陕西省西安市长安区建工科技创业基地2号楼1单元5层6层</span>
@@ -24,6 +28,7 @@
     <p class="copy">Copyright &copy; 2019 - {{ new Date().getFullYear() }}  陕西晟思智能测控有限公司 <span class="version">V 0.1.2</span></p>
   </div>
 </template>
+
 <script>
 export default {
   name: "Footer",
@@ -47,11 +52,14 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 50px auto 20px;
+  gap: 20px;
 }
 .logo {
   width: 95px;
   height: 45px;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 .logo img {
   width: 100%;
@@ -60,13 +68,23 @@ export default {
 }
 .title {
   font-size: 25px;
-  margin: 0 0 0 20px;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
-
+.qrcodes-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.qr-code {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
 .version {
   font-weight: bold;
 }
-
 .address_tel_fax {
   color: #d3d3d3;
   font-size: 14px;
@@ -112,10 +130,13 @@ export default {
 @media screen and (max-width: 997px) {
   .logo-title-wrapper {
     flex-direction: column;
+    gap: 15px;
   }
   .title {
     font-size: 20px;
-    margin: 20px 0 0 0;
+  }
+  .qrcodes-wrapper {
+    justify-content: center;
   }
   .address_tel_fax {
     font-size: 12px;

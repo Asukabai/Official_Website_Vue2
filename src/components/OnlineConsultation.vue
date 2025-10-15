@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     goToTaobao() {
-      window.open('https://4mfxnojkoqcypyib0bjerr60mcoj02v.taobao.com/', '_blank');
+      window.open('https://sensor-smart.taobao.com/', '_blank');
     },
     copyPhoneNumber() {
       const phoneNumber = '18629057799';
