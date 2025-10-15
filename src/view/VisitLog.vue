@@ -22,16 +22,22 @@
         </div>
         <div class="col-md-3">
           <div class="stat-card">
-            <h3>{{ uniqueUsers }}</h3>
-            <p>用户数量</p>
+            <h3>{{ last24HoursVisits }}</h3>
+            <p>近一天访问量</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="stat-card">
-            <h3>{{ newUsers }}</h3>
-            <p>新用户数量</p>
+            <h3>{{ uniqueUsers }}</h3>
+            <p>用户数量</p>
           </div>
         </div>
+<!--        <div class="col-md-3">-->
+<!--          <div class="stat-card">-->
+<!--            <h3>{{ newUsers }}</h3>-->
+<!--            <p>新用户数量</p>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="col-md-3">
           <div class="stat-card">
             <h3>{{ returningUsers }}</h3>
@@ -42,7 +48,13 @@
 
       <!-- 日志列表（可折叠面板形式） -->
       <div class="log-accordion-container">
-        <h2>访问记录列表</h2>
+        <div class="log-header-container">
+          <h2>访问记录列表</h2>
+          <button class="btn btn-sort" @click="toggleSortOrder">
+            <i :class="['glyphicon', sortOrder === 'desc' ? 'glyphicon-sort-by-attributes-alt' : 'glyphicon-sort-by-attributes']"></i>
+            {{ sortOrder === 'desc' ? '倒序' : '正序' }}
+          </button>
+        </div>
 
         <!-- 表头说明 -->
         <div class="log-table-header">
@@ -132,7 +144,8 @@ export default {
       logs: [],
       currentPage: 1,
       pageSize: 10,
-      logExpanded: {} // 用于管理每个日志项的展开状态
+      logExpanded: {}, // 用于管理每个日志项的展开状态
+      sortOrder: 'desc' // 排序方式，默认倒序
     }
   },
   computed: {
@@ -146,6 +159,42 @@ export default {
     newUsers() {
       return this.logs.filter(log => log.userType === 'new').length;
     },
+    last24HoursVisits() {
+      const now = new Date();
+      const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+      // const twentyFourHoursAgo = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+
+      // 调试日志
+      console.log('当前时间:', now);
+      console.log('24小时前:', twentyFourHoursAgo);
+
+      const count = this.logs.filter(log => {
+        if (!log.timestamp) {
+          console.log('发现空时间戳日志:', log);
+          return false;
+        }
+
+        const logTime = new Date(log.timestamp);
+
+        // 检查日期是否有效
+        if (isNaN(logTime.getTime())) {
+          console.log('无效时间戳:', log.timestamp);
+          return false;
+        }
+
+        const isInRange = logTime >= twentyFourHoursAgo && logTime <= now;
+
+        // 调试输出边界情况
+        if (!isInRange) {
+          console.log('时间超出范围的日志:', log.timestamp, logTime);
+        }
+
+        return isInRange;
+      }).length;
+
+      console.log('近24小时访问量:', count);
+      return count;
+    },
     returningUsers() {
       return this.logs.filter(log => log.userType === 'returning').length;
     },
@@ -156,6 +205,18 @@ export default {
       const start = (this.currentPage - 1) * this.pageSize;
       const end = start + this.pageSize;
       return this.logs.slice(start, end);
+    },
+    // 添加排序后的日志计算属性
+    sortedLogs() {
+      // 创建日志副本避免修改原数组
+      const logsCopy = [...this.logs];
+
+      // 根据排序方式排序
+      if (this.sortOrder === 'asc') {
+        return logsCopy.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      } else {
+        return logsCopy.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      }
     }
   },
   mounted() {
@@ -169,7 +230,7 @@ export default {
             console.log('【访问日志】获取日志数据成功:', respData);
             let Json_respData =  JSON.parse(respData)
             if (Json_respData && Array.isArray(Json_respData)) {
-              // 按时间倒序排列
+              // 按时间倒序排列作为默认排序
               this.logs = Json_respData.sort((a, b) =>
                 new Date(b.timestamp) - new Date(a.timestamp)
               );
@@ -222,6 +283,14 @@ export default {
     // 返回登录页面
     goToLogin() {
       this.$router.push('/staff/login');
+    },
+    // 切换排序方式
+    toggleSortOrder() {
+      this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
+      // 重新排序日志
+      this.logs = this.sortedLogs;
+      // 重置到第一页
+      this.currentPage = 1;
     }
   }
 }
@@ -306,6 +375,37 @@ export default {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 标题和排序按钮容器 */
+.log-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.log-header-container h2 {
+  margin: 0;
+  color: #333;
+}
+
+/* 排序按钮样式 */
+.btn-sort {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.btn-sort:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
 }
 
 .log-accordion-container h2 {
@@ -555,6 +655,16 @@ export default {
     position: static;
     margin-bottom: 20px;
     text-align: right;
+  }
+
+  /* 移动端适配标题和按钮 */
+  .log-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .log-header-container h2 {
+    margin-bottom: 10px;
   }
 }
 </style>
