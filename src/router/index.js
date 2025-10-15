@@ -212,7 +212,17 @@ export default new Router({
           component: resolve => require(['@/view/VisitLog'], resolve),
           meta: {
             title: '访问日志',
-            navHighlight: '访问日志'
+            navHighlight: '员工通道'
+          }
+        },
+        // 添加员工登录路由
+        {
+          path: '/staff/login',
+          name: 'staffLogin',
+          component: resolve => require(['@/view/StaffLogin'], resolve),
+          meta: {
+            title: '员工登录',
+            navHighlight: '员工通道'
           }
         }
       ]

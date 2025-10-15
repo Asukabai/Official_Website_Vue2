@@ -1,7 +1,13 @@
-<!-- src/view/VisitLog.vue -->
 <template>
   <div id="VisitLog">
     <div class="container">
+      <!-- 返回按钮 -->
+      <div class="back-to-login">
+        <button class="btn btn-secondary" @click="goToLogin">
+          <i class="glyphicon glyphicon-arrow-left"></i> 返回登录
+        </button>
+      </div>
+
       <div class="page-header">
         <h1>访问日志统计</h1>
       </div>
@@ -45,7 +51,7 @@
             <span class="log-time">访问时间</span>
             <span class="log-user">用户ID</span>
             <span class="log-page">访问页面</span>
-<!--            <span class="log-user-type">用户类型</span>-->
+            <!--            <span class="log-user-type">用户类型</span>-->
             <span class="log-actions">展示所有</span>
           </div>
         </div>
@@ -212,6 +218,10 @@ export default {
     // 切换日志详情的展开状态
     toggleLogDetail(index) {
       this.$set(this.logExpanded, index, !this.logExpanded[index]);
+    },
+    // 返回登录页面
+    goToLogin() {
+      this.$router.push('/staff/login');
     }
   }
 }
@@ -220,6 +230,38 @@ export default {
 <style scoped>
 #VisitLog {
   padding: 20px 0;
+  position: relative;
+}
+
+/* 返回登录按钮样式 */
+.back-to-login {
+  position: absolute;
+  top: 20px;
+  right: 380px;
+  z-index: 10;
+}
+
+.back-to-login .btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-to-login .btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.back-to-login .btn:active {
+  transform: translateY(0);
 }
 
 .page-header {
@@ -506,6 +548,13 @@ export default {
 
   .log-table-header {
     display: none;
+  }
+
+  /* 移动端适配返回按钮 */
+  .back-to-login {
+    position: static;
+    margin-bottom: 20px;
+    text-align: right;
   }
 }
 </style>

@@ -6,7 +6,6 @@
       <div class="container">
         <div class="server pull-left" @click="copyPhoneNumber">
           <span class="glyphicon glyphicon-earphone"></span>客户支持中心热线：18629057799（王晓强）
-          <!--          <span class="glyphicon glyphicon-envelope"></span>邮编：710100-->
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
@@ -68,10 +67,10 @@
     </div>
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
-    <div class="header-nav-m-logo" style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 80px;">
-      <img src="../assets/img/logo_white.png" alt="logo" style="width: 50px; height: 50px; margin-right: 10px;">
-      <p style="margin: 0; color: #000; font-size: 22px; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">陕西晟思智能测控有限公司</p>
-    </div>
+      <div class="header-nav-m-logo" style="width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center; height: 80px;">
+        <img src="../assets/img/logo_white.png" alt="logo" style="width: 50px; height: 50px; margin-right: 10px;">
+        <p style="margin: 0; color: #000; font-size: 22px; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">陕西晟思智能测控有限公司</p>
+      </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
         {{menuName}}
@@ -229,6 +228,11 @@ export default {
           name: "联系我们",
           path: "/contactus",
           children: []
+        },
+        {
+          name: "员工通道",
+          path: "/staff/login",
+          children: []
         }
       ]
     };
@@ -339,7 +343,10 @@ export default {
             foundIndex = 3;
             break;
           }
-
+          if (currentPath === '/visit_log' || currentPath.startsWith('/visit_log')) {
+            foundIndex = 6;
+            break;
+          }
           // 检查子菜单
           if (item.children && item.children.length > 0) {
             for (let j = 0; j < item.children.length; j++) {
