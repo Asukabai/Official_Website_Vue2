@@ -288,27 +288,21 @@ export default {
       isMobile: false,
       swiperList: [
         {
-          img: require("@/assets/img/banner.png"),
+          img: require("@/assets/img/background.png"),
           path: "",
           title: '电力电子领域和硬件测试领域工业4.0系统方案提供商的领导者',
           content: '助力企业打造智能工厂，实现精益生产、降本增效，选型-售前售后技术支持-售后无忧',
         },
         {
-          img: require("@/assets/img/banner2.jpg"),
+          img: require("@/assets/img/background(2).png"),
           path: "",
           title: '助力测控装备数字化，助推高端制造智能化',
           content: '助力企业打造智能工厂，实现精益生产、降本增效，选型-售前售后技术支持-售后无忧',
         },
         {
-          img: require("@/assets/img/banner.png"),
+          img: require("@/assets/img/background(1).png"),
           path: "",
           title: '高端制造行业、智能测控领域独具特色的领先者',
-          content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
-        },
-        {
-          img: require("@/assets/img/banner2.jpg"),
-          path: "",
-          title: '专注于工业自动化测控领域的创新型高科技公司',
           content: '30+ 合作品牌，100+ 客户建立长期合作关系，选型-售前售后技术支持-售后无忧',
         }
       ],
@@ -427,7 +421,7 @@ export default {
 
 /* 轮播图 */
 #swiper {
-  height: 600px;
+  height: 630px;
 }
 #swiper .banner-swiper {
   width: 100%;
