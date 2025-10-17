@@ -24,7 +24,7 @@
     <div class="copyright-wrapper">
       <p class="copy">
         Copyright &copy; 2019 - {{ new Date().getFullYear() }} 陕西晟思智能测控有限公司
-        <span class="version">V 0.1.2</span>
+        <span class="version">V 0.1.3</span>
       </p>
       <div class="qrcodes-wrapper">
         <div

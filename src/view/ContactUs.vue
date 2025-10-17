@@ -43,10 +43,10 @@ export default {
 <style scoped>
 .banner {
   color: #fff;
-  font-size: 30px;
-  height: 150px;
+  font-size: 35px;
+  height: 260px;
   line-height: 150px;
-  background-image: url("../assets/img/banner_2.jpg");
+  background-image: url("../assets/img/banner-4.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
@@ -54,7 +54,7 @@ export default {
 }
 
 .ContactUs-container {
-  padding: 80px 0;
+  padding: 40px 0;
   transition: all ease 0.5s;
   box-sizing: border-box;
 }
