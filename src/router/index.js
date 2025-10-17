@@ -224,7 +224,18 @@ export default new Router({
             title: '员工登录',
             navHighlight: '员工通道'
           }
+        },
+        // 在路由配置中添加员工首页路由
+        {
+          path: '/staff_home',
+          name: 'StaffHome',
+          component: () => import('../view/StaffHome.vue'),
+          meta: {
+            title: '员工首页',
+            navHighlight: '员工通道'
+          }
         }
+
       ]
     }
   ],

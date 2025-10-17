@@ -4,7 +4,7 @@
       <!-- 返回按钮 -->
       <div class="back-to-login">
         <button class="btn btn-secondary" @click="goToLogin">
-          <i class="glyphicon glyphicon-arrow-left"></i> 返回登录
+          <i class="glyphicon glyphicon-arrow-left"></i> 返回
         </button>
       </div>
 
