@@ -32,12 +32,6 @@
             <p>用户数量</p>
           </div>
         </div>
-<!--        <div class="col-md-3">-->
-<!--          <div class="stat-card">-->
-<!--            <h3>{{ newUsers }}</h3>-->
-<!--            <p>新用户数量</p>-->
-<!--          </div>-->
-<!--        </div>-->
         <div class="col-md-3">
           <div class="stat-card">
             <h3>{{ returningUsers }}</h3>
@@ -63,7 +57,6 @@
             <span class="log-time">访问时间</span>
             <span class="log-user">用户ID</span>
             <span class="log-page">访问页面</span>
-            <!--            <span class="log-user-type">用户类型</span>-->
             <span class="log-actions">展示所有</span>
           </div>
         </div>
@@ -80,8 +73,6 @@
                   <span :class="['user-type-badge', log.userType]">
                     {{ log.userType === 'new' ? '新用户' : '回访用户' }}
                   </span>
-
-
                   <i :class="['pull-right', 'glyphicon', logExpanded[index] ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down']"></i>
                 </div>
               </h4>
@@ -115,15 +106,38 @@
           </div>
         </div>
 
-        <!-- 分页 -->
+        <!-- 改进的分页组件 -->
         <div class="pagination-container">
           <ul class="pagination">
             <li :class="{ disabled: currentPage === 1 }">
               <a href="javascript:void(0)" @click="prevPage">上一页</a>
             </li>
-            <li v-for="page in totalPages" :key="page" :class="{ active: page === currentPage }">
+
+            <!-- 首页 -->
+            <li v-if="totalPages > 0" :class="{ active: currentPage === 1 }">
+              <a href="javascript:void(0)" @click="goToPage(1)">1</a>
+            </li>
+
+            <!-- 省略号 -->
+            <li v-if="startPage > 2">
+              <span class="ellipsis">...</span>
+            </li>
+
+            <!-- 中间页码 -->
+            <li v-for="page in visiblePages" :key="page" :class="{ active: page === currentPage }">
               <a href="javascript:void(0)" @click="goToPage(page)">{{ page }}</a>
             </li>
+
+            <!-- 省略号 -->
+            <li v-if="endPage < totalPages - 1">
+              <span class="ellipsis">...</span>
+            </li>
+
+            <!-- 最后一页 -->
+            <li v-if="totalPages > 1" :class="{ active: currentPage === totalPages }">
+              <a href="javascript:void(0)" @click="goToPage(totalPages)">{{ totalPages }}</a>
+            </li>
+
             <li :class="{ disabled: currentPage === totalPages }">
               <a href="javascript:void(0)" @click="nextPage">下一页</a>
             </li>
@@ -162,7 +176,6 @@ export default {
     last24HoursVisits() {
       const now = new Date();
       const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-      // const twentyFourHoursAgo = new Date(now.getTime() - 12 * 60 * 60 * 1000);
 
       // 调试日志
       console.log('当前时间:', now);
@@ -217,6 +230,38 @@ export default {
       } else {
         return logsCopy.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
       }
+    },
+    // 计算可见页码范围
+    visiblePages() {
+      const delta = 2; // 当前页前后显示的页数
+      const pages = [];
+
+      // 计算起始和结束页
+      let start = Math.max(2, this.currentPage - delta);
+      let end = Math.min(this.totalPages - 1, this.currentPage + delta);
+
+      // 确保显示的页数不超过限制
+      if (this.currentPage - delta <= 2) {
+        end = Math.min(this.totalPages - 1, start + delta * 2);
+      }
+      if (this.currentPage + delta >= this.totalPages - 1) {
+        start = Math.max(2, end - delta * 2);
+      }
+
+      // 生成页码数组
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      return pages;
+    },
+
+    startPage() {
+      return this.visiblePages.length > 0 ? this.visiblePages[0] : 0;
+    },
+
+    endPage() {
+      return this.visiblePages.length > 0 ? this.visiblePages[this.visiblePages.length - 1] : 0;
     }
   },
   mounted() {
@@ -456,13 +501,6 @@ export default {
   flex-shrink: 1;
 }
 
-.log-user-type,
-.log-table-header .log-user-type {
-  min-width: 80px;
-  width: auto;
-  flex-shrink: 0;
-}
-
 .log-page,
 .log-table-header .log-page {
   min-width: 200px;
@@ -630,6 +668,12 @@ export default {
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
+}
+
+/* 省略号样式 */
+.pagination .ellipsis {
+  padding: 6px 12px;
+  color: #777;
 }
 
 @media (max-width: 768px) {

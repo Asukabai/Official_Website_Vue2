@@ -347,6 +347,10 @@ export default {
             foundIndex = 6;
             break;
           }
+          if (currentPath === '/staff_home' || currentPath.startsWith('/staff_home')) {
+            foundIndex = 6;
+            break;
+          }
           // 检查子菜单
           if (item.children && item.children.length > 0) {
             for (let j = 0; j < item.children.length; j++) {

@@ -6,14 +6,7 @@ export default new Router({
   mode: 'history',
   base: '/sswebsite/',
   routes: [
-    {
-      path: '*',
-      name: 'NotFound',
-      component: resolve => require(['@/view/NotFound'], resolve),
-      meta: {
-        title: '页面未找到'
-      }
-    }, {
+ {
       path: '/',
       // name: 'PageView',
       component: resolve => require(['@/view/PageView'], resolve),
@@ -237,6 +230,15 @@ export default new Router({
         }
 
       ]
+    },
+    // 404 页面必须放在最后
+    {
+      path: '*',
+      name: 'NotFound',
+      component: resolve => require(['@/view/NotFound'], resolve),
+      meta: {
+        title: '页面未找到'
+      }
     }
   ],
   scrollBehavior (to, from, savedPosition) {
