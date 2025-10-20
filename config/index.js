@@ -26,24 +26,24 @@ module.exports = {
         //   '^/ding/pack': '' // 请求路径中去掉 '/ss-proxy'
         // }
       },
-      // 添加SS监控平台代理
-      '/api/ssmonitor': {
-        target: 'https://www.sensor-smart.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api/ssmonitor': '/ssmonitor'
-        },
-        logLevel: 'debug'
-      },
-      // 添加3D仿真平台代理
-      '/api/ss3dsimulation': {
-        target: 'https://www.sensor-smart.com',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api/ss3dsimulation': '/ss3dsimulation'
-        },
-        logLevel: 'debug'
-      }
+      // // 添加SS监控平台代理
+      // '/api/ssmonitor': {
+      //   target: 'https://www.sensor-smart.com',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api/ssmonitor': '/ssmonitor'
+      //   },
+      //   logLevel: 'debug'
+      // },
+      // // 添加3D仿真平台代理
+      // '/api/ss3dsimulation': {
+      //   target: 'https://www.sensor-smart.com',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api/ss3dsimulation': '/ss3dsimulation'
+      //   },
+      //   logLevel: 'debug'
+      // }
     },
     // Various Dev Server settings
     // host: 'localhost', // can be overwritten by process.env.HOST

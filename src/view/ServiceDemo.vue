@@ -29,15 +29,18 @@
     <OnlineConsultation v-if="!isMobile" />
   </div>
 </template>
+
 <script>
 import { WOW } from 'wowjs';
 import OnlineConsultation from "../components/OnlineConsultation.vue";
+
 export default {
   name: 'Service',
   components: {OnlineConsultation},
   data(){
     return{
       isMobile: false,
+      loading: false, // 防止重复点击
       serviceList: [{
         id: 'section-1',
         title: '智能通用化负载监测平台',
@@ -71,97 +74,98 @@ export default {
   },
   methods:{
     handleServiceClick(item, index) {
-      // 提取公共检查逻辑为独立函数（改为同步方式）
-      const checkAndOpenDemo = (checkUrl, redirectUrl, serviceName) => {
-        // 防止重复点击
-        if (this.loading) {
-          return;
-        }
-
-        this.loading = true;
-
-        // 创建加载提示元素而不是使用alert
-        const loadingElement = document.createElement('div');
-        loadingElement.innerHTML = `
-          <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                      background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px;
-                      z-index: 9999; text-align: center;">
-            <div>正在检查${serviceName}演示环境...</div>
-            <div style="margin-top: 10px; font-size: 12px;">请稍候</div>
-          </div>
-        `;
-        document.body.appendChild(loadingElement);
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-        // 使用 HEAD 请求进行检查，更适合验证页面可用性
-        fetch(checkUrl, {
-          method: 'GET',
-          signal: controller.signal
-        }).then(response => {
-          // 关键改进：检查 HTTP 状态码，只有 2xx 状态才认为是成功
-          if (response.ok) { // response.ok 表示状态码在 200-299 范围内
-            clearTimeout(timeoutId);
-            document.body.removeChild(loadingElement);
-            this.loading = false;
-            // 只有检查成功才跳转到相对路径URL
-            window.open(redirectUrl, '_blank');
-          } else {
-            // 状态码不是 2xx，认为服务不可用
-            throw new Error(`HTTP ${response.status}`);
-          }
-        }).catch(error => {
-          // 处理错误情况
-          clearTimeout(timeoutId);
-          if (document.body.contains(loadingElement)) {
-            document.body.removeChild(loadingElement);
-          }
-          this.loading = false;
-
-          if (error.name === 'AbortError') {
-            alert(`请求超时，${serviceName}演示环境连接超时，请检查网络连接或稍后再试！`);
-          } else if (error.name === 'TypeError') {
-            alert(`网络连接失败，无法连接到${serviceName}演示环境，请检查网络设置！`);
-          } else {
-            // 其他错误，如 HTTP 错误状态码
-            alert(`${serviceName}演示环境暂时不可用，请稍后再试！`);
-          }
-        });
-      };
-
-      // // 处理第一个卡片点击事件（索引0）
-      // if (index === 0) {
-      //   const redirectUrl = window.location.origin + "/ssmonitor/web/login";
-      //   // 使用完整URL进行检查，避免被Vue Router拦截
-      //   const checkUrl = "https://www.sensor-smart.com/ssmonitor/web/login"; // 请替换为实际域名
-      //   checkAndOpenDemo(checkUrl, redirectUrl, '智能通用化负载监测平台');
-      //   return;
-      // }
-      // // 处理第二个卡片点击事件（索引1）
-      // if (index === 1) {
-      //   const redirectUrl = window.location.origin + "/ss3dsimulation/home/";
-      //   // 使用完整URL进行检查，避免被Vue Router拦截
-      //   const checkUrl = "https://www.sensor-smart.com/ss3dsimulation/home/"; // 请替换为实际域名
-      //   checkAndOpenDemo(checkUrl, redirectUrl, '3D仿真模拟测试平台');
-      //   return;
-      // }
-
-      // 处理第一个卡片点击事件（索引0）
-      if (index === 0) {
-        const redirectUrl = window.location.origin + "/ssmonitor/web/login";
-        // 使用代理URL进行检查，避免CORS问题
-        const checkUrl = "/api/ssmonitor/web/login";
-        checkAndOpenDemo(checkUrl, redirectUrl, '智能通用化负载监测平台');
+      // 防止重复点击
+      if (this.loading) {
         return;
       }
-// 处理第二个卡片点击事件（索引1）
-      if (index === 1) {
-        const redirectUrl = window.location.origin + "/ss3dsimulation/home/";
-        // 使用代理URL进行检查，避免CORS问题
-        const checkUrl = "/api/ss3dsimulation/home/";
-        checkAndOpenDemo(checkUrl, redirectUrl, '3D仿真模拟测试平台');
+
+      this.loading = true;
+
+      // 创建加载提示元素
+      const loadingElement = document.createElement('div');
+      loadingElement.innerHTML = `
+        <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 8px;
+                    z-index: 9999; text-align: center; min-width: 200px;">
+          <div>正在检查演示环境...</div>
+          <div style="margin-top: 10px; font-size: 12px;">请稍候</div>
+        </div>
+      `;
+      document.body.appendChild(loadingElement);
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+      // 定义服务配置
+      let serviceConfig = {};
+      if (index === 0) {
+        serviceConfig = {
+          name: '智能通用化负载监测平台',
+          checkUrl: window.location.origin + "/ssmonitor/web/login",
+          redirectUrl: window.location.origin + "/ssmonitor/web/login"
+        };
+      } else if (index === 1) {
+        serviceConfig = {
+          name: '3D仿真模拟测试平台',
+          checkUrl: window.location.origin + "/ss3dsimulation/home/",
+          redirectUrl: window.location.origin + "/ss3dsimulation/home/"
+        };
+      } else {
+        this.cleanup(loadingElement, timeoutId);
+        this.loading = false;
         return;
+      }
+
+      // 使用 POST 请求进行检查，发送空对象
+      fetch(serviceConfig.checkUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({}),
+        signal: controller.signal,
+        cache: 'no-cache'
+      }).then(async response => {
+        // 检查响应是否为JSON格式
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          // 如果是JSON响应，认为服务正常
+          try {
+            await response.json(); // 消费响应体
+            this.cleanup(loadingElement, timeoutId);
+            this.loading = false;
+            window.open(serviceConfig.redirectUrl, '_blank');
+          } catch (e) {
+            throw new Error('Invalid JSON response');
+          }
+        } else {
+          // 如果不是JSON响应（如HTML页面），认为服务不存在 错误抛出：错误会被 .catch(error => { ... }) 块捕获处理
+          // 由于抛出的是普通 Error 对象，会进入最后一个 else 分支：
+          // 显示提示信息：弹出 "暂时无法访问" 的警告框
+          // 清理资源：调用 cleanup 方法移除加载提示元素并清除超时定时器
+          // 重置状态：将 loading 状态设为 false，允许用户再次点击
+          throw new Error('Non-JSON response received');
+        }
+      }).catch(error => {
+        this.cleanup(loadingElement, timeoutId);
+        this.loading = false;
+        if (error.name === 'AbortError') {
+          alert(`请求超时，${serviceConfig.name}演示环境连接超时，请检查网络连接或稍后再试！`);
+        } else if (error.name === 'TypeError') {
+          // 网络错误，可能是404或其他连接问题
+          alert('抱歉，暂时无法访问 ！');
+        } else {
+          // 其他错误，如非JSON响应
+          alert('抱歉，暂时无法访问 ！');
+        }
+      });
+    },
+
+    // 清理函数
+    cleanup(loadingElement, timeoutId) {
+      clearTimeout(timeoutId);
+      if (document.body.contains(loadingElement)) {
+        document.body.removeChild(loadingElement);
       }
     }
   }
