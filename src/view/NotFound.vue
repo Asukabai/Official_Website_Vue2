@@ -7,23 +7,49 @@
     </div>
   </div>
 </template>
-
+<!--
+beforeDestroy
+组件实例销毁之前调用
+此时组件实例仍然完全可用
+适合清理定时器、事件监听器等
+destroyed
+组件实例销毁后调用
+此时所有指令都被解绑，事件监听器被移除
+-->
 <script>
 export default {
   name: 'NotFound',
   data() {
     return {
-      countdown: 5
+      countdown: 5,
+      timer: null
     }
   },
   mounted() {
-    const timer = setInterval(() => {
+    // 修改 mounted 钩子：将定时器存储在组件实例中
+    this.timer = setInterval(() => {
       this.countdown--;
       if (this.countdown <= 0) {
-        clearInterval(timer);
+        this.clearTimer();
         this.$router.push('/');
       }
     }, 1000);
+  },
+  beforeDestroy() {
+    // 组件销毁前清理定时器:
+    // 避免内存泄漏: 组件销毁时及时释放资源
+    // 防止意外跳转: 避免已销毁组件的定时器执行路由跳转
+    // 提升稳定性: 长期运行的应用更加稳定可靠
+    // 优化性能: 减少不必要的定时器执行
+    this.clearTimer();
+  },
+  methods: {
+    clearTimer() {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+    }
   }
 }
 </script>
