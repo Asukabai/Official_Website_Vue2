@@ -658,8 +658,8 @@ export default {
   }
 
   .grid-title {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 13px;
   }
 
   .grid-item {
@@ -677,7 +677,7 @@ export default {
 
   .grid-text {
     padding: 12px 10px;
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .grid-content:hover {
@@ -737,6 +737,20 @@ export default {
     font-size: 12px;
     margin-top: 2%;
   }
+  /* 添加九宫格标题字体大小调整 */
+  .grid-title {
+    font-size: 16px !important;
+    margin-bottom: 10px;
+  }
+
+  .grid-text strong {
+    font-size: 11px !important;
+  }
+
+  .grid-text p {
+    font-size: 8px !important;
+  }
+
   #bigData {
     padding: 30px;
   }
@@ -818,6 +832,7 @@ export default {
     color: #ccc;
   }
 }
+
 
 /* 媒体查询（平板） */
 @media screen and (min-width: 768px) and (max-width: 996px) {
