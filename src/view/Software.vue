@@ -348,7 +348,6 @@ export default {
   cursor: pointer;
   z-index: 9999;
   transition: transform 0.2s;
-  font-size: 24px;
   /* 初始位置在右下角 */
   right: 25px;
   bottom: 80px;
@@ -360,6 +359,13 @@ export default {
 
 .floating-home-button span.glyphicon {
   font-size: 28px;
+  /* 添加行高控制确保垂直居中 */
+  line-height: 1;
+  /* 确保没有额外的padding或margin影响居中 */
+  margin: 0;
+  padding: 0;
+  /* 如果仍不居中，可微调 */
+  transform: translate(0, 0);
 }
 
 /* 右侧内容区域样式 */
