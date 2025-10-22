@@ -88,7 +88,7 @@ export default {
       localStorage.removeItem('loginTime');
 
       // 跳转到登录页面
-      this.$router.push('/staff_login');
+      this.$router.push('/staff/login');
     },
 
     navigateTo(path) {

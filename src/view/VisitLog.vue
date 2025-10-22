@@ -325,9 +325,9 @@ export default {
     toggleLogDetail(index) {
       this.$set(this.logExpanded, index, !this.logExpanded[index]);
     },
-    // 返回登录页面
+    // 返回员工首页-页面
     goToLogin() {
-      this.$router.push('/staff/login');
+      this.$router.push('/staff_home');
     },
     // 切换排序方式
     toggleSortOrder() {
