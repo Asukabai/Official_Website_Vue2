@@ -1,13 +1,27 @@
 <template>
   <div class="resource-center container">
     <div class="page-header">
-      <p>在这里您可以浏览和下载我们的技术文档、产品手册等资料</p>
+      <div class="header-content">
+        <p class="description">在这里您可以浏览和下载我们的技术文档、产品手册等资料</p>
+        <div class="search-container">
+          <input
+            type="text"
+            class="form-control search-input"
+            placeholder="请输入您想查看的资料"
+            v-model="searchQuery"
+            @keyup.enter="handleSearch"
+          />
+          <button class="btn btn-primary search-btn" @click="handleSearch">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="resource-list">
       <div
         class="resource-item"
-        v-for="(resource, index) in paginatedResources"
+        v-for="(resource, index) in filteredResources"
         :key="index"
       >
         <div class="resource-info">
@@ -204,20 +218,36 @@ export default {
       ],
       currentResource: {},
       currentPage: 1, // 当前页码
-      pageSize: 5 // 每页显示的资源数量
+      pageSize: 5, // 每页显示的资源数量
+      searchQuery: '' // 搜索查询字段
     };
   },
   computed: {
-    // 计算总页数
-    totalPages() {
-      return Math.ceil(this.resources.length / this.pageSize);
+    // 过滤后的资源列表
+    filteredResources() {
+      if (!this.searchQuery) {
+        return this.resources;
+      }
+
+      const query = this.searchQuery.toLowerCase();
+      return this.resources.filter(resource =>
+        resource.name.toLowerCase().includes(query) ||
+        resource.description.toLowerCase().includes(query)
+      );
     },
-    // 计算当前页显示的资源
+
+    // 计算总页数（基于过滤后的资源）
+    totalPages() {
+      return Math.ceil(this.filteredResources.length / this.pageSize);
+    },
+
+    // 计算当前页显示的资源（基于过滤后的资源）
     paginatedResources() {
       const start = (this.currentPage - 1) * this.pageSize;
       const end = start + this.pageSize;
-      return this.resources.slice(start, end);
+      return this.filteredResources.slice(start, end);
     },
+
     // 计算可见页码范围
     visiblePages() {
       const delta = 2; // 当前页前后显示的页数
@@ -242,9 +272,11 @@ export default {
 
       return pages;
     },
+
     startPage() {
       return this.visiblePages.length > 0 ? this.visiblePages[0] : 0;
     },
+
     endPage() {
       return this.visiblePages.length > 0 ? this.visiblePages[this.visiblePages.length - 1] : 0;
     }
@@ -290,8 +322,17 @@ export default {
 
     // 处理页面变更事件
     handlePageChange(page) {
+      this.currentPage = page;
       // 可以在这里添加页面变更时的额外逻辑
       console.log(`切换到第 ${page} 页`);
+    },
+
+    // 处理搜索事件
+    handleSearch() {
+      console.log('搜索内容:', this.searchQuery);
+      // 重置到第一页
+      this.currentPage = 1;
+      // 实际项目中这里会是真实的搜索逻辑
     }
   },
   mounted() {
@@ -311,6 +352,61 @@ export default {
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.description {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-container {
+  display: flex;
+  gap: 5px;
+  min-width: 250px;
+}
+
+.search-input {
+  flex: 1;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-input:focus {
+  border-color: #3F83F8;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(63, 131, 248, 0.6);
+}
+
+.search-btn {
+  background-color: #3F83F8;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+  background-color: #3074e0;
 }
 
 .page-header h1 {
@@ -470,6 +566,19 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .description {
+    min-width: auto;
+  }
+
+  .search-container {
+    min-width: auto;
+  }
+
   .resource-item {
     flex-direction: column;
     align-items: flex-start;
