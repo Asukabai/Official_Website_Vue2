@@ -220,6 +220,11 @@ export default {
           children: []
         },
         {
+          name: "资源中心",
+          path: "/resource-center",
+          children: []
+        },
+        {
           name: "公司介绍",
           path: "/newsinformation",
           children: []

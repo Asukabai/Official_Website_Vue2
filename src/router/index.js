@@ -227,8 +227,15 @@ export default new Router({
             title: '员工首页',
             navHighlight: '员工通道'
           }
+        },{
+          path: '/resource-center',
+          name: 'ResourceCenter',
+          component: resolve => require(['@/view/ResourceCenter'], resolve),
+          meta: {
+            title: '资源中心',
+            navHighlight: '资源中心'
+          }
         }
-
       ]
     },
     // 404 页面必须放在最后
