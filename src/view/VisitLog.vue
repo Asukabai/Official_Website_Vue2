@@ -1,3 +1,4 @@
+<!-- src/view/VisitLog.vue -->
 <template>
   <div id="VisitLog">
     <div class="container">
@@ -106,43 +107,15 @@
           </div>
         </div>
 
-        <!-- 改进的分页组件 -->
-        <div class="pagination-container">
-          <ul class="pagination">
-            <li :class="{ disabled: currentPage === 1 }">
-              <a href="javascript:void(0)" @click="prevPage">上一页</a>
-            </li>
-
-            <!-- 首页 -->
-            <li v-if="totalPages > 0" :class="{ active: currentPage === 1 }">
-              <a href="javascript:void(0)" @click="goToPage(1)">1</a>
-            </li>
-
-            <!-- 省略号 -->
-            <li v-if="startPage > 2">
-              <span class="ellipsis">...</span>
-            </li>
-
-            <!-- 中间页码 -->
-            <li v-for="page in visiblePages" :key="page" :class="{ active: page === currentPage }">
-              <a href="javascript:void(0)" @click="goToPage(page)">{{ page }}</a>
-            </li>
-
-            <!-- 省略号 -->
-            <li v-if="endPage < totalPages - 1">
-              <span class="ellipsis">...</span>
-            </li>
-
-            <!-- 最后一页 -->
-            <li v-if="totalPages > 1" :class="{ active: currentPage === totalPages }">
-              <a href="javascript:void(0)" @click="goToPage(totalPages)">{{ totalPages }}</a>
-            </li>
-
-            <li :class="{ disabled: currentPage === totalPages }">
-              <a href="javascript:void(0)" @click="nextPage">下一页</a>
-            </li>
-          </ul>
-        </div>
+        <!-- 使用独立的分页组件 -->
+        <pagination
+          :current-page.sync="currentPage"
+          :total-pages="totalPages"
+          :start-page="startPage"
+          :end-page="endPage"
+          :visible-pages="visiblePages"
+          @page-changed="handlePageChange"
+        />
       </div>
     </div>
   </div>
@@ -150,9 +123,13 @@
 
 <script>
 import SensorRequest from '../api/SensorRequest.js'
+import Pagination from '../components/Pagination.vue' // 引入分页组件
 
 export default {
   name: 'VisitLog',
+  components: {
+    Pagination // 注册分页组件
+  },
   data() {
     return {
       logs: [],
@@ -308,19 +285,6 @@ export default {
       if (ua.includes('Linux')) return 'Linux';
       return '其他设备';
     },
-    prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
-    },
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-      }
-    },
-    goToPage(page) {
-      this.currentPage = page;
-    },
     // 切换日志详情的展开状态
     toggleLogDetail(index) {
       this.$set(this.logExpanded, index, !this.logExpanded[index]);
@@ -336,6 +300,11 @@ export default {
       this.logs = this.sortedLogs;
       // 重置到第一页
       this.currentPage = 1;
+    },
+    // 处理页面变更事件（可选）
+    handlePageChange(page) {
+      // 可以在这里添加页面变更时的额外逻辑
+      console.log(`切换到第 ${page} 页`);
     }
   }
 }
@@ -591,89 +560,6 @@ export default {
 .detail-item span {
   font-size: 14px;
   color: #333;
-}
-
-.pagination-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.pagination {
-  display: inline-flex;
-  padding-left: 0;
-  margin: 20px 0;
-  border-radius: 4px;
-}
-
-.pagination > li {
-  display: inline;
-}
-
-.pagination > li > a,
-.pagination > li > span {
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: -1px;
-  line-height: 1.42857143;
-  color: #3f83f8;
-  text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
-
-.pagination > li:first-child > a,
-.pagination > li:first-child > span {
-  margin-left: 0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.pagination > li > a:hover,
-.pagination > li > span:hover,
-.pagination > li > a:focus,
-.pagination > li > span:focus {
-  z-index: 2;
-  color: #23527c;
-  background-color: #eee;
-  border-color: #ddd;
-}
-
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
-  z-index: 3;
-  color: #fff;
-  cursor: default;
-  background-color: #3f83f8;
-  border-color: #3f83f8;
-}
-
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
-.pagination > .disabled > span:focus,
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-  border-color: #ddd;
-}
-
-/* 省略号样式 */
-.pagination .ellipsis {
-  padding: 6px 12px;
-  color: #777;
 }
 
 @media (max-width: 768px) {

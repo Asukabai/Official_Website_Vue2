@@ -1,14 +1,13 @@
 <template>
   <div class="resource-center container">
     <div class="page-header">
-<!--      <h1>资源中心</h1>-->
       <p>在这里您可以浏览和下载我们的技术文档、产品手册等资料</p>
     </div>
 
     <div class="resource-list">
       <div
         class="resource-item"
-        v-for="(resource, index) in resources"
+        v-for="(resource, index) in paginatedResources"
         :key="index"
       >
         <div class="resource-info">
@@ -41,6 +40,16 @@
         </div>
       </div>
     </div>
+
+    <!-- 使用独立的分页组件 -->
+    <pagination
+      :current-page.sync="currentPage"
+      :total-pages="totalPages"
+      :start-page="startPage"
+      :end-page="endPage"
+      :visible-pages="visiblePages"
+      @page-changed="handlePageChange"
+    />
 
     <!-- 预览模态框 -->
     <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel">
@@ -91,8 +100,13 @@
 </template>
 
 <script>
+import Pagination from '@/components/Pagination.vue' // 引入分页组件
+
 export default {
   name: "ResourceCenter",
+  components: {
+    Pagination // 注册分页组件
+  },
   data() {
     return {
       // 模拟资源数据
@@ -150,10 +164,90 @@ export default {
           size: "12.5 MB",
           date: "2023-11-12",
           url: "#"
+        },
+        {
+          id: 7,
+          name: "工业传感器技术白皮书.pdf",
+          description: "工业传感器技术发展趋势和应用前景分析",
+          type: "pdf",
+          size: "4.1 MB",
+          date: "2023-12-01",
+          url: "#"
+        },
+        {
+          id: 8,
+          name: "智能测控平台用户指南.docx",
+          description: "智能测控平台操作手册和使用技巧",
+          type: "docx",
+          size: "2.7 MB",
+          date: "2023-11-25",
+          url: "#"
+        },
+        {
+          id: 9,
+          name: "测试设备维护手册.xlsx",
+          description: "各类测试设备维护保养计划和注意事项",
+          type: "xlsx",
+          size: "1.3 MB",
+          date: "2023-10-28",
+          url: "#"
+        },
+        {
+          id: 10,
+          name: "自动化测试解决方案.pptx",
+          description: "面向不同行业的自动化测试解决方案介绍",
+          type: "pptx",
+          size: "8.4 MB",
+          date: "2023-09-15",
+          url: "#"
         }
       ],
-      currentResource: {}
+      currentResource: {},
+      currentPage: 1, // 当前页码
+      pageSize: 5 // 每页显示的资源数量
     };
+  },
+  computed: {
+    // 计算总页数
+    totalPages() {
+      return Math.ceil(this.resources.length / this.pageSize);
+    },
+    // 计算当前页显示的资源
+    paginatedResources() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      return this.resources.slice(start, end);
+    },
+    // 计算可见页码范围
+    visiblePages() {
+      const delta = 2; // 当前页前后显示的页数
+      const pages = [];
+
+      // 计算起始和结束页
+      let start = Math.max(2, this.currentPage - delta);
+      let end = Math.min(this.totalPages - 1, this.currentPage + delta);
+
+      // 确保显示的页数不超过限制
+      if (this.currentPage - delta <= 2) {
+        end = Math.min(this.totalPages - 1, start + delta * 2);
+      }
+      if (this.currentPage + delta >= this.totalPages - 1) {
+        start = Math.max(2, end - delta * 2);
+      }
+
+      // 生成页码数组
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      return pages;
+    },
+    startPage() {
+      return this.visiblePages.length > 0 ? this.visiblePages[0] : 0;
+    },
+    endPage() {
+      return this.visiblePages.length > 0 ? this.visiblePages[this.visiblePages.length - 1] : 0;
+    }
   },
   methods: {
     getFileIcon(type) {
@@ -192,6 +286,12 @@ export default {
       // link.href = resource.url;
       // link.download = resource.name;
       // link.click();
+    },
+
+    // 处理页面变更事件
+    handlePageChange(page) {
+      // 可以在这里添加页面变更时的额外逻辑
+      console.log(`切换到第 ${page} 页`);
     }
   },
   mounted() {
