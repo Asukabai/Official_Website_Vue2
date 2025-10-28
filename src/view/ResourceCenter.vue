@@ -299,25 +299,24 @@ export default {
     },
 
     previewFile(resource) {
-      this.currentResource = resource;
-      // 使用 jQuery 触发模态框显示（因为使用了 Bootstrap 的 modal）
-      $('#previewModal').modal('show');
+      // 修改为显示提示信息
+      alert('请联系工作人员获取');
+
+      // 保留原有的模态框逻辑（注释掉）
+      // this.currentResource = resource;
+      // $('#previewModal').modal('show');
     },
 
     downloadFile(resource) {
-      // 模拟下载过程
-      this.$message({
-        message: `开始下载 "${resource.name}"`,
-        type: 'success',
-        duration: 2000
-      });
+      // 修改为显示提示信息
+      alert('请联系工作人员获取');
 
-      // 实际项目中这里会是真实的下载逻辑
-      // 例如:
-      // const link = document.createElement('a');
-      // link.href = resource.url;
-      // link.download = resource.name;
-      // link.click();
+      // 保留原有的下载逻辑（注释掉）
+      // this.$message({
+      //   message: `开始下载 "${resource.name}"`,
+      //   type: 'success',
+      //   duration: 2000
+      // });
     },
 
     // 处理页面变更事件
